@@ -1,0 +1,47 @@
+1 + 2
+1 - 1
+1 * 3
+2 / 2
+2 ~/ 2
+3 % 2
+
+If (numero == 0){
+   print("es cero");
+}else{
+   print("No es el 0");
+}
+
+for (int i = 0; i < 5; i++){
+print(i);
+}
+
+var numero = 0;
+while(numero < 5){
+print(numero);
+numero++;
+}
+
+Switch(palabra){
+case a: 
+print("es la a");
+break;
+case b: 
+print("es la b");
+break;
+default: 
+print("chimichagas");
+
+1==1
+1!=2
+1<3
+1>2
+1>=2
+2<=2
+
+jose as persona
+jose is persona
+jose is! persona
+
+print("hola mundo");
+
+String nombre = stdin.readLineSync();
