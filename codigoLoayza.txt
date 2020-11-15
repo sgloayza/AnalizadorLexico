@@ -1,0 +1,54 @@
+int entero = 234;
+var entero = 25;
+double decimal = 12.8;
+num decimal = 12.8;
+String texto = "Buenos";
+Bool esValido = true;
+List<String> lista = ["a","b"];
+List<int> numeros = new List(6);
+Set colores = Set.from(['Amarillo','Blanco']);
+Map mapa = { "a": "gato","b":"perro"};
+dynamic valor = 12;
+5+6-9*8/2~/1%3
+If (numero == 0){
+   print("es cero");
+}else if (numero == 1){
+   print("es 1");
+}else{
+   print("No es 0 ni 1";
+}
+for (int i = 0; i < 5; i++) {
+print(i);
+}
+var numero = 0;
+while (numero < 5) {
+print(num);
+num++;
+}
+Switch(número )
+{
+case 0: print("es un cero");
+break;
+case 1: print("es un uno");
+break;
+default: print("no es 0 ni 1");
+a==3
+a!=3
+a>3
+a<2
+a>=3
+a<=2
+a and b
+a or b
+a not b
+Jose as Persona
+Jose is Persona
+Jose is! Persona
+Print("hola mundo");
+stdout.print("Hola");
+String nombre = stdin.readLineSync();
+String textExample = "text example";
+print(textExample.substring(2)); // xt example
+List<String> lists = "t a s d".split(" "); // lists = [t, a, s, d]
+TextExample.forEach(element => {});
+example.firstWhere(e => e > 2);

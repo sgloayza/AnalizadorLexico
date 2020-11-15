@@ -176,9 +176,10 @@ def analizar(data):
             break
         print(tok)
 
-print("mi primer analizador lexico")
-while True:
-    data = input(">> ")
-    analizar(data)
-    if len(data)==0:
+print("Mi primer analizador léxico :)")
+archivo = open("codigoLoayza.txt")
+for linea in archivo:
+    print(">>"+linea)
+    analizar(linea)
+    if len(linea)==0:
         break
