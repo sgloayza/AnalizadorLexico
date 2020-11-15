@@ -38,9 +38,9 @@ a>3
 a<2
 a>=3
 a<=2
-a and b
-a or b
-a not b
+a<3 && b>4
+a<4 || b>3
+!(a>3)
 Jose as Persona
 Jose is Persona
 Jose is! Persona
