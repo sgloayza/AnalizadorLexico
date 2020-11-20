@@ -139,7 +139,7 @@ def t_FUNCIONSTDIN(t):
     return t
 
 def t_FUNCIONSTDOUT(t):
-    r"stdout\.write"
+    r"stdout\.print"
     return t
 
 def t_VARIABLE(t):
