@@ -25,7 +25,7 @@ while (numero < 5) {
 print(num);
 num++;
 }
-Switch(número )
+Switch(numero )
 {
 case 0: print("es un cero");
 break;
