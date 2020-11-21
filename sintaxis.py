@@ -12,6 +12,7 @@ def p_final(p):
              | sentenciaIf
              | sentenciaWhile
              | sentenciaWhile PUNTOYCOMA
+             | sentenciaDoWhile PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -23,6 +24,7 @@ def p_algoritmo(p):
                  | sentenciaWhile PUNTOYCOMA
                  | sentenciaIf PUNTOYCOMA
                  | sentenciaIf
+                 | sentenciaDoWhile PUNTOYCOMA
     '''
 
 def p_sentenciaIf(p):
@@ -36,6 +38,9 @@ def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ comparacion PDER LIZQ algoritmo LDER
                       | WHILE PIZQ comparacion PDER algoritmo
     '''
+
+def p_sentenciaDoWhile(p):
+    'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ comparacion PDER'
 
 def p_imprimir(p):
     'imprimir : PRINT PIZQ expresion PDER'
