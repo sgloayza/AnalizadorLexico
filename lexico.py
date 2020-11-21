@@ -60,6 +60,8 @@ tokens = [
     "FUNCIONARR",
     "FUNCIONSTDIN",
     "FUNCIONSTDOUT",
+    "FUNCIONTAKE",
+    "FUNCIONRANGE",
     "FLECHA",
     "AND",
     "OR",
@@ -142,6 +144,14 @@ def t_FUNCIONSTDOUT(t):
     r"stdout\.print"
     return t
 
+def t_FUNCIONTAKE(t):
+    r"\.take"
+    return t
+
+def t_FUNCIONRANGE(t):
+    r"\.getRange"
+    return t
+
 def t_VARIABLE(t):
     r"[a-zA-Z][a-zA-Z0-9_]*"
     t.type = reserved.get(t.value,"VARIABLE")
@@ -169,6 +179,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
+'''
 def analizar(data):
     lex.input(data)
     while True:
@@ -184,3 +195,4 @@ for linea in archivo:
     analizar(linea)
     if len(linea)==0:
         break
+'''
