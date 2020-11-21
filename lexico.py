@@ -10,6 +10,7 @@ reserved = {
     "Map":"MAP",
     "dynamic":"DYNAMIC",
     "if":"IF",
+    "do":"DO",
     "else":"ELSE",
     "for":"FOR",
     "while":"WHILE",
