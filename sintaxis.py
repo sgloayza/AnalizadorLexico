@@ -4,53 +4,18 @@ from lexico import tokens
 
 #--------------------------------------------------------------------------#
 
-def p_sentencias(p):
-    '''sentencias : algoritmo
-                 | algoritmo sentencias
-    '''
-
-def p_algoritmo(p):
-    '''algoritmo : imprimir
-                 | asignacion
-                 | expresion
-                 | comparacion
-                 | sentenciaIf
-    '''
-
-#****************************************#
-
-def p_sentenciaIf(p):
-    'sentenciaIf : IF PIZQ comparacion PDER DOSPUNTOS algoritmo'
-
-def p_imprimir(p):
-    'imprimir : PRINT PIZQ expresion PDER'
-
 def p_asignacion(p):
     'asignacion : VARIABLE IGUAL expresion'
 
 #****************************************#
 
 def p_expresion(p):
-    '''expresion : valor
+    '''expresion : valor PUNTOYCOMA
     '''
 
 def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
-    '''
-
-#****************************************#
-
-def p_expresion_comparacion(p):
-    'comparacion : expresion operadorComp expresion'
-
-def p_operadorComp(p):
-    '''operadorComp : DIGUAL
-                    | NOIGUAL
-                    | MAYOR
-                    | MENOR
-                    | MAYIGUAL
-                    | MENIGUAL
     '''
 
 #****************************************#
