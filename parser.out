@@ -12,7 +12,6 @@ Unused terminals:
     COMA
     COMILLAD
     COMILLAS
-    DIGUAL
     DOSPUNTOS
     DOUBLE
     DRESTA
@@ -28,26 +27,14 @@ Unused terminals:
     FUNCIONSTDOUT
     FUNCIONSTRING
     FUNCIONTAKE
-    IF
-    IGUAL
     INT
     IS
     ISNEGADO
-    LDER
     LIST
-    LIZQ
     MAP
-    MAYIGUAL
-    MAYOR
-    MENIGUAL
-    MENOR
-    NOIGUAL
     NOT
     NUM
     OR
-    PDER
-    PIZQ
-    PRINT
     RETURN
     SET
     STRING
@@ -59,16 +46,37 @@ Grammar
 
 Rule 0     S' -> final
 Rule 1     final -> expresion PUNTOYCOMA
-Rule 2     expresion -> valor
-Rule 3     valor -> ENTERO
-Rule 4     valor -> VARIABLE
-Rule 5     expresion -> valor operadorMat expresion
-Rule 6     operadorMat -> SUMA
-Rule 7     operadorMat -> RESTA
-Rule 8     operadorMat -> MULTI
-Rule 9     operadorMat -> DIV
-Rule 10    operadorMat -> DIVENTERO
-Rule 11    operadorMat -> MOD
+Rule 2     final -> asignacion PUNTOYCOMA
+Rule 3     final -> imprimir PUNTOYCOMA
+Rule 4     final -> sentenciaIf PUNTOYCOMA
+Rule 5     final -> sentenciaIf
+Rule 6     algoritmo -> imprimir PUNTOYCOMA
+Rule 7     algoritmo -> asignacion PUNTOYCOMA
+Rule 8     algoritmo -> expresion PUNTOYCOMA
+Rule 9     algoritmo -> comparacion PUNTOYCOMA
+Rule 10    algoritmo -> sentenciaIf PUNTOYCOMA
+Rule 11    algoritmo -> sentenciaIf
+Rule 12    sentenciaIf -> IF PIZQ comparacion PDER algoritmo
+Rule 13    sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo LDER
+Rule 14    imprimir -> PRINT PIZQ expresion PDER
+Rule 15    asignacion -> VARIABLE IGUAL expresion
+Rule 16    comparacion -> expresion operadorComp expresion
+Rule 17    operadorComp -> DIGUAL
+Rule 18    operadorComp -> NOIGUAL
+Rule 19    operadorComp -> MAYOR
+Rule 20    operadorComp -> MENOR
+Rule 21    operadorComp -> MAYIGUAL
+Rule 22    operadorComp -> MENIGUAL
+Rule 23    expresion -> valor
+Rule 24    valor -> ENTERO
+Rule 25    valor -> VARIABLE
+Rule 26    expresion -> valor operadorMat expresion
+Rule 27    operadorMat -> SUMA
+Rule 28    operadorMat -> RESTA
+Rule 29    operadorMat -> MULTI
+Rule 30    operadorMat -> DIV
+Rule 31    operadorMat -> DIVENTERO
+Rule 32    operadorMat -> MOD
 
 Terminals, with rules where they appear
 
@@ -82,9 +90,9 @@ CIZQ                 :
 COMA                 : 
 COMILLAD             : 
 COMILLAS             : 
-DIGUAL               : 
-DIV                  : 9
-DIVENTERO            : 10
+DIGUAL               : 17
+DIV                  : 30
+DIVENTERO            : 31
 DOSPUNTOS            : 
 DOUBLE               : 
 DRESTA               : 
@@ -92,7 +100,7 @@ DSUMA                :
 DYNAMIC              : 
 ELSE                 : 
 ELSEIF               : 
-ENTERO               : 3
+ENTERO               : 24
 FLECHA               : 
 FOR                  : 
 FUNCIONARR           : 
@@ -101,46 +109,52 @@ FUNCIONSTDIN         :
 FUNCIONSTDOUT        : 
 FUNCIONSTRING        : 
 FUNCIONTAKE          : 
-IF                   : 
-IGUAL                : 
+IF                   : 12 13
+IGUAL                : 15
 INT                  : 
 IS                   : 
 ISNEGADO             : 
-LDER                 : 
+LDER                 : 13
 LIST                 : 
-LIZQ                 : 
+LIZQ                 : 13
 MAP                  : 
-MAYIGUAL             : 
-MAYOR                : 
-MENIGUAL             : 
-MENOR                : 
-MOD                  : 11
-MULTI                : 8
-NOIGUAL              : 
+MAYIGUAL             : 21
+MAYOR                : 19
+MENIGUAL             : 22
+MENOR                : 20
+MOD                  : 32
+MULTI                : 29
+NOIGUAL              : 18
 NOT                  : 
 NUM                  : 
 OR                   : 
-PDER                 : 
-PIZQ                 : 
-PRINT                : 
-PUNTOYCOMA           : 1
-RESTA                : 7
+PDER                 : 12 13 14
+PIZQ                 : 12 13 14
+PRINT                : 14
+PUNTOYCOMA           : 1 2 3 4 6 7 8 9 10
+RESTA                : 28
 RETURN               : 
 SET                  : 
 STRING               : 
-SUMA                 : 6
+SUMA                 : 27
 SWITCH               : 
 VAR                  : 
-VARIABLE             : 4
+VARIABLE             : 15 25
 WHILE                : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-expresion            : 1 5
+algoritmo            : 12 13
+asignacion           : 2 7
+comparacion          : 9 12 13
+expresion            : 1 8 14 15 16 16 26
 final                : 0
-operadorMat          : 5
-valor                : 2 5
+imprimir             : 3 6
+operadorComp         : 16
+operadorMat          : 26
+sentenciaIf          : 4 5 10 11
+valor                : 23 26
 
 Parsing method: LALR
 
@@ -148,17 +162,30 @@ state 0
 
     (0) S' -> . final
     (1) final -> . expresion PUNTOYCOMA
-    (2) expresion -> . valor
-    (5) expresion -> . valor operadorMat expresion
-    (3) valor -> . ENTERO
-    (4) valor -> . VARIABLE
+    (2) final -> . asignacion PUNTOYCOMA
+    (3) final -> . imprimir PUNTOYCOMA
+    (4) final -> . sentenciaIf PUNTOYCOMA
+    (5) final -> . sentenciaIf
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (15) asignacion -> . VARIABLE IGUAL expresion
+    (14) imprimir -> . PRINT PIZQ expresion PDER
+    (12) sentenciaIf -> . IF PIZQ comparacion PDER algoritmo
+    (13) sentenciaIf -> . IF PIZQ comparacion PDER LIZQ algoritmo LDER
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
 
-    ENTERO          shift and go to state 4
-    VARIABLE        shift and go to state 5
+    VARIABLE        shift and go to state 7
+    PRINT           shift and go to state 8
+    IF              shift and go to state 9
+    ENTERO          shift and go to state 10
 
     final                          shift and go to state 1
     expresion                      shift and go to state 2
-    valor                          shift and go to state 3
+    asignacion                     shift and go to state 3
+    imprimir                       shift and go to state 4
+    sentenciaIf                    shift and go to state 5
+    valor                          shift and go to state 6
 
 state 1
 
@@ -170,128 +197,594 @@ state 2
 
     (1) final -> expresion . PUNTOYCOMA
 
-    PUNTOYCOMA      shift and go to state 6
+    PUNTOYCOMA      shift and go to state 11
 
 
 state 3
 
-    (2) expresion -> valor .
-    (5) expresion -> valor . operadorMat expresion
-    (6) operadorMat -> . SUMA
-    (7) operadorMat -> . RESTA
-    (8) operadorMat -> . MULTI
-    (9) operadorMat -> . DIV
-    (10) operadorMat -> . DIVENTERO
-    (11) operadorMat -> . MOD
+    (2) final -> asignacion . PUNTOYCOMA
 
-    PUNTOYCOMA      reduce using rule 2 (expresion -> valor .)
-    SUMA            shift and go to state 8
-    RESTA           shift and go to state 9
-    MULTI           shift and go to state 10
-    DIV             shift and go to state 11
-    DIVENTERO       shift and go to state 12
-    MOD             shift and go to state 13
+    PUNTOYCOMA      shift and go to state 12
 
-    operadorMat                    shift and go to state 7
 
 state 4
 
-    (3) valor -> ENTERO .
+    (3) final -> imprimir . PUNTOYCOMA
 
-    SUMA            reduce using rule 3 (valor -> ENTERO .)
-    RESTA           reduce using rule 3 (valor -> ENTERO .)
-    MULTI           reduce using rule 3 (valor -> ENTERO .)
-    DIV             reduce using rule 3 (valor -> ENTERO .)
-    DIVENTERO       reduce using rule 3 (valor -> ENTERO .)
-    MOD             reduce using rule 3 (valor -> ENTERO .)
-    PUNTOYCOMA      reduce using rule 3 (valor -> ENTERO .)
+    PUNTOYCOMA      shift and go to state 13
 
 
 state 5
 
-    (4) valor -> VARIABLE .
+    (4) final -> sentenciaIf . PUNTOYCOMA
+    (5) final -> sentenciaIf .
 
-    SUMA            reduce using rule 4 (valor -> VARIABLE .)
-    RESTA           reduce using rule 4 (valor -> VARIABLE .)
-    MULTI           reduce using rule 4 (valor -> VARIABLE .)
-    DIV             reduce using rule 4 (valor -> VARIABLE .)
-    DIVENTERO       reduce using rule 4 (valor -> VARIABLE .)
-    MOD             reduce using rule 4 (valor -> VARIABLE .)
-    PUNTOYCOMA      reduce using rule 4 (valor -> VARIABLE .)
+    PUNTOYCOMA      shift and go to state 14
+    $end            reduce using rule 5 (final -> sentenciaIf .)
 
 
 state 6
+
+    (23) expresion -> valor .
+    (26) expresion -> valor . operadorMat expresion
+    (27) operadorMat -> . SUMA
+    (28) operadorMat -> . RESTA
+    (29) operadorMat -> . MULTI
+    (30) operadorMat -> . DIV
+    (31) operadorMat -> . DIVENTERO
+    (32) operadorMat -> . MOD
+
+    PUNTOYCOMA      reduce using rule 23 (expresion -> valor .)
+    PDER            reduce using rule 23 (expresion -> valor .)
+    DIGUAL          reduce using rule 23 (expresion -> valor .)
+    NOIGUAL         reduce using rule 23 (expresion -> valor .)
+    MAYOR           reduce using rule 23 (expresion -> valor .)
+    MENOR           reduce using rule 23 (expresion -> valor .)
+    MAYIGUAL        reduce using rule 23 (expresion -> valor .)
+    MENIGUAL        reduce using rule 23 (expresion -> valor .)
+    SUMA            shift and go to state 16
+    RESTA           shift and go to state 17
+    MULTI           shift and go to state 18
+    DIV             shift and go to state 19
+    DIVENTERO       shift and go to state 20
+    MOD             shift and go to state 21
+
+    operadorMat                    shift and go to state 15
+
+state 7
+
+    (15) asignacion -> VARIABLE . IGUAL expresion
+    (25) valor -> VARIABLE .
+
+    IGUAL           shift and go to state 22
+    SUMA            reduce using rule 25 (valor -> VARIABLE .)
+    RESTA           reduce using rule 25 (valor -> VARIABLE .)
+    MULTI           reduce using rule 25 (valor -> VARIABLE .)
+    DIV             reduce using rule 25 (valor -> VARIABLE .)
+    DIVENTERO       reduce using rule 25 (valor -> VARIABLE .)
+    MOD             reduce using rule 25 (valor -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 25 (valor -> VARIABLE .)
+    DIGUAL          reduce using rule 25 (valor -> VARIABLE .)
+    NOIGUAL         reduce using rule 25 (valor -> VARIABLE .)
+    MAYOR           reduce using rule 25 (valor -> VARIABLE .)
+    MENOR           reduce using rule 25 (valor -> VARIABLE .)
+    MAYIGUAL        reduce using rule 25 (valor -> VARIABLE .)
+    MENIGUAL        reduce using rule 25 (valor -> VARIABLE .)
+
+
+state 8
+
+    (14) imprimir -> PRINT . PIZQ expresion PDER
+
+    PIZQ            shift and go to state 23
+
+
+state 9
+
+    (12) sentenciaIf -> IF . PIZQ comparacion PDER algoritmo
+    (13) sentenciaIf -> IF . PIZQ comparacion PDER LIZQ algoritmo LDER
+
+    PIZQ            shift and go to state 24
+
+
+state 10
+
+    (24) valor -> ENTERO .
+
+    SUMA            reduce using rule 24 (valor -> ENTERO .)
+    RESTA           reduce using rule 24 (valor -> ENTERO .)
+    MULTI           reduce using rule 24 (valor -> ENTERO .)
+    DIV             reduce using rule 24 (valor -> ENTERO .)
+    DIVENTERO       reduce using rule 24 (valor -> ENTERO .)
+    MOD             reduce using rule 24 (valor -> ENTERO .)
+    PUNTOYCOMA      reduce using rule 24 (valor -> ENTERO .)
+    PDER            reduce using rule 24 (valor -> ENTERO .)
+    DIGUAL          reduce using rule 24 (valor -> ENTERO .)
+    NOIGUAL         reduce using rule 24 (valor -> ENTERO .)
+    MAYOR           reduce using rule 24 (valor -> ENTERO .)
+    MENOR           reduce using rule 24 (valor -> ENTERO .)
+    MAYIGUAL        reduce using rule 24 (valor -> ENTERO .)
+    MENIGUAL        reduce using rule 24 (valor -> ENTERO .)
+
+
+state 11
 
     (1) final -> expresion PUNTOYCOMA .
 
     $end            reduce using rule 1 (final -> expresion PUNTOYCOMA .)
 
 
-state 7
-
-    (5) expresion -> valor operadorMat . expresion
-    (2) expresion -> . valor
-    (5) expresion -> . valor operadorMat expresion
-    (3) valor -> . ENTERO
-    (4) valor -> . VARIABLE
-
-    ENTERO          shift and go to state 4
-    VARIABLE        shift and go to state 5
-
-    valor                          shift and go to state 3
-    expresion                      shift and go to state 14
-
-state 8
-
-    (6) operadorMat -> SUMA .
-
-    ENTERO          reduce using rule 6 (operadorMat -> SUMA .)
-    VARIABLE        reduce using rule 6 (operadorMat -> SUMA .)
-
-
-state 9
-
-    (7) operadorMat -> RESTA .
-
-    ENTERO          reduce using rule 7 (operadorMat -> RESTA .)
-    VARIABLE        reduce using rule 7 (operadorMat -> RESTA .)
-
-
-state 10
-
-    (8) operadorMat -> MULTI .
-
-    ENTERO          reduce using rule 8 (operadorMat -> MULTI .)
-    VARIABLE        reduce using rule 8 (operadorMat -> MULTI .)
-
-
-state 11
-
-    (9) operadorMat -> DIV .
-
-    ENTERO          reduce using rule 9 (operadorMat -> DIV .)
-    VARIABLE        reduce using rule 9 (operadorMat -> DIV .)
-
-
 state 12
 
-    (10) operadorMat -> DIVENTERO .
+    (2) final -> asignacion PUNTOYCOMA .
 
-    ENTERO          reduce using rule 10 (operadorMat -> DIVENTERO .)
-    VARIABLE        reduce using rule 10 (operadorMat -> DIVENTERO .)
+    $end            reduce using rule 2 (final -> asignacion PUNTOYCOMA .)
 
 
 state 13
 
-    (11) operadorMat -> MOD .
+    (3) final -> imprimir PUNTOYCOMA .
 
-    ENTERO          reduce using rule 11 (operadorMat -> MOD .)
-    VARIABLE        reduce using rule 11 (operadorMat -> MOD .)
+    $end            reduce using rule 3 (final -> imprimir PUNTOYCOMA .)
 
 
 state 14
 
-    (5) expresion -> valor operadorMat expresion .
+    (4) final -> sentenciaIf PUNTOYCOMA .
 
-    PUNTOYCOMA      reduce using rule 5 (expresion -> valor operadorMat expresion .)
+    $end            reduce using rule 4 (final -> sentenciaIf PUNTOYCOMA .)
 
+
+state 15
+
+    (26) expresion -> valor operadorMat . expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 10
+    VARIABLE        shift and go to state 26
+
+    valor                          shift and go to state 6
+    expresion                      shift and go to state 25
+
+state 16
+
+    (27) operadorMat -> SUMA .
+
+    ENTERO          reduce using rule 27 (operadorMat -> SUMA .)
+    VARIABLE        reduce using rule 27 (operadorMat -> SUMA .)
+
+
+state 17
+
+    (28) operadorMat -> RESTA .
+
+    ENTERO          reduce using rule 28 (operadorMat -> RESTA .)
+    VARIABLE        reduce using rule 28 (operadorMat -> RESTA .)
+
+
+state 18
+
+    (29) operadorMat -> MULTI .
+
+    ENTERO          reduce using rule 29 (operadorMat -> MULTI .)
+    VARIABLE        reduce using rule 29 (operadorMat -> MULTI .)
+
+
+state 19
+
+    (30) operadorMat -> DIV .
+
+    ENTERO          reduce using rule 30 (operadorMat -> DIV .)
+    VARIABLE        reduce using rule 30 (operadorMat -> DIV .)
+
+
+state 20
+
+    (31) operadorMat -> DIVENTERO .
+
+    ENTERO          reduce using rule 31 (operadorMat -> DIVENTERO .)
+    VARIABLE        reduce using rule 31 (operadorMat -> DIVENTERO .)
+
+
+state 21
+
+    (32) operadorMat -> MOD .
+
+    ENTERO          reduce using rule 32 (operadorMat -> MOD .)
+    VARIABLE        reduce using rule 32 (operadorMat -> MOD .)
+
+
+state 22
+
+    (15) asignacion -> VARIABLE IGUAL . expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 10
+    VARIABLE        shift and go to state 26
+
+    expresion                      shift and go to state 27
+    valor                          shift and go to state 6
+
+state 23
+
+    (14) imprimir -> PRINT PIZQ . expresion PDER
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 10
+    VARIABLE        shift and go to state 26
+
+    expresion                      shift and go to state 28
+    valor                          shift and go to state 6
+
+state 24
+
+    (12) sentenciaIf -> IF PIZQ . comparacion PDER algoritmo
+    (13) sentenciaIf -> IF PIZQ . comparacion PDER LIZQ algoritmo LDER
+    (16) comparacion -> . expresion operadorComp expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 10
+    VARIABLE        shift and go to state 26
+
+    comparacion                    shift and go to state 29
+    expresion                      shift and go to state 30
+    valor                          shift and go to state 6
+
+state 25
+
+    (26) expresion -> valor operadorMat expresion .
+
+    PUNTOYCOMA      reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    PDER            reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    DIGUAL          reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    NOIGUAL         reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    MAYOR           reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    MENOR           reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    MAYIGUAL        reduce using rule 26 (expresion -> valor operadorMat expresion .)
+    MENIGUAL        reduce using rule 26 (expresion -> valor operadorMat expresion .)
+
+
+state 26
+
+    (25) valor -> VARIABLE .
+
+    SUMA            reduce using rule 25 (valor -> VARIABLE .)
+    RESTA           reduce using rule 25 (valor -> VARIABLE .)
+    MULTI           reduce using rule 25 (valor -> VARIABLE .)
+    DIV             reduce using rule 25 (valor -> VARIABLE .)
+    DIVENTERO       reduce using rule 25 (valor -> VARIABLE .)
+    MOD             reduce using rule 25 (valor -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 25 (valor -> VARIABLE .)
+    PDER            reduce using rule 25 (valor -> VARIABLE .)
+    DIGUAL          reduce using rule 25 (valor -> VARIABLE .)
+    NOIGUAL         reduce using rule 25 (valor -> VARIABLE .)
+    MAYOR           reduce using rule 25 (valor -> VARIABLE .)
+    MENOR           reduce using rule 25 (valor -> VARIABLE .)
+    MAYIGUAL        reduce using rule 25 (valor -> VARIABLE .)
+    MENIGUAL        reduce using rule 25 (valor -> VARIABLE .)
+
+
+state 27
+
+    (15) asignacion -> VARIABLE IGUAL expresion .
+
+    PUNTOYCOMA      reduce using rule 15 (asignacion -> VARIABLE IGUAL expresion .)
+
+
+state 28
+
+    (14) imprimir -> PRINT PIZQ expresion . PDER
+
+    PDER            shift and go to state 31
+
+
+state 29
+
+    (12) sentenciaIf -> IF PIZQ comparacion . PDER algoritmo
+    (13) sentenciaIf -> IF PIZQ comparacion . PDER LIZQ algoritmo LDER
+
+    PDER            shift and go to state 32
+
+
+state 30
+
+    (16) comparacion -> expresion . operadorComp expresion
+    (17) operadorComp -> . DIGUAL
+    (18) operadorComp -> . NOIGUAL
+    (19) operadorComp -> . MAYOR
+    (20) operadorComp -> . MENOR
+    (21) operadorComp -> . MAYIGUAL
+    (22) operadorComp -> . MENIGUAL
+
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
+
+    operadorComp                   shift and go to state 33
+
+state 31
+
+    (14) imprimir -> PRINT PIZQ expresion PDER .
+
+    PUNTOYCOMA      reduce using rule 14 (imprimir -> PRINT PIZQ expresion PDER .)
+
+
+state 32
+
+    (12) sentenciaIf -> IF PIZQ comparacion PDER . algoritmo
+    (13) sentenciaIf -> IF PIZQ comparacion PDER . LIZQ algoritmo LDER
+    (6) algoritmo -> . imprimir PUNTOYCOMA
+    (7) algoritmo -> . asignacion PUNTOYCOMA
+    (8) algoritmo -> . expresion PUNTOYCOMA
+    (9) algoritmo -> . comparacion PUNTOYCOMA
+    (10) algoritmo -> . sentenciaIf PUNTOYCOMA
+    (11) algoritmo -> . sentenciaIf
+    (14) imprimir -> . PRINT PIZQ expresion PDER
+    (15) asignacion -> . VARIABLE IGUAL expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (16) comparacion -> . expresion operadorComp expresion
+    (12) sentenciaIf -> . IF PIZQ comparacion PDER algoritmo
+    (13) sentenciaIf -> . IF PIZQ comparacion PDER LIZQ algoritmo LDER
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    LIZQ            shift and go to state 42
+    PRINT           shift and go to state 8
+    VARIABLE        shift and go to state 7
+    IF              shift and go to state 9
+    ENTERO          shift and go to state 10
+
+    comparacion                    shift and go to state 40
+    algoritmo                      shift and go to state 41
+    imprimir                       shift and go to state 43
+    asignacion                     shift and go to state 44
+    expresion                      shift and go to state 45
+    sentenciaIf                    shift and go to state 46
+    valor                          shift and go to state 6
+
+state 33
+
+    (16) comparacion -> expresion operadorComp . expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 10
+    VARIABLE        shift and go to state 26
+
+    expresion                      shift and go to state 47
+    valor                          shift and go to state 6
+
+state 34
+
+    (17) operadorComp -> DIGUAL .
+
+    ENTERO          reduce using rule 17 (operadorComp -> DIGUAL .)
+    VARIABLE        reduce using rule 17 (operadorComp -> DIGUAL .)
+
+
+state 35
+
+    (18) operadorComp -> NOIGUAL .
+
+    ENTERO          reduce using rule 18 (operadorComp -> NOIGUAL .)
+    VARIABLE        reduce using rule 18 (operadorComp -> NOIGUAL .)
+
+
+state 36
+
+    (19) operadorComp -> MAYOR .
+
+    ENTERO          reduce using rule 19 (operadorComp -> MAYOR .)
+    VARIABLE        reduce using rule 19 (operadorComp -> MAYOR .)
+
+
+state 37
+
+    (20) operadorComp -> MENOR .
+
+    ENTERO          reduce using rule 20 (operadorComp -> MENOR .)
+    VARIABLE        reduce using rule 20 (operadorComp -> MENOR .)
+
+
+state 38
+
+    (21) operadorComp -> MAYIGUAL .
+
+    ENTERO          reduce using rule 21 (operadorComp -> MAYIGUAL .)
+    VARIABLE        reduce using rule 21 (operadorComp -> MAYIGUAL .)
+
+
+state 39
+
+    (22) operadorComp -> MENIGUAL .
+
+    ENTERO          reduce using rule 22 (operadorComp -> MENIGUAL .)
+    VARIABLE        reduce using rule 22 (operadorComp -> MENIGUAL .)
+
+
+state 40
+
+    (9) algoritmo -> comparacion . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 48
+
+
+state 41
+
+    (12) sentenciaIf -> IF PIZQ comparacion PDER algoritmo .
+
+    PUNTOYCOMA      reduce using rule 12 (sentenciaIf -> IF PIZQ comparacion PDER algoritmo .)
+    $end            reduce using rule 12 (sentenciaIf -> IF PIZQ comparacion PDER algoritmo .)
+    LDER            reduce using rule 12 (sentenciaIf -> IF PIZQ comparacion PDER algoritmo .)
+
+
+state 42
+
+    (13) sentenciaIf -> IF PIZQ comparacion PDER LIZQ . algoritmo LDER
+    (6) algoritmo -> . imprimir PUNTOYCOMA
+    (7) algoritmo -> . asignacion PUNTOYCOMA
+    (8) algoritmo -> . expresion PUNTOYCOMA
+    (9) algoritmo -> . comparacion PUNTOYCOMA
+    (10) algoritmo -> . sentenciaIf PUNTOYCOMA
+    (11) algoritmo -> . sentenciaIf
+    (14) imprimir -> . PRINT PIZQ expresion PDER
+    (15) asignacion -> . VARIABLE IGUAL expresion
+    (23) expresion -> . valor
+    (26) expresion -> . valor operadorMat expresion
+    (16) comparacion -> . expresion operadorComp expresion
+    (12) sentenciaIf -> . IF PIZQ comparacion PDER algoritmo
+    (13) sentenciaIf -> . IF PIZQ comparacion PDER LIZQ algoritmo LDER
+    (24) valor -> . ENTERO
+    (25) valor -> . VARIABLE
+
+    PRINT           shift and go to state 8
+    VARIABLE        shift and go to state 7
+    IF              shift and go to state 9
+    ENTERO          shift and go to state 10
+
+    comparacion                    shift and go to state 40
+    algoritmo                      shift and go to state 49
+    imprimir                       shift and go to state 43
+    asignacion                     shift and go to state 44
+    expresion                      shift and go to state 45
+    sentenciaIf                    shift and go to state 46
+    valor                          shift and go to state 6
+
+state 43
+
+    (6) algoritmo -> imprimir . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 50
+
+
+state 44
+
+    (7) algoritmo -> asignacion . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 51
+
+
+state 45
+
+    (8) algoritmo -> expresion . PUNTOYCOMA
+    (16) comparacion -> expresion . operadorComp expresion
+    (17) operadorComp -> . DIGUAL
+    (18) operadorComp -> . NOIGUAL
+    (19) operadorComp -> . MAYOR
+    (20) operadorComp -> . MENOR
+    (21) operadorComp -> . MAYIGUAL
+    (22) operadorComp -> . MENIGUAL
+
+    PUNTOYCOMA      shift and go to state 52
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
+
+    operadorComp                   shift and go to state 33
+
+state 46
+
+    (10) algoritmo -> sentenciaIf . PUNTOYCOMA
+    (11) algoritmo -> sentenciaIf .
+
+  ! shift/reduce conflict for PUNTOYCOMA resolved as shift
+    PUNTOYCOMA      shift and go to state 53
+    $end            reduce using rule 11 (algoritmo -> sentenciaIf .)
+    LDER            reduce using rule 11 (algoritmo -> sentenciaIf .)
+
+  ! PUNTOYCOMA      [ reduce using rule 11 (algoritmo -> sentenciaIf .) ]
+
+
+state 47
+
+    (16) comparacion -> expresion operadorComp expresion .
+
+    PDER            reduce using rule 16 (comparacion -> expresion operadorComp expresion .)
+    PUNTOYCOMA      reduce using rule 16 (comparacion -> expresion operadorComp expresion .)
+
+
+state 48
+
+    (9) algoritmo -> comparacion PUNTOYCOMA .
+
+    PUNTOYCOMA      reduce using rule 9 (algoritmo -> comparacion PUNTOYCOMA .)
+    $end            reduce using rule 9 (algoritmo -> comparacion PUNTOYCOMA .)
+    LDER            reduce using rule 9 (algoritmo -> comparacion PUNTOYCOMA .)
+
+
+state 49
+
+    (13) sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo . LDER
+
+    LDER            shift and go to state 54
+
+
+state 50
+
+    (6) algoritmo -> imprimir PUNTOYCOMA .
+
+    PUNTOYCOMA      reduce using rule 6 (algoritmo -> imprimir PUNTOYCOMA .)
+    $end            reduce using rule 6 (algoritmo -> imprimir PUNTOYCOMA .)
+    LDER            reduce using rule 6 (algoritmo -> imprimir PUNTOYCOMA .)
+
+
+state 51
+
+    (7) algoritmo -> asignacion PUNTOYCOMA .
+
+    PUNTOYCOMA      reduce using rule 7 (algoritmo -> asignacion PUNTOYCOMA .)
+    $end            reduce using rule 7 (algoritmo -> asignacion PUNTOYCOMA .)
+    LDER            reduce using rule 7 (algoritmo -> asignacion PUNTOYCOMA .)
+
+
+state 52
+
+    (8) algoritmo -> expresion PUNTOYCOMA .
+
+    PUNTOYCOMA      reduce using rule 8 (algoritmo -> expresion PUNTOYCOMA .)
+    $end            reduce using rule 8 (algoritmo -> expresion PUNTOYCOMA .)
+    LDER            reduce using rule 8 (algoritmo -> expresion PUNTOYCOMA .)
+
+
+state 53
+
+    (10) algoritmo -> sentenciaIf PUNTOYCOMA .
+
+    PUNTOYCOMA      reduce using rule 10 (algoritmo -> sentenciaIf PUNTOYCOMA .)
+    $end            reduce using rule 10 (algoritmo -> sentenciaIf PUNTOYCOMA .)
+    LDER            reduce using rule 10 (algoritmo -> sentenciaIf PUNTOYCOMA .)
+
+
+state 54
+
+    (13) sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo LDER .
+
+    PUNTOYCOMA      reduce using rule 13 (sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo LDER .)
+    $end            reduce using rule 13 (sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo LDER .)
+    LDER            reduce using rule 13 (sentenciaIf -> IF PIZQ comparacion PDER LIZQ algoritmo LDER .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PUNTOYCOMA in state 46 resolved as shift

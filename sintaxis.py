@@ -6,7 +6,48 @@ from lexico import tokens
 
 def p_final(p):
     '''final : expresion PUNTOYCOMA
+             | asignacion PUNTOYCOMA
+             | imprimir PUNTOYCOMA
+             | sentenciaIf PUNTOYCOMA
+             | sentenciaIf
+    '''
 
+def p_algoritmo(p):
+    '''algoritmo : imprimir PUNTOYCOMA
+                 | asignacion PUNTOYCOMA
+                 | expresion PUNTOYCOMA
+                 | comparacion PUNTOYCOMA
+                 | sentenciaIf PUNTOYCOMA
+                 | sentenciaIf
+    '''
+
+def p_sentenciaIf(p):
+    '''sentenciaIf : IF PIZQ comparacion PDER algoritmo
+                   | IF PIZQ comparacion PDER LIZQ algoritmo LDER
+    '''
+
+#****************************************#
+
+def p_imprimir(p):
+    'imprimir : PRINT PIZQ expresion PDER'
+
+#****************************************#
+
+def p_asignacion(p):
+    'asignacion : VARIABLE IGUAL expresion'
+
+#****************************************#
+
+def p_expresion_comparacion(p):
+    'comparacion : expresion operadorComp expresion'
+
+def p_operadorComp(p):
+    '''operadorComp : DIGUAL
+                    | NOIGUAL
+                    | MAYOR
+                    | MENOR
+                    | MAYIGUAL
+                    | MENIGUAL
     '''
 
 #****************************************#
