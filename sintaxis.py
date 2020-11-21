@@ -13,6 +13,8 @@ def p_final(p):
              | sentenciaWhile
              | sentenciaWhile PUNTOYCOMA
              | sentenciaDoWhile PUNTOYCOMA
+             | sentenciaElse
+             | sentenciaElse PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -25,11 +27,18 @@ def p_algoritmo(p):
                  | sentenciaIf PUNTOYCOMA
                  | sentenciaIf
                  | sentenciaDoWhile PUNTOYCOMA
+                 | sentenciaElse
+                 | sentenciaElse PUNTOYCOMA
     '''
 
 def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ comparacion PDER algoritmo
                    | IF PIZQ comparacion PDER LIZQ algoritmo LDER
+    '''
+
+def p_sentenciaElse(p):
+    '''sentenciaElse : ELSE algoritmo
+                     | ELSE LIZQ algoritmo LDER
     '''
 
 #****************************************#
