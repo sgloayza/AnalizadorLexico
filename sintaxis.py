@@ -4,13 +4,15 @@ from lexico import tokens
 
 #--------------------------------------------------------------------------#
 
-def p_asignacion(p):
-    'asignacion : VARIABLE IGUAL expresion'
+def p_final(p):
+    '''final : expresion PUNTOYCOMA
+
+    '''
 
 #****************************************#
 
 def p_expresion(p):
-    '''expresion : valor PUNTOYCOMA
+    '''expresion : valor
     '''
 
 def p_valor(p):
