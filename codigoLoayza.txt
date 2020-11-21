@@ -6,7 +6,7 @@ String texto = "Buenos";
 Bool esValido = true;
 List<String> lista = ["a","b"];
 List<int> numeros = new List(6);
-Set colores = Set.from(['Amarillo','Blanco']);
+Set colores = Set.from(['Amarillo','Blanco','Rojo']);
 Map mapa = { "a": "gato","b":"perro"};
 dynamic valor = 12;
 5+6-9*8/2~/1%3
@@ -52,5 +52,9 @@ print(textExample.substring(2)); // xt example
 List<String> lists = "t a s d".split(" "); // lists = [t, a, s, d]
 TextExample.forEach(element => {});
 example.firstWhere(e => e > 2);
+lista[0];
+colores.take(2);
+lista.getRange(5,6);
 //codigoSandraLoayza
 /*Codigo*/
+
