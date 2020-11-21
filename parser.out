@@ -1,0 +1,297 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND
+    AS
+    BOOL
+    BREAK
+    CASE
+    CDER
+    CIZQ
+    COMA
+    COMILLAD
+    COMILLAS
+    DIGUAL
+    DOSPUNTOS
+    DOUBLE
+    DRESTA
+    DSUMA
+    DYNAMIC
+    ELSE
+    ELSEIF
+    FLECHA
+    FOR
+    FUNCIONARR
+    FUNCIONRANGE
+    FUNCIONSTDIN
+    FUNCIONSTDOUT
+    FUNCIONSTRING
+    FUNCIONTAKE
+    IF
+    IGUAL
+    INT
+    IS
+    ISNEGADO
+    LDER
+    LIST
+    LIZQ
+    MAP
+    MAYIGUAL
+    MAYOR
+    MENIGUAL
+    MENOR
+    NOIGUAL
+    NOT
+    NUM
+    OR
+    PDER
+    PIZQ
+    PRINT
+    RETURN
+    SET
+    STRING
+    SWITCH
+    VAR
+    WHILE
+
+Grammar
+
+Rule 0     S' -> final
+Rule 1     final -> expresion PUNTOYCOMA
+Rule 2     expresion -> valor
+Rule 3     valor -> ENTERO
+Rule 4     valor -> VARIABLE
+Rule 5     expresion -> valor operadorMat expresion
+Rule 6     operadorMat -> SUMA
+Rule 7     operadorMat -> RESTA
+Rule 8     operadorMat -> MULTI
+Rule 9     operadorMat -> DIV
+Rule 10    operadorMat -> DIVENTERO
+Rule 11    operadorMat -> MOD
+
+Terminals, with rules where they appear
+
+AND                  : 
+AS                   : 
+BOOL                 : 
+BREAK                : 
+CASE                 : 
+CDER                 : 
+CIZQ                 : 
+COMA                 : 
+COMILLAD             : 
+COMILLAS             : 
+DIGUAL               : 
+DIV                  : 9
+DIVENTERO            : 10
+DOSPUNTOS            : 
+DOUBLE               : 
+DRESTA               : 
+DSUMA                : 
+DYNAMIC              : 
+ELSE                 : 
+ELSEIF               : 
+ENTERO               : 3
+FLECHA               : 
+FOR                  : 
+FUNCIONARR           : 
+FUNCIONRANGE         : 
+FUNCIONSTDIN         : 
+FUNCIONSTDOUT        : 
+FUNCIONSTRING        : 
+FUNCIONTAKE          : 
+IF                   : 
+IGUAL                : 
+INT                  : 
+IS                   : 
+ISNEGADO             : 
+LDER                 : 
+LIST                 : 
+LIZQ                 : 
+MAP                  : 
+MAYIGUAL             : 
+MAYOR                : 
+MENIGUAL             : 
+MENOR                : 
+MOD                  : 11
+MULTI                : 8
+NOIGUAL              : 
+NOT                  : 
+NUM                  : 
+OR                   : 
+PDER                 : 
+PIZQ                 : 
+PRINT                : 
+PUNTOYCOMA           : 1
+RESTA                : 7
+RETURN               : 
+SET                  : 
+STRING               : 
+SUMA                 : 6
+SWITCH               : 
+VAR                  : 
+VARIABLE             : 4
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+expresion            : 1 5
+final                : 0
+operadorMat          : 5
+valor                : 2 5
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . final
+    (1) final -> . expresion PUNTOYCOMA
+    (2) expresion -> . valor
+    (5) expresion -> . valor operadorMat expresion
+    (3) valor -> . ENTERO
+    (4) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 4
+    VARIABLE        shift and go to state 5
+
+    final                          shift and go to state 1
+    expresion                      shift and go to state 2
+    valor                          shift and go to state 3
+
+state 1
+
+    (0) S' -> final .
+
+
+
+state 2
+
+    (1) final -> expresion . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 6
+
+
+state 3
+
+    (2) expresion -> valor .
+    (5) expresion -> valor . operadorMat expresion
+    (6) operadorMat -> . SUMA
+    (7) operadorMat -> . RESTA
+    (8) operadorMat -> . MULTI
+    (9) operadorMat -> . DIV
+    (10) operadorMat -> . DIVENTERO
+    (11) operadorMat -> . MOD
+
+    PUNTOYCOMA      reduce using rule 2 (expresion -> valor .)
+    SUMA            shift and go to state 8
+    RESTA           shift and go to state 9
+    MULTI           shift and go to state 10
+    DIV             shift and go to state 11
+    DIVENTERO       shift and go to state 12
+    MOD             shift and go to state 13
+
+    operadorMat                    shift and go to state 7
+
+state 4
+
+    (3) valor -> ENTERO .
+
+    SUMA            reduce using rule 3 (valor -> ENTERO .)
+    RESTA           reduce using rule 3 (valor -> ENTERO .)
+    MULTI           reduce using rule 3 (valor -> ENTERO .)
+    DIV             reduce using rule 3 (valor -> ENTERO .)
+    DIVENTERO       reduce using rule 3 (valor -> ENTERO .)
+    MOD             reduce using rule 3 (valor -> ENTERO .)
+    PUNTOYCOMA      reduce using rule 3 (valor -> ENTERO .)
+
+
+state 5
+
+    (4) valor -> VARIABLE .
+
+    SUMA            reduce using rule 4 (valor -> VARIABLE .)
+    RESTA           reduce using rule 4 (valor -> VARIABLE .)
+    MULTI           reduce using rule 4 (valor -> VARIABLE .)
+    DIV             reduce using rule 4 (valor -> VARIABLE .)
+    DIVENTERO       reduce using rule 4 (valor -> VARIABLE .)
+    MOD             reduce using rule 4 (valor -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 4 (valor -> VARIABLE .)
+
+
+state 6
+
+    (1) final -> expresion PUNTOYCOMA .
+
+    $end            reduce using rule 1 (final -> expresion PUNTOYCOMA .)
+
+
+state 7
+
+    (5) expresion -> valor operadorMat . expresion
+    (2) expresion -> . valor
+    (5) expresion -> . valor operadorMat expresion
+    (3) valor -> . ENTERO
+    (4) valor -> . VARIABLE
+
+    ENTERO          shift and go to state 4
+    VARIABLE        shift and go to state 5
+
+    valor                          shift and go to state 3
+    expresion                      shift and go to state 14
+
+state 8
+
+    (6) operadorMat -> SUMA .
+
+    ENTERO          reduce using rule 6 (operadorMat -> SUMA .)
+    VARIABLE        reduce using rule 6 (operadorMat -> SUMA .)
+
+
+state 9
+
+    (7) operadorMat -> RESTA .
+
+    ENTERO          reduce using rule 7 (operadorMat -> RESTA .)
+    VARIABLE        reduce using rule 7 (operadorMat -> RESTA .)
+
+
+state 10
+
+    (8) operadorMat -> MULTI .
+
+    ENTERO          reduce using rule 8 (operadorMat -> MULTI .)
+    VARIABLE        reduce using rule 8 (operadorMat -> MULTI .)
+
+
+state 11
+
+    (9) operadorMat -> DIV .
+
+    ENTERO          reduce using rule 9 (operadorMat -> DIV .)
+    VARIABLE        reduce using rule 9 (operadorMat -> DIV .)
+
+
+state 12
+
+    (10) operadorMat -> DIVENTERO .
+
+    ENTERO          reduce using rule 10 (operadorMat -> DIVENTERO .)
+    VARIABLE        reduce using rule 10 (operadorMat -> DIVENTERO .)
+
+
+state 13
+
+    (11) operadorMat -> MOD .
+
+    ENTERO          reduce using rule 11 (operadorMat -> MOD .)
+    VARIABLE        reduce using rule 11 (operadorMat -> MOD .)
+
+
+state 14
+
+    (5) expresion -> valor operadorMat expresion .
+
+    PUNTOYCOMA      reduce using rule 5 (expresion -> valor operadorMat expresion .)
+
