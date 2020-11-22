@@ -62,4 +62,5 @@ print(a);
 }while(a!=0);
 //codigoSandraLoayza
 /*Codigo*/
+a is! String
 

@@ -148,10 +148,15 @@ def p_valorBool(p):
     '''
 
 def p_expresionBool(p):
-    '''expresionBool : expresion comparadorMat expresion
+    '''expresionBool : valorDouble comparadorMat expresionDouble
+                     | VARIABLE comparadorMat expresionDouble
+                     | VARIABLE comparadorMat VARIABLE
+                     | valorDouble comparadorMat VARIABLE
                      | valorBool
                      | negacionBool
                      | comparacionBool
+                     | valor IS objeto
+                     | valor ISNEGADO objeto
     '''
 
 def p_negacionBool(p):
@@ -163,7 +168,18 @@ def p_comparacionBool(p):
     '''
 
 
-
+def p_objeto(p):
+    '''objeto : STRINGR
+            | INT
+            | DOUBLER
+            | NUM
+            | VAR
+            | DYNAMIC
+            | LIST
+            | BOOL
+            | MAP
+            | SET
+    '''
 
 
 
