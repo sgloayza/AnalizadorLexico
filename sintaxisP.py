@@ -153,15 +153,19 @@ def p_expresionBool(p):
                        | VARIABLE comparadorMat VARIABLE
                        | valorDouble comparadorMat VARIABLE
                        | valorBool
+                       | negacionBool
+                       | comparacionBool
     '''
+
+def p_negacionBool(p):
+    'negacionBool : NOT PIZQ expresionBool PDER'
 
 def p_comparacionBool(p):
     '''comparacionBool : expresionBool operadorLogico expresionBool
                        | expresionBool operadorLogico comparacionBool
     '''
 
-def p_negacionBool(p):
-    'negacionBool : NOT PIZQ expresionBool PDER'
+
 
 
 
