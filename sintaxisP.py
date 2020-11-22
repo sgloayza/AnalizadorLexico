@@ -5,21 +5,39 @@ from lexico import tokens
 #--------------------------------------------------------------------------#
 
 def p_final(p):
-    '''final : asignacion PUNTOYCOMA
+    '''final : algoritmo PUNTOYCOMA
+             | asignacion PUNTOYCOMA
              | expresionInt PUNTOYCOMA
-             | algoritmo PUNTOYCOMA
+             | expresionDouble PUNTOYCOMA
+             | expresionString PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
     '''algoritmo : asignacion PUNTOYCOMA
                  | expresionInt PUNTOYCOMA
+                 | expresionDouble PUNTOYCOMA
+                 | expresionString PUNTOYCOMA
     '''
 
 def p_asignacion(p):
     '''asignacion : INT VARIABLE IGUAL expresionInt
                   | DOUBLER VARIABLE IGUAL expresionDouble
                   | NUM VARIABLE IGUAL expresionDouble
+                  | STRINGR VARIABLE IGUAL expresionString
     '''
+
+
+
+def p_valorString(p):
+    '''valorString : STRING
+                   | VARIABLE
+    '''
+
+def p_expresion_aritmetica_String(p):
+    '''expresionString : valorString operadorMat expresionString
+                       | valorString
+    '''
+
 
 
 

@@ -83,6 +83,8 @@ def p_expresion(p):
 def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
+             | DOUBLE
+             | STRING
     '''
 
 #****************************************#
