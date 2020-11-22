@@ -35,7 +35,8 @@ def p_final(p):
              | imprimir PUNTOYCOMA final
              | negacionBool PUNTOYCOMA
              | negacionBool PUNTOYCOMA final
-             | comparacionBool
+             | comparacionBool final
+             | comparacionBool PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -54,7 +55,7 @@ def p_algoritmo(p):
                  | sentenciaElse
                  | imprimir PUNTOYCOMA
                  | negacionBool PUNTOYCOMA
-                 | comparacionBool
+                 | comparacionBool PUNTOYCOMA
     '''
 
 def p_asignacion(p):
