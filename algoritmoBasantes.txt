@@ -2,7 +2,8 @@ int a =0;
 String b = "Esto va despues del 2";
 while(a<5){
 	print(a);
-      	if(a==2)
+      	if(a==2){
         	print(b);
+      	}
       	a++;
 }
