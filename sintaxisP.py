@@ -58,6 +58,12 @@ def p_final(p):
 
              | sentenciaSubstring PUNTOYCOMA final
              | sentenciaSubstring PUNTOYCOMA
+
+             | VARIABLE DSUMA PUNTOYCOMA final
+             | VARIABLE DSUMA PUNTOYCOMA
+             | VARIABLE DRESTA PUNTOYCOMA final
+             | VARIABLE DRESTA PUNTOYCOMA
+
     '''
 
 
