@@ -201,6 +201,12 @@ def p_comparaedorMat(p):
                    | MENIGUAL
     '''
 
+def p_operadorLogico(p):
+    '''operadorLogico : AND
+                   | OR
+                   | NOT
+    '''
+
 #--------------------------------------------------------------------------#
 
 def p_error(p):
