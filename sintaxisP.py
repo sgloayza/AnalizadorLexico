@@ -57,6 +57,7 @@ def p_asignacion(p):
                   | BOOLR VARIABLE IGUAL expresionBool
                   | DYNAMIC VARIABLE IGUAL expresion
                   | VAR VARIABLE IGUAL expresion
+                  | VARIABLE IGUAL expresion
 
     '''
 
