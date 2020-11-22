@@ -231,13 +231,17 @@ def p_comparacionBool(p):
 def p_valorString(p):
     '''valorString : STRING
                    | VARIABLE
+                   | FUNCIONSTDIN
+                   | expresionIndexString
     '''
 
 def p_expresion_aritmetica_String(p):
-    '''expresionString : valorString operadorMat expresionString
+    '''expresionString : valorString SUMA expresionString
                        | valorString
     '''
 
+def p_expresion_index_String(p):
+    'expresionIndexString : valorString CIZQ ENTERO CDER'
 
 
 
