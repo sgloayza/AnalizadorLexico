@@ -7,38 +7,55 @@ from lexico import tokens
 def p_final(p):
     '''final : algoritmo PUNTOYCOMA
              | algoritmo PUNTOYCOMA final
+
              | asignacion PUNTOYCOMA
              | asignacion PUNTOYCOMA final
+
              | expresionInt PUNTOYCOMA
              | expresionInt PUNTOYCOMA final
+
              | expresionDouble PUNTOYCOMA
              | expresionDouble PUNTOYCOMA final
+
              | expresionString PUNTOYCOMA
              | expresionString PUNTOYCOMA final
+
              | expresionBool PUNTOYCOMA
              | expresionBool PUNTOYCOMA final
+
              | sentenciaWhile
              | sentenciaWhile final
              | sentenciaWhile PUNTOYCOMA
              | sentenciaWhile PUNTOYCOMA final
+
              | sentenciaDoWhile PUNTOYCOMA
              | sentenciaDoWhile PUNTOYCOMA final
+
              | sentenciaIf PUNTOYCOMA
              | sentenciaIf PUNTOYCOMA final
              | sentenciaIf
              | sentenciaIf final
+
              | sentenciaElse PUNTOYCOMA
              | sentenciaElse PUNTOYCOMA final
              | sentenciaElse
              | sentenciaElse final
+
              | imprimir PUNTOYCOMA
              | imprimir PUNTOYCOMA final
+             | funcionStdin PUNTOYCOMA
+             | funcionStdin PUNTOYCOMA final
+
              | negacionBool PUNTOYCOMA
              | negacionBool PUNTOYCOMA final
-             | comparacionBool final
+
+             | comparacionBool PUNTOYCOMA final
              | comparacionBool PUNTOYCOMA
+
+             | sentenciaElseIf PUNTOYCOMA final
              | sentenciaElseIf final
              | sentenciaElseIf PUNTOYCOMA
+             | sentenciaElseIf
     '''
 
 def p_algoritmo(p):
@@ -48,18 +65,33 @@ def p_algoritmo(p):
                  | expresionString PUNTOYCOMA
                  | expresionBool PUNTOYCOMA
                  | expresion
+
                  | sentenciaWhile
                  | sentenciaWhile PUNTOYCOMA
+
                  | sentenciaDoWhile PUNTOYCOMA
+
                  | sentenciaIf PUNTOYCOMA
                  | sentenciaIf
+
                  | sentenciaElse PUNTOYCOMA
                  | sentenciaElse
+
                  | imprimir PUNTOYCOMA
+                 | funcionStdin PUNTOYCOMA
                  | negacionBool PUNTOYCOMA
                  | comparacionBool PUNTOYCOMA
+
+                 | sentenciaElseIf
                  | sentenciaElseIf PUNTOYCOMA
     '''
+
+
+
+
+
+
+
 
 def p_asignacion(p):
     '''asignacion : INT VARIABLE IGUAL expresionInt
@@ -88,6 +120,13 @@ def p_imprimir(p):
                 | PRINT PIZQ asignacionSimple PDER'''
 
 
+
+
+
+
+
+def p_funcionStdin(p):
+    'funcionStdin : FUNCIONSTDIN'
 
 
 
@@ -174,18 +213,6 @@ def p_comparacionBool(p):
     '''
 
 
-def p_objeto(p):
-    '''objeto : STRINGR
-            | INT
-            | DOUBLER
-            | NUM
-            | VAR
-            | DYNAMIC
-            | LIST
-            | BOOL
-            | MAP
-            | SET
-    '''
 
 
 
@@ -265,6 +292,20 @@ def p_operadorLogico(p):
     '''operadorLogico : AND
                       | OR
     '''
+
+def p_objeto(p):
+    '''objeto : STRINGR
+            | INT
+            | DOUBLER
+            | NUM
+            | VAR
+            | DYNAMIC
+            | LIST
+            | BOOL
+            | MAP
+            | SET
+    '''
+
 
 #--------------------------------------------------------------------------#
 
