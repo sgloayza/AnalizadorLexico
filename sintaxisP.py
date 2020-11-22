@@ -37,6 +37,8 @@ def p_final(p):
              | negacionBool PUNTOYCOMA final
              | comparacionBool final
              | comparacionBool PUNTOYCOMA
+             | sentenciaElseIf final
+             | sentenciaElseIf PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -56,6 +58,7 @@ def p_algoritmo(p):
                  | imprimir PUNTOYCOMA
                  | negacionBool PUNTOYCOMA
                  | comparacionBool PUNTOYCOMA
+                 | sentenciaElseIf PUNTOYCOMA
     '''
 
 def p_asignacion(p):
@@ -102,7 +105,10 @@ def p_sentenciaElse(p):
                      | ELSE LIZQ algoritmo LDER
     '''
 
-
+def p_sentenciaElseIf(p):
+    '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER algoritmo
+                       | ELSEIF PIZQ expresionBool PDER LIZQ algoritmo LDER
+    '''
 
 
 
