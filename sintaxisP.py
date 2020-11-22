@@ -11,6 +11,9 @@ def p_final(p):
              | expresionDouble PUNTOYCOMA
              | expresionString PUNTOYCOMA
              | expresionBool PUNTOYCOMA
+             | sentenciaWhile
+             | sentenciaWhile PUNTOYCOMA
+             | sentenciaDoWhile PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -20,6 +23,9 @@ def p_algoritmo(p):
                  | expresionString PUNTOYCOMA
                  | expresionBool PUNTOYCOMA
                  | expresion
+                 | sentenciaWhile
+                 | sentenciaWhile PUNTOYCOMA
+                 | sentenciaDoWhile PUNTOYCOMA
     '''
 
 def p_asignacion(p):
@@ -54,7 +60,13 @@ def p_expresion(p):
 
 
 
+def p_sentenciaWhile(p):
+    '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ algoritmo LDER
+                      | WHILE PIZQ expresionBool PDER algoritmo
+    '''
 
+def p_sentenciaDoWhile(p):
+    'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ expresionBool PDER'
 
 def p_valorBool(p):
     '''valorBool : BOOL
