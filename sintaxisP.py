@@ -10,6 +10,7 @@ def p_final(p):
              | expresionInt PUNTOYCOMA
              | expresionDouble PUNTOYCOMA
              | expresionString PUNTOYCOMA
+             | expresionBool PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -17,6 +18,7 @@ def p_algoritmo(p):
                  | expresionInt PUNTOYCOMA
                  | expresionDouble PUNTOYCOMA
                  | expresionString PUNTOYCOMA
+                 | expresionBool PUNTOYCOMA
     '''
 
 def p_asignacion(p):
@@ -24,8 +26,18 @@ def p_asignacion(p):
                   | DOUBLER VARIABLE IGUAL expresionDouble
                   | NUM VARIABLE IGUAL expresionDouble
                   | STRINGR VARIABLE IGUAL expresionString
+                  | BOOLR VARIABLE IGUAL expresionBool
     '''
 
+def p_valorBool(p):
+    '''valorBool : BOOL
+                   | VARIABLE
+    '''
+
+def p_expresionBool(p):
+    '''expresionBool : valorInt comparadorMat expresionInt
+                       | valorBool
+    '''
 
 
 def p_valorString(p):
@@ -81,6 +93,16 @@ def p_operadorMat(p):
                    | DIVENTERO
                    | MOD
     '''
+
+def p_comparaedorMat(p):
+    '''comparadorMat : DIGUAL
+                   | NOIGUAL
+                   | MAYOR
+                   | MENOR
+                   | MAYIGUAL
+                   | MENIGUAL
+    '''
+
 #--------------------------------------------------------------------------#
 
 def p_error(p):

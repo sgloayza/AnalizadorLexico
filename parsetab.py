@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND AS BOOL BREAK CASE CDER CIZQ COMA COMILLAD COMILLAS DIGUAL DIV DIVENTERO DO DOSPUNTOS DOUBLE DOUBLER DRESTA DSUMA DYNAMIC ELSE ELSEIF ENTERO FLECHA FOR FUNCIONARR FUNCIONRANGE FUNCIONSTDIN FUNCIONSTDOUT FUNCIONSTRING FUNCIONTAKE IF IGUAL INT IS ISNEGADO LDER LIST LIZQ MAP MAYIGUAL MAYOR MENIGUAL MENOR MOD MULTI NOIGUAL NOT NUM OR PDER PIZQ PRINT PUNTOYCOMA RESTA RETURN SET STRING STRINGR SUMA SWITCH VAR VARIABLE WHILEfinal : algoritmo PUNTOYCOMA\n             | asignacion PUNTOYCOMA\n             | expresionInt PUNTOYCOMA\n             | expresionDouble PUNTOYCOMA\n             | expresionString PUNTOYCOMA\n    algoritmo : asignacion PUNTOYCOMA\n                 | expresionInt PUNTOYCOMA\n                 | expresionDouble PUNTOYCOMA\n                 | expresionString PUNTOYCOMA\n    asignacion : INT VARIABLE IGUAL expresionInt\n                  | DOUBLER VARIABLE IGUAL expresionDouble\n                  | NUM VARIABLE IGUAL expresionDouble\n                  | STRINGR VARIABLE IGUAL expresionString\n    valorString : STRING\n                   | VARIABLE\n    expresionString : valorString operadorMat expresionString\n                       | valorString\n    valorInt : ENTERO\n                | VARIABLE\n    expresionInt : valorInt operadorMat expresionInt\n                    | valorInt\n    valorDouble : DOUBLE\n                   | valorInt\n    expresionDouble : valorDouble operadorMat expresionDouble\n                       | valorDouble\n    operadorMat : SUMA\n                   | RESTA\n                   | MULTI\n                   | DIV\n                   | DIVENTERO\n                   | MOD\n    '
+_lr_signature = 'AND AS BOOL BOOLR BREAK CASE CDER CIZQ COMA COMILLAD COMILLAS DIGUAL DIV DIVENTERO DO DOSPUNTOS DOUBLE DOUBLER DRESTA DSUMA DYNAMIC ELSE ELSEIF ENTERO FLECHA FOR FUNCIONARR FUNCIONRANGE FUNCIONSTDIN FUNCIONSTDOUT FUNCIONSTRING FUNCIONTAKE IF IGUAL INT IS ISNEGADO LDER LIST LIZQ MAP MAYIGUAL MAYOR MENIGUAL MENOR MOD MULTI NOIGUAL NOT NUM OR PDER PIZQ PRINT PUNTOYCOMA RESTA RETURN SET STRING STRINGR SUMA SWITCH VAR VARIABLE WHILEfinal : algoritmo PUNTOYCOMA\n             | asignacion PUNTOYCOMA\n             | expresionInt PUNTOYCOMA\n             | expresionDouble PUNTOYCOMA\n             | expresionString PUNTOYCOMA\n             | expresionBool PUNTOYCOMA\n    algoritmo : asignacion PUNTOYCOMA\n                 | expresionInt PUNTOYCOMA\n                 | expresionDouble PUNTOYCOMA\n                 | expresionString PUNTOYCOMA\n                 | expresionBool PUNTOYCOMA\n    asignacion : INT VARIABLE IGUAL expresionInt\n                  | DOUBLER VARIABLE IGUAL expresionDouble\n                  | NUM VARIABLE IGUAL expresionDouble\n                  | STRINGR VARIABLE IGUAL expresionString\n                  | BOOLR VARIABLE IGUAL expresionBool\n    valorBool : BOOL\n                   | VARIABLE\n    expresionBool : valorInt comparadorMat expresionInt\n                       | valorBool\n    valorString : STRING\n                   | VARIABLE\n    expresionString : valorString operadorMat expresionString\n                       | valorString\n    valorInt : ENTERO\n                | VARIABLE\n    expresionInt : valorInt operadorMat expresionInt\n                    | valorInt\n    valorDouble : DOUBLE\n                   | valorInt\n    expresionDouble : valorDouble operadorMat expresionDouble\n                       | valorDouble\n    operadorMat : SUMA\n                   | RESTA\n                   | MULTI\n                   | DIV\n                   | DIVENTERO\n                   | MOD\n    comparadorMat : DIGUAL\n                   | NOIGUAL\n                   | MAYOR\n                   | MENOR\n                   | MAYIGUAL\n                   | MENIGUAL\n    '
     
-_lr_action_items = {'INT':([0,],[7,]),'DOUBLER':([0,],[9,]),'NUM':([0,],[10,]),'STRINGR':([0,],[11,]),'ENTERO':([0,27,28,29,30,31,32,33,34,36,37,38,],[15,15,-26,-27,-28,-29,-30,-31,15,15,15,15,]),'VARIABLE':([0,7,9,10,11,27,28,29,30,31,32,33,34,35,36,37,38,39,],[8,23,24,25,26,42,-26,-27,-28,-29,-30,-31,42,46,42,42,42,46,]),'DOUBLE':([0,28,29,30,31,32,33,34,37,38,],[16,-26,-27,-28,-29,-30,-31,16,16,16,]),'STRING':([0,28,29,30,31,32,33,35,39,],[17,-26,-27,-28,-29,-30,-31,17,17,]),'$end':([1,18,19,20,21,22,],[0,-1,-2,-3,-4,-5,]),'PUNTOYCOMA':([2,3,4,5,6,8,12,13,14,15,16,17,19,20,21,22,40,41,42,43,44,45,46,47,48,49,50,],[18,19,20,21,22,-15,-21,-25,-17,-18,-22,-14,-6,-7,-8,-9,-21,-20,-19,-24,-23,-16,-15,-10,-11,-12,-13,]),'SUMA':([8,12,13,14,15,16,17,40,42,44,46,],[-15,28,28,28,-18,-22,-14,28,-19,-23,-15,]),'RESTA':([8,12,13,14,15,16,17,40,42,44,46,],[-15,29,29,29,-18,-22,-14,29,-19,-23,-15,]),'MULTI':([8,12,13,14,15,16,17,40,42,44,46,],[-15,30,30,30,-18,-22,-14,30,-19,-23,-15,]),'DIV':([8,12,13,14,15,16,17,40,42,44,46,],[-15,31,31,31,-18,-22,-14,31,-19,-23,-15,]),'DIVENTERO':([8,12,13,14,15,16,17,40,42,44,46,],[-15,32,32,32,-18,-22,-14,32,-19,-23,-15,]),'MOD':([8,12,13,14,15,16,17,40,42,44,46,],[-15,33,33,33,-18,-22,-14,33,-19,-23,-15,]),'IGUAL':([23,24,25,26,],[36,37,38,39,]),}
+_lr_action_items = {'INT':([0,],[8,]),'DOUBLER':([0,],[10,]),'NUM':([0,],[11,]),'STRINGR':([0,],[12,]),'BOOLR':([0,],[13,]),'ENTERO':([0,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,49,50,51,53,],[18,18,18,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,18,18,18,18,18,]),'VARIABLE':([0,8,10,11,12,13,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,],[9,28,29,30,31,32,56,56,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,56,61,56,56,56,61,66,]),'DOUBLE':([0,35,36,37,38,39,40,47,50,51,],[19,-33,-34,-35,-36,-37,-38,19,19,19,]),'STRING':([0,35,36,37,38,39,40,48,52,],[20,-33,-34,-35,-36,-37,-38,20,20,]),'BOOL':([0,53,],[21,21,]),'$end':([1,22,23,24,25,26,27,],[0,-1,-2,-3,-4,-5,-6,]),'PUNTOYCOMA':([2,3,4,5,6,7,9,14,15,16,17,18,19,20,21,23,24,25,26,27,54,55,56,57,58,59,60,61,62,63,64,65,66,67,],[22,23,24,25,26,27,-18,-28,-32,-24,-20,-25,-29,-21,-17,-7,-8,-9,-10,-11,-28,-27,-26,-19,-31,-30,-23,-22,-12,-13,-14,-15,-18,-16,]),'SUMA':([9,14,15,16,18,19,20,54,56,59,61,],[-22,35,35,35,-25,-29,-21,35,-26,-30,-22,]),'RESTA':([9,14,15,16,18,19,20,54,56,59,61,],[-22,36,36,36,-25,-29,-21,36,-26,-30,-22,]),'MULTI':([9,14,15,16,18,19,20,54,56,59,61,],[-22,37,37,37,-25,-29,-21,37,-26,-30,-22,]),'DIV':([9,14,15,16,18,19,20,54,56,59,61,],[-22,38,38,38,-25,-29,-21,38,-26,-30,-22,]),'DIVENTERO':([9,14,15,16,18,19,20,54,56,59,61,],[-22,39,39,39,-25,-29,-21,39,-26,-30,-22,]),'MOD':([9,14,15,16,18,19,20,54,56,59,61,],[-22,40,40,40,-25,-29,-21,40,-26,-30,-22,]),'DIGUAL':([9,14,18,66,68,],[-26,41,-25,-26,41,]),'NOIGUAL':([9,14,18,66,68,],[-26,42,-25,-26,42,]),'MAYOR':([9,14,18,66,68,],[-26,43,-25,-26,43,]),'MENOR':([9,14,18,66,68,],[-26,44,-25,-26,44,]),'MAYIGUAL':([9,14,18,66,68,],[-26,45,-25,-26,45,]),'MENIGUAL':([9,14,18,66,68,],[-26,46,-25,-26,46,]),'IGUAL':([28,29,30,31,32,],[49,50,51,52,53,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'final':([0,],[1,]),'algoritmo':([0,],[2,]),'asignacion':([0,],[3,]),'expresionInt':([0,27,36,],[4,41,47,]),'expresionDouble':([0,34,37,38,],[5,43,48,49,]),'expresionString':([0,35,39,],[6,45,50,]),'valorInt':([0,27,34,36,37,38,],[12,40,44,40,44,44,]),'valorDouble':([0,34,37,38,],[13,13,13,13,]),'valorString':([0,35,39,],[14,14,14,]),'operadorMat':([12,13,14,40,],[27,34,35,27,]),}
+_lr_goto_items = {'final':([0,],[1,]),'algoritmo':([0,],[2,]),'asignacion':([0,],[3,]),'expresionInt':([0,33,34,49,],[4,55,57,62,]),'expresionDouble':([0,47,50,51,],[5,58,63,64,]),'expresionString':([0,48,52,],[6,60,65,]),'expresionBool':([0,53,],[7,67,]),'valorInt':([0,33,34,47,49,50,51,53,],[14,54,54,59,54,59,59,68,]),'valorDouble':([0,47,50,51,],[15,15,15,15,]),'valorString':([0,48,52,],[16,16,16,]),'valorBool':([0,53,],[17,17,]),'operadorMat':([14,15,16,54,],[33,47,48,33,]),'comparadorMat':([14,68,],[34,34,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -32,30 +32,43 @@ _lr_productions = [
   ('final -> expresionInt PUNTOYCOMA','final',2,'p_final','sintaxisP.py',10),
   ('final -> expresionDouble PUNTOYCOMA','final',2,'p_final','sintaxisP.py',11),
   ('final -> expresionString PUNTOYCOMA','final',2,'p_final','sintaxisP.py',12),
-  ('algoritmo -> asignacion PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',16),
-  ('algoritmo -> expresionInt PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',17),
-  ('algoritmo -> expresionDouble PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',18),
-  ('algoritmo -> expresionString PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',19),
-  ('asignacion -> INT VARIABLE IGUAL expresionInt','asignacion',4,'p_asignacion','sintaxisP.py',23),
-  ('asignacion -> DOUBLER VARIABLE IGUAL expresionDouble','asignacion',4,'p_asignacion','sintaxisP.py',24),
-  ('asignacion -> NUM VARIABLE IGUAL expresionDouble','asignacion',4,'p_asignacion','sintaxisP.py',25),
-  ('asignacion -> STRINGR VARIABLE IGUAL expresionString','asignacion',4,'p_asignacion','sintaxisP.py',26),
-  ('valorString -> STRING','valorString',1,'p_valorString','sintaxisP.py',32),
-  ('valorString -> VARIABLE','valorString',1,'p_valorString','sintaxisP.py',33),
-  ('expresionString -> valorString operadorMat expresionString','expresionString',3,'p_expresion_aritmetica_String','sintaxisP.py',37),
-  ('expresionString -> valorString','expresionString',1,'p_expresion_aritmetica_String','sintaxisP.py',38),
-  ('valorInt -> ENTERO','valorInt',1,'p_valorInt','sintaxisP.py',47),
-  ('valorInt -> VARIABLE','valorInt',1,'p_valorInt','sintaxisP.py',48),
-  ('expresionInt -> valorInt operadorMat expresionInt','expresionInt',3,'p_expresion_aritmetica_Int','sintaxisP.py',52),
-  ('expresionInt -> valorInt','expresionInt',1,'p_expresion_aritmetica_Int','sintaxisP.py',53),
-  ('valorDouble -> DOUBLE','valorDouble',1,'p_valorDouble','sintaxisP.py',61),
-  ('valorDouble -> valorInt','valorDouble',1,'p_valorDouble','sintaxisP.py',62),
-  ('expresionDouble -> valorDouble operadorMat expresionDouble','expresionDouble',3,'p_expresion_aritmetica_Double','sintaxisP.py',66),
-  ('expresionDouble -> valorDouble','expresionDouble',1,'p_expresion_aritmetica_Double','sintaxisP.py',67),
-  ('operadorMat -> SUMA','operadorMat',1,'p_operadorMat','sintaxisP.py',77),
-  ('operadorMat -> RESTA','operadorMat',1,'p_operadorMat','sintaxisP.py',78),
-  ('operadorMat -> MULTI','operadorMat',1,'p_operadorMat','sintaxisP.py',79),
-  ('operadorMat -> DIV','operadorMat',1,'p_operadorMat','sintaxisP.py',80),
-  ('operadorMat -> DIVENTERO','operadorMat',1,'p_operadorMat','sintaxisP.py',81),
-  ('operadorMat -> MOD','operadorMat',1,'p_operadorMat','sintaxisP.py',82),
+  ('final -> expresionBool PUNTOYCOMA','final',2,'p_final','sintaxisP.py',13),
+  ('algoritmo -> asignacion PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',17),
+  ('algoritmo -> expresionInt PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',18),
+  ('algoritmo -> expresionDouble PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',19),
+  ('algoritmo -> expresionString PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',20),
+  ('algoritmo -> expresionBool PUNTOYCOMA','algoritmo',2,'p_algoritmo','sintaxisP.py',21),
+  ('asignacion -> INT VARIABLE IGUAL expresionInt','asignacion',4,'p_asignacion','sintaxisP.py',25),
+  ('asignacion -> DOUBLER VARIABLE IGUAL expresionDouble','asignacion',4,'p_asignacion','sintaxisP.py',26),
+  ('asignacion -> NUM VARIABLE IGUAL expresionDouble','asignacion',4,'p_asignacion','sintaxisP.py',27),
+  ('asignacion -> STRINGR VARIABLE IGUAL expresionString','asignacion',4,'p_asignacion','sintaxisP.py',28),
+  ('asignacion -> BOOLR VARIABLE IGUAL expresionBool','asignacion',4,'p_asignacion','sintaxisP.py',29),
+  ('valorBool -> BOOL','valorBool',1,'p_valorBool','sintaxisP.py',33),
+  ('valorBool -> VARIABLE','valorBool',1,'p_valorBool','sintaxisP.py',34),
+  ('expresionBool -> valorInt comparadorMat expresionInt','expresionBool',3,'p_expresionBool','sintaxisP.py',38),
+  ('expresionBool -> valorBool','expresionBool',1,'p_expresionBool','sintaxisP.py',39),
+  ('valorString -> STRING','valorString',1,'p_valorString','sintaxisP.py',44),
+  ('valorString -> VARIABLE','valorString',1,'p_valorString','sintaxisP.py',45),
+  ('expresionString -> valorString operadorMat expresionString','expresionString',3,'p_expresion_aritmetica_String','sintaxisP.py',49),
+  ('expresionString -> valorString','expresionString',1,'p_expresion_aritmetica_String','sintaxisP.py',50),
+  ('valorInt -> ENTERO','valorInt',1,'p_valorInt','sintaxisP.py',59),
+  ('valorInt -> VARIABLE','valorInt',1,'p_valorInt','sintaxisP.py',60),
+  ('expresionInt -> valorInt operadorMat expresionInt','expresionInt',3,'p_expresion_aritmetica_Int','sintaxisP.py',64),
+  ('expresionInt -> valorInt','expresionInt',1,'p_expresion_aritmetica_Int','sintaxisP.py',65),
+  ('valorDouble -> DOUBLE','valorDouble',1,'p_valorDouble','sintaxisP.py',73),
+  ('valorDouble -> valorInt','valorDouble',1,'p_valorDouble','sintaxisP.py',74),
+  ('expresionDouble -> valorDouble operadorMat expresionDouble','expresionDouble',3,'p_expresion_aritmetica_Double','sintaxisP.py',78),
+  ('expresionDouble -> valorDouble','expresionDouble',1,'p_expresion_aritmetica_Double','sintaxisP.py',79),
+  ('operadorMat -> SUMA','operadorMat',1,'p_operadorMat','sintaxisP.py',89),
+  ('operadorMat -> RESTA','operadorMat',1,'p_operadorMat','sintaxisP.py',90),
+  ('operadorMat -> MULTI','operadorMat',1,'p_operadorMat','sintaxisP.py',91),
+  ('operadorMat -> DIV','operadorMat',1,'p_operadorMat','sintaxisP.py',92),
+  ('operadorMat -> DIVENTERO','operadorMat',1,'p_operadorMat','sintaxisP.py',93),
+  ('operadorMat -> MOD','operadorMat',1,'p_operadorMat','sintaxisP.py',94),
+  ('comparadorMat -> DIGUAL','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',98),
+  ('comparadorMat -> NOIGUAL','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',99),
+  ('comparadorMat -> MAYOR','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',100),
+  ('comparadorMat -> MENOR','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',101),
+  ('comparadorMat -> MAYIGUAL','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',102),
+  ('comparadorMat -> MENIGUAL','comparadorMat',1,'p_comparaedorMat','sintaxisP.py',103),
 ]

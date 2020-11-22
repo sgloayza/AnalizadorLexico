@@ -6,7 +6,7 @@ reserved = {
     "double":"DOUBLER",
     "num":"NUM",
     "String":"STRINGR",
-    "Bool":"BOOL",
+    "Bool":"BOOLR",
     "Map":"MAP",
     "dynamic":"DYNAMIC",
     "if":"IF",
@@ -25,6 +25,7 @@ reserved = {
 }
 
 tokens = [
+    "BOOL",
     "VARIABLE",
     "ENTERO",
     "DOUBLE",
