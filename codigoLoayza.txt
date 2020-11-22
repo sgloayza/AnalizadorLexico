@@ -64,3 +64,4 @@ print(a);
 /*Codigo*/
 a is! String
 stdin.readLineSync();
+a.substring(1, 4);

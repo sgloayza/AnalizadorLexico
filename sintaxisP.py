@@ -138,7 +138,7 @@ def p_funcionStdin(p):
 
 def p_funcionStdout(p):
     '''funcionStdout : FUNCIONSTDOUT PIZQ expresion PDER
-                | FUNCIONSTDOUT PIZQ asignacionSimple PDER'''
+                     | FUNCIONSTDOUT PIZQ asignacionSimple PDER'''
 
 
 
@@ -158,6 +158,10 @@ def p_sentenciaElseIf(p):
     '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER algoritmo
                        | ELSEIF PIZQ expresionBool PDER LIZQ algoritmo LDER
     '''
+
+
+
+
 
 
 
@@ -184,6 +188,7 @@ def p_expresion(p):
 
 
 
+
 def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ algoritmo LDER
                       | WHILE PIZQ expresionBool PDER algoritmo
@@ -191,11 +196,6 @@ def p_sentenciaWhile(p):
 
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ expresionBool PDER'
-
-def p_sentenciaSubstring(p):
-    '''sentenciaSubstring : VARIABLE SUBSTRING PIZQ ENTERO PDER
-                         | VARIABLE SUBSTRING PIZQ ENTERO COMA ENTERO PDER
-    '''
 
 
 
@@ -251,6 +251,11 @@ def p_expresion_aritmetica_String(p):
 
 def p_expresion_index_String(p):
     'expresionIndexString : valorString CIZQ ENTERO CDER'
+
+def p_sentenciaSubstring(p):
+    '''sentenciaSubstring : VARIABLE FUNCIONSUBSTRING PIZQ ENTERO PDER
+                         | VARIABLE FUNCIONSUBSTRING PIZQ ENTERO COMA ENTERO PDER
+    '''
 
 
 
@@ -313,15 +318,15 @@ def p_operadorLogico(p):
 
 def p_objeto(p):
     '''objeto : STRINGR
-            | INT
-            | DOUBLER
-            | NUM
-            | VAR
-            | DYNAMIC
-            | LIST
-            | BOOL
-            | MAP
-            | SET
+              | INT
+              | DOUBLER
+              | NUM
+              | VAR
+              | DYNAMIC
+              | LIST
+              | BOOL
+              | MAP
+              | SET
     '''
 
 
