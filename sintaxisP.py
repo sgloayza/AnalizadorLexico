@@ -5,10 +5,7 @@ from lexico import tokens
 #--------------------------------------------------------------------------#
 
 def p_final(p):
-    '''final : algoritmo PUNTOYCOMA
-             | algoritmo PUNTOYCOMA final
-
-             | asignacion PUNTOYCOMA
+    '''final : asignacion PUNTOYCOMA
              | asignacion PUNTOYCOMA final
 
              | expresionInt PUNTOYCOMA
@@ -63,38 +60,6 @@ def p_final(p):
              | sentenciaSubstring PUNTOYCOMA
     '''
 
-def p_algoritmo(p):
-    '''algoritmo : asignacion PUNTOYCOMA
-                 | expresionInt PUNTOYCOMA
-                 | expresionDouble PUNTOYCOMA
-                 | expresionString PUNTOYCOMA
-                 | expresionBool PUNTOYCOMA
-                 | expresion
-
-                 | sentenciaWhile
-                 | sentenciaWhile PUNTOYCOMA
-
-                 | sentenciaDoWhile PUNTOYCOMA
-
-                 | sentenciaIf PUNTOYCOMA
-                 | sentenciaIf
-
-                 | sentenciaElse PUNTOYCOMA
-                 | sentenciaElse
-
-                 | imprimir PUNTOYCOMA
-                 | funcionStdin PUNTOYCOMA
-                 | funcionStdout PUNTOYCOMA
-                 | negacionBool PUNTOYCOMA
-                 | comparacionBool PUNTOYCOMA
-
-                 | sentenciaElseIf
-                 | sentenciaElseIf PUNTOYCOMA
-
-                 | sentenciaSubstring PUNTOYCOMA
-    '''
-
-
 
 
 
@@ -144,19 +109,19 @@ def p_funcionStdout(p):
 
 
 def p_sentenciaIf(p):
-    '''sentenciaIf : IF PIZQ expresionBool PDER algoritmo
-                   | IF PIZQ expresionBool PDER LIZQ algoritmo LDER
+    '''sentenciaIf : IF PIZQ expresionBool PDER final
+                   | IF PIZQ expresionBool PDER LIZQ final LDER
     '''
 
 
 def p_sentenciaElse(p):
-    '''sentenciaElse : ELSE algoritmo
-                     | ELSE LIZQ algoritmo LDER
+    '''sentenciaElse : ELSE final
+                     | ELSE LIZQ final LDER
     '''
 
 def p_sentenciaElseIf(p):
-    '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER algoritmo
-                       | ELSEIF PIZQ expresionBool PDER LIZQ algoritmo LDER
+    '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER final
+                       | ELSEIF PIZQ expresionBool PDER LIZQ final LDER
     '''
 
 
@@ -190,12 +155,12 @@ def p_expresion(p):
 
 
 def p_sentenciaWhile(p):
-    '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ algoritmo LDER
-                      | WHILE PIZQ expresionBool PDER algoritmo
+    '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ final LDER
+                      | WHILE PIZQ expresionBool PDER final
     '''
 
 def p_sentenciaDoWhile(p):
-    'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ expresionBool PDER'
+    'sentenciaDoWhile : DO LIZQ final LDER WHILE PIZQ expresionBool PDER'
 
 
 
