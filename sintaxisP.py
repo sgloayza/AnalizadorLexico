@@ -6,14 +6,31 @@ from lexico import tokens
 
 def p_final(p):
     '''final : algoritmo PUNTOYCOMA
+             | algoritmo PUNTOYCOMA final
              | asignacion PUNTOYCOMA
+             | asignacion PUNTOYCOMA final
              | expresionInt PUNTOYCOMA
+             | expresionInt PUNTOYCOMA final
              | expresionDouble PUNTOYCOMA
+             | expresionDouble PUNTOYCOMA final
              | expresionString PUNTOYCOMA
+             | expresionString PUNTOYCOMA final
              | expresionBool PUNTOYCOMA
+             | expresionBool PUNTOYCOMA final
              | sentenciaWhile
+             | sentenciaWhile final
              | sentenciaWhile PUNTOYCOMA
+             | sentenciaWhile PUNTOYCOMA final
              | sentenciaDoWhile PUNTOYCOMA
+             | sentenciaDoWhile PUNTOYCOMA final
+             | sentenciaIf PUNTOYCOMA
+             | sentenciaIf PUNTOYCOMA final
+             | sentenciaIf
+             | sentenciaIf final
+             | sentenciaElse PUNTOYCOMA
+             | sentenciaElse PUNTOYCOMA final
+             | sentenciaElse
+             | sentenciaElse final
     '''
 
 def p_algoritmo(p):
@@ -26,6 +43,10 @@ def p_algoritmo(p):
                  | sentenciaWhile
                  | sentenciaWhile PUNTOYCOMA
                  | sentenciaDoWhile PUNTOYCOMA
+                 | sentenciaIf PUNTOYCOMA
+                 | sentenciaIf
+                 | sentenciaElse PUNTOYCOMA
+                 | sentenciaElse
     '''
 
 def p_asignacion(p):
@@ -38,6 +59,23 @@ def p_asignacion(p):
                   | VAR VARIABLE IGUAL expresion
 
     '''
+
+
+
+
+
+
+def p_sentenciaIf(p):
+    '''sentenciaIf : IF PIZQ expresionBool PDER algoritmo
+                   | IF PIZQ expresionBool PDER LIZQ algoritmo LDER
+    '''
+
+
+def p_sentenciaElse(p):
+    '''sentenciaElse : ELSE algoritmo
+                     | ELSE LIZQ algoritmo LDER
+    '''
+
 
 
 
@@ -60,6 +98,10 @@ def p_expresion(p):
 
 
 
+
+
+
+
 def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ algoritmo LDER
                       | WHILE PIZQ expresionBool PDER algoritmo
@@ -67,6 +109,11 @@ def p_sentenciaWhile(p):
 
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ expresionBool PDER'
+
+
+
+
+
 
 def p_valorBool(p):
     '''valorBool : BOOL
@@ -112,6 +159,7 @@ def p_expresion_aritmetica_Int(p):
     '''expresionInt : valorInt operadorMat expresionInt
                     | valorInt
     '''
+
 
 
 
