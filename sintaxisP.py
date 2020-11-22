@@ -31,6 +31,7 @@ def p_final(p):
              | sentenciaElse PUNTOYCOMA final
              | sentenciaElse
              | sentenciaElse final
+             | imprimir PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -47,6 +48,7 @@ def p_algoritmo(p):
                  | sentenciaIf
                  | sentenciaElse PUNTOYCOMA
                  | sentenciaElse
+                 | imprimir PUNTOYCOMA
     '''
 
 def p_asignacion(p):
@@ -61,10 +63,8 @@ def p_asignacion(p):
 
     '''
 
-
-
-
-
+def p_imprimir(p):
+    'imprimir : PRINT PIZQ expresion PDER'
 
 def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER algoritmo
@@ -95,6 +95,7 @@ def p_expresion(p):
                  | expresionString
                  | expresionInt
                  | expresionDouble
+                 | expresionBool
     '''
 
 
