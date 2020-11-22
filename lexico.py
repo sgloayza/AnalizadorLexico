@@ -3,9 +3,9 @@ import ply.lex as lex
 reserved = {
     "var":"VAR",
     "int":"INT",
-    "double":"DOUBLE",
+    "double":"DOUBLER",
     "num":"NUM",
-    "String":"STRING",
+    "String":"STRINGR",
     "Bool":"BOOL",
     "Map":"MAP",
     "dynamic":"DYNAMIC",
@@ -27,6 +27,8 @@ reserved = {
 tokens = [
     "VARIABLE",
     "ENTERO",
+    "DOUBLE",
+    "STRING",
     "SUMA",
     "RESTA",
     "MULTI",
