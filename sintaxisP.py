@@ -45,6 +45,8 @@ def p_final(p):
              | imprimir PUNTOYCOMA final
              | funcionStdin PUNTOYCOMA
              | funcionStdin PUNTOYCOMA final
+             | funcionStdout PUNTOYCOMA
+             | funcionStdout PUNTOYCOMA final
 
              | negacionBool PUNTOYCOMA
              | negacionBool PUNTOYCOMA final
@@ -79,6 +81,7 @@ def p_algoritmo(p):
 
                  | imprimir PUNTOYCOMA
                  | funcionStdin PUNTOYCOMA
+                 | funcionStdout PUNTOYCOMA
                  | negacionBool PUNTOYCOMA
                  | comparacionBool PUNTOYCOMA
 
@@ -128,7 +131,9 @@ def p_imprimir(p):
 def p_funcionStdin(p):
     'funcionStdin : FUNCIONSTDIN'
 
-
+def p_funcionStdout(p):
+    '''funcionStdout : FUNCIONSTDOUT PIZQ expresion PDER
+                | FUNCIONSTDOUT PIZQ asignacionSimple PDER'''
 
 
 

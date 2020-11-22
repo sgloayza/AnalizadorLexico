@@ -145,7 +145,7 @@ def t_FUNCIONSTDIN(t):
     return t
 
 def t_FUNCIONSTDOUT(t):
-    r"stdout\.print"
+    r"stdout\.write"
     return t
 
 def t_FUNCIONTAKE(t):
