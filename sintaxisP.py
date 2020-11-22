@@ -59,12 +59,29 @@ def p_asignacion(p):
                   | BOOLR VARIABLE IGUAL expresionBool
                   | DYNAMIC VARIABLE IGUAL expresion
                   | VAR VARIABLE IGUAL expresion
-                  | VARIABLE IGUAL expresion
+                  | asignacionSimple
 
     '''
 
+def p_asignacionSimple(p):
+    'asignacionSimple : VARIABLE IGUAL expresion'
+
+
+
+
+
+
+
 def p_imprimir(p):
-    'imprimir : PRINT PIZQ expresion PDER'
+    '''imprimir : PRINT PIZQ expresion PDER
+                | PRINT PIZQ asignacionSimple PDER'''
+
+
+
+
+
+
+
 
 def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER algoritmo
