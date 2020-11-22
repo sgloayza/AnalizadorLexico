@@ -6,7 +6,7 @@ reserved = {
     "double":"DOUBLER",
     "num":"NUM",
     "String":"STRINGR",
-    "Bool":"BOOLR",
+    "bool":"BOOLR",
     "Map":"MAP",
     "dynamic":"DYNAMIC",
     "if":"IF",

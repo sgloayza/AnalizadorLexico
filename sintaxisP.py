@@ -19,6 +19,7 @@ def p_algoritmo(p):
                  | expresionDouble PUNTOYCOMA
                  | expresionString PUNTOYCOMA
                  | expresionBool PUNTOYCOMA
+                 | expresion
     '''
 
 def p_asignacion(p):
@@ -27,7 +28,33 @@ def p_asignacion(p):
                   | NUM VARIABLE IGUAL expresionDouble
                   | STRINGR VARIABLE IGUAL expresionString
                   | BOOLR VARIABLE IGUAL expresionBool
+                  | DYNAMIC VARIABLE IGUAL expresion
+                  | VAR VARIABLE IGUAL expresion
+
     '''
+
+
+
+
+
+def p_valor(p):
+    '''valor : ENTERO
+             | VARIABLE
+             | DOUBLE
+             | STRING
+    '''
+
+def p_expresion(p):
+    '''expresion : valor operadorMat expresion
+                 | valor
+                 | expresionString
+                 | expresionInt
+                 | expresionDouble
+    '''
+
+
+
+
 
 def p_valorBool(p):
     '''valorBool : BOOL
@@ -40,6 +67,11 @@ def p_expresionBool(p):
     '''
 
 
+
+
+
+
+
 def p_valorString(p):
     '''valorString : STRING
                    | VARIABLE
@@ -49,6 +81,7 @@ def p_expresion_aritmetica_String(p):
     '''expresionString : valorString operadorMat expresionString
                        | valorString
     '''
+
 
 
 
