@@ -75,32 +75,35 @@ Rule 27    expresion -> expresionInt
 Rule 28    expresion -> expresionDouble
 Rule 29    valorBool -> BOOL
 Rule 30    valorBool -> VARIABLE
-Rule 31    expresionBool -> valorInt comparadorMat expresionInt
-Rule 32    expresionBool -> valorBool
-Rule 33    valorString -> STRING
-Rule 34    valorString -> VARIABLE
-Rule 35    expresionString -> valorString operadorMat expresionString
-Rule 36    expresionString -> valorString
-Rule 37    valorInt -> ENTERO
-Rule 38    valorInt -> VARIABLE
-Rule 39    expresionInt -> valorInt operadorMat expresionInt
-Rule 40    expresionInt -> valorInt
-Rule 41    valorDouble -> DOUBLE
-Rule 42    valorDouble -> valorInt
-Rule 43    expresionDouble -> valorDouble operadorMat expresionDouble
-Rule 44    expresionDouble -> valorDouble
-Rule 45    operadorMat -> SUMA
-Rule 46    operadorMat -> RESTA
-Rule 47    operadorMat -> MULTI
-Rule 48    operadorMat -> DIV
-Rule 49    operadorMat -> DIVENTERO
-Rule 50    operadorMat -> MOD
-Rule 51    comparadorMat -> DIGUAL
-Rule 52    comparadorMat -> NOIGUAL
-Rule 53    comparadorMat -> MAYOR
-Rule 54    comparadorMat -> MENOR
-Rule 55    comparadorMat -> MAYIGUAL
-Rule 56    comparadorMat -> MENIGUAL
+Rule 31    expresionBool -> valorDouble comparadorMat expresionDouble
+Rule 32    expresionBool -> VARIABLE comparadorMat expresionDouble
+Rule 33    expresionBool -> VARIABLE comparadorMat VARIABLE
+Rule 34    expresionBool -> valorDouble comparadorMat VARIABLE
+Rule 35    expresionBool -> valorBool
+Rule 36    valorString -> STRING
+Rule 37    valorString -> VARIABLE
+Rule 38    expresionString -> valorString operadorMat expresionString
+Rule 39    expresionString -> valorString
+Rule 40    valorInt -> ENTERO
+Rule 41    valorInt -> VARIABLE
+Rule 42    expresionInt -> valorInt operadorMat expresionInt
+Rule 43    expresionInt -> valorInt
+Rule 44    valorDouble -> DOUBLE
+Rule 45    valorDouble -> valorInt
+Rule 46    expresionDouble -> valorDouble operadorMat expresionDouble
+Rule 47    expresionDouble -> valorDouble
+Rule 48    operadorMat -> SUMA
+Rule 49    operadorMat -> RESTA
+Rule 50    operadorMat -> MULTI
+Rule 51    operadorMat -> DIV
+Rule 52    operadorMat -> DIVENTERO
+Rule 53    operadorMat -> MOD
+Rule 54    comparadorMat -> DIGUAL
+Rule 55    comparadorMat -> NOIGUAL
+Rule 56    comparadorMat -> MAYOR
+Rule 57    comparadorMat -> MENOR
+Rule 58    comparadorMat -> MAYIGUAL
+Rule 59    comparadorMat -> MENIGUAL
 
 Terminals, with rules where they appear
 
@@ -115,19 +118,19 @@ CIZQ                 :
 COMA                 : 
 COMILLAD             : 
 COMILLAS             : 
-DIGUAL               : 51
-DIV                  : 48
-DIVENTERO            : 49
+DIGUAL               : 54
+DIV                  : 51
+DIVENTERO            : 52
 DO                   : 
 DOSPUNTOS            : 
-DOUBLE               : 22 41
+DOUBLE               : 22 44
 DOUBLER              : 14
 DRESTA               : 
 DSUMA                : 
 DYNAMIC              : 18
 ELSE                 : 
 ELSEIF               : 
-ENTERO               : 20 37
+ENTERO               : 20 40
 FLECHA               : 
 FOR                  : 
 FUNCIONARR           : 
@@ -145,13 +148,13 @@ LDER                 :
 LIST                 : 
 LIZQ                 : 
 MAP                  : 
-MAYIGUAL             : 55
-MAYOR                : 53
-MENIGUAL             : 56
-MENOR                : 54
-MOD                  : 50
-MULTI                : 47
-NOIGUAL              : 52
+MAYIGUAL             : 58
+MAYOR                : 56
+MENIGUAL             : 59
+MENOR                : 57
+MOD                  : 53
+MULTI                : 50
+NOIGUAL              : 55
 NOT                  : 
 NUM                  : 15
 OR                   : 
@@ -159,15 +162,15 @@ PDER                 :
 PIZQ                 : 
 PRINT                : 
 PUNTOYCOMA           : 1 2 3 4 5 6 7 8 9 10 11
-RESTA                : 46
+RESTA                : 49
 RETURN               : 
 SET                  : 
-STRING               : 23 33
+STRING               : 23 36
 STRINGR              : 16
-SUMA                 : 45
+SUMA                 : 48
 SWITCH               : 
 VAR                  : 19
-VARIABLE             : 13 14 15 16 17 18 19 21 30 34 38
+VARIABLE             : 13 14 15 16 17 18 19 21 30 32 33 33 34 37 41
 WHILE                : 
 error                : 
 
@@ -175,19 +178,19 @@ Nonterminals, with rules where they appear
 
 algoritmo            : 1
 asignacion           : 2 7
-comparadorMat        : 31
+comparadorMat        : 31 32 33 34
 expresion            : 12 18 19 24
 expresionBool        : 6 11 17
-expresionDouble      : 4 9 14 15 28 43
-expresionInt         : 3 8 13 27 31 39
-expresionString      : 5 10 16 26 35
+expresionDouble      : 4 9 14 15 28 31 32 46
+expresionInt         : 3 8 13 27 42
+expresionString      : 5 10 16 26 38
 final                : 0
-operadorMat          : 24 35 39 43
+operadorMat          : 24 38 42 46
 valor                : 24 25
-valorBool            : 32
-valorDouble          : 43 44
-valorInt             : 31 39 40 42
-valorString          : 35 36
+valorBool            : 35
+valorDouble          : 31 34 46 47
+valorInt             : 42 43 45
+valorString          : 38 39
 
 Parsing method: LALR
 
@@ -213,25 +216,28 @@ state 0
     (17) asignacion -> . BOOLR VARIABLE IGUAL expresionBool
     (18) asignacion -> . DYNAMIC VARIABLE IGUAL expresion
     (19) asignacion -> . VAR VARIABLE IGUAL expresion
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (31) expresionBool -> . valorInt comparadorMat expresionInt
-    (32) expresionBool -> . valorBool
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (31) expresionBool -> . valorDouble comparadorMat expresionDouble
+    (32) expresionBool -> . VARIABLE comparadorMat expresionDouble
+    (33) expresionBool -> . VARIABLE comparadorMat VARIABLE
+    (34) expresionBool -> . valorDouble comparadorMat VARIABLE
+    (35) expresionBool -> . valorBool
     (24) expresion -> . valor operadorMat expresion
     (25) expresion -> . valor
     (26) expresion -> . expresionString
     (27) expresion -> . expresionInt
     (28) expresion -> . expresionDouble
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
     (29) valorBool -> . BOOL
     (30) valorBool -> . VARIABLE
     (20) valor -> . ENTERO
@@ -246,8 +252,8 @@ state 0
     BOOLR           shift and go to state 14
     DYNAMIC         shift and go to state 15
     VAR             shift and go to state 16
-    ENTERO          shift and go to state 22
     VARIABLE        shift and go to state 10
+    ENTERO          shift and go to state 22
     DOUBLE          shift and go to state 23
     STRING          shift and go to state 24
     BOOL            shift and go to state 25
@@ -347,18 +353,26 @@ state 9
 
 state 10
 
-    (38) valorInt -> VARIABLE .
-    (34) valorString -> VARIABLE .
+    (32) expresionBool -> VARIABLE . comparadorMat expresionDouble
+    (33) expresionBool -> VARIABLE . comparadorMat VARIABLE
+    (41) valorInt -> VARIABLE .
+    (37) valorString -> VARIABLE .
     (30) valorBool -> VARIABLE .
     (21) valor -> VARIABLE .
+    (54) comparadorMat -> . DIGUAL
+    (55) comparadorMat -> . NOIGUAL
+    (56) comparadorMat -> . MAYOR
+    (57) comparadorMat -> . MENOR
+    (58) comparadorMat -> . MAYIGUAL
+    (59) comparadorMat -> . MENIGUAL
 
-  ! reduce/reduce conflict for SUMA resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for RESTA resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for MULTI resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for DIV resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for DIVENTERO resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for MOD resolved using rule 34 (valorString -> VARIABLE .)
-  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 34 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for SUMA resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for RESTA resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for MULTI resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for DIV resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for DIVENTERO resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for MOD resolved using rule 37 (valorString -> VARIABLE .)
+  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 37 (valorString -> VARIABLE .)
   ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 30 (valorBool -> VARIABLE .)
   ! reduce/reduce conflict for SUMA resolved using rule 21 (valor -> VARIABLE .)
   ! reduce/reduce conflict for RESTA resolved using rule 21 (valor -> VARIABLE .)
@@ -367,12 +381,12 @@ state 10
   ! reduce/reduce conflict for DIVENTERO resolved using rule 21 (valor -> VARIABLE .)
   ! reduce/reduce conflict for MOD resolved using rule 21 (valor -> VARIABLE .)
   ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 21 (valor -> VARIABLE .)
-    DIGUAL          reduce using rule 38 (valorInt -> VARIABLE .)
-    NOIGUAL         reduce using rule 38 (valorInt -> VARIABLE .)
-    MAYOR           reduce using rule 38 (valorInt -> VARIABLE .)
-    MENOR           reduce using rule 38 (valorInt -> VARIABLE .)
-    MAYIGUAL        reduce using rule 38 (valorInt -> VARIABLE .)
-    MENIGUAL        reduce using rule 38 (valorInt -> VARIABLE .)
+  ! shift/reduce conflict for DIGUAL resolved as shift
+  ! shift/reduce conflict for NOIGUAL resolved as shift
+  ! shift/reduce conflict for MAYOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAYIGUAL resolved as shift
+  ! shift/reduce conflict for MENIGUAL resolved as shift
     SUMA            reduce using rule 21 (valor -> VARIABLE .)
     RESTA           reduce using rule 21 (valor -> VARIABLE .)
     MULTI           reduce using rule 21 (valor -> VARIABLE .)
@@ -380,190 +394,210 @@ state 10
     DIVENTERO       reduce using rule 21 (valor -> VARIABLE .)
     MOD             reduce using rule 21 (valor -> VARIABLE .)
     PUNTOYCOMA      reduce using rule 21 (valor -> VARIABLE .)
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
 
-  ! SUMA            [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! RESTA           [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! MULTI           [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! DIV             [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! DIVENTERO       [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! MOD             [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! SUMA            [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! RESTA           [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! MULTI           [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! DIV             [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! DIVENTERO       [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! MOD             [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 34 (valorString -> VARIABLE .) ]
+  ! SUMA            [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! RESTA           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MULTI           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! DIV             [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! DIVENTERO       [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MOD             [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! DIGUAL          [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! NOIGUAL         [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MAYOR           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MENOR           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MAYIGUAL        [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MENIGUAL        [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! SUMA            [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! RESTA           [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! MULTI           [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! DIV             [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! DIVENTERO       [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! MOD             [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 37 (valorString -> VARIABLE .) ]
   ! PUNTOYCOMA      [ reduce using rule 30 (valorBool -> VARIABLE .) ]
 
+    comparadorMat                  shift and go to state 33
 
 state 11
 
     (14) asignacion -> DOUBLER . VARIABLE IGUAL expresionDouble
 
-    VARIABLE        shift and go to state 33
+    VARIABLE        shift and go to state 40
 
 
 state 12
 
     (15) asignacion -> NUM . VARIABLE IGUAL expresionDouble
 
-    VARIABLE        shift and go to state 34
+    VARIABLE        shift and go to state 41
 
 
 state 13
 
     (16) asignacion -> STRINGR . VARIABLE IGUAL expresionString
 
-    VARIABLE        shift and go to state 35
+    VARIABLE        shift and go to state 42
 
 
 state 14
 
     (17) asignacion -> BOOLR . VARIABLE IGUAL expresionBool
 
-    VARIABLE        shift and go to state 36
+    VARIABLE        shift and go to state 43
 
 
 state 15
 
     (18) asignacion -> DYNAMIC . VARIABLE IGUAL expresion
 
-    VARIABLE        shift and go to state 37
+    VARIABLE        shift and go to state 44
 
 
 state 16
 
     (19) asignacion -> VAR . VARIABLE IGUAL expresion
 
-    VARIABLE        shift and go to state 38
+    VARIABLE        shift and go to state 45
 
 
 state 17
 
-    (39) expresionInt -> valorInt . operadorMat expresionInt
-    (40) expresionInt -> valorInt .
-    (31) expresionBool -> valorInt . comparadorMat expresionInt
-    (42) valorDouble -> valorInt .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
-    (51) comparadorMat -> . DIGUAL
-    (52) comparadorMat -> . NOIGUAL
-    (53) comparadorMat -> . MAYOR
-    (54) comparadorMat -> . MENOR
-    (55) comparadorMat -> . MAYIGUAL
-    (56) comparadorMat -> . MENIGUAL
+    (42) expresionInt -> valorInt . operadorMat expresionInt
+    (43) expresionInt -> valorInt .
+    (45) valorDouble -> valorInt .
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
 
-  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 40 (expresionInt -> valorInt .)
+  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 43 (expresionInt -> valorInt .)
   ! shift/reduce conflict for SUMA resolved as shift
   ! shift/reduce conflict for RESTA resolved as shift
   ! shift/reduce conflict for MULTI resolved as shift
   ! shift/reduce conflict for DIV resolved as shift
   ! shift/reduce conflict for DIVENTERO resolved as shift
   ! shift/reduce conflict for MOD resolved as shift
-    PUNTOYCOMA      reduce using rule 40 (expresionInt -> valorInt .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
-    DIGUAL          shift and go to state 47
-    NOIGUAL         shift and go to state 48
-    MAYOR           shift and go to state 49
-    MENOR           shift and go to state 50
-    MAYIGUAL        shift and go to state 51
-    MENIGUAL        shift and go to state 52
+    PUNTOYCOMA      reduce using rule 43 (expresionInt -> valorInt .)
+    DIGUAL          reduce using rule 45 (valorDouble -> valorInt .)
+    NOIGUAL         reduce using rule 45 (valorDouble -> valorInt .)
+    MAYOR           reduce using rule 45 (valorDouble -> valorInt .)
+    MENOR           reduce using rule 45 (valorDouble -> valorInt .)
+    MAYIGUAL        reduce using rule 45 (valorDouble -> valorInt .)
+    MENIGUAL        reduce using rule 45 (valorDouble -> valorInt .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
 
-  ! SUMA            [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! RESTA           [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! MULTI           [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! DIV             [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! DIVENTERO       [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! MOD             [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! PUNTOYCOMA      [ reduce using rule 42 (valorDouble -> valorInt .) ]
+  ! SUMA            [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! RESTA           [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! MULTI           [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! DIV             [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! DIVENTERO       [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! MOD             [ reduce using rule 45 (valorDouble -> valorInt .) ]
+  ! PUNTOYCOMA      [ reduce using rule 45 (valorDouble -> valorInt .) ]
 
-    operadorMat                    shift and go to state 39
-    comparadorMat                  shift and go to state 40
+    operadorMat                    shift and go to state 46
 
 state 18
 
-    (43) expresionDouble -> valorDouble . operadorMat expresionDouble
-    (44) expresionDouble -> valorDouble .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
+    (46) expresionDouble -> valorDouble . operadorMat expresionDouble
+    (47) expresionDouble -> valorDouble .
+    (31) expresionBool -> valorDouble . comparadorMat expresionDouble
+    (34) expresionBool -> valorDouble . comparadorMat VARIABLE
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
+    (54) comparadorMat -> . DIGUAL
+    (55) comparadorMat -> . NOIGUAL
+    (56) comparadorMat -> . MAYOR
+    (57) comparadorMat -> . MENOR
+    (58) comparadorMat -> . MAYIGUAL
+    (59) comparadorMat -> . MENIGUAL
 
-    PUNTOYCOMA      reduce using rule 44 (expresionDouble -> valorDouble .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
+    PUNTOYCOMA      reduce using rule 47 (expresionDouble -> valorDouble .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
 
     operadorMat                    shift and go to state 53
+    comparadorMat                  shift and go to state 54
 
 state 19
 
-    (35) expresionString -> valorString . operadorMat expresionString
-    (36) expresionString -> valorString .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
+    (38) expresionString -> valorString . operadorMat expresionString
+    (39) expresionString -> valorString .
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
 
-    PUNTOYCOMA      reduce using rule 36 (expresionString -> valorString .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
+    PUNTOYCOMA      reduce using rule 39 (expresionString -> valorString .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
 
-    operadorMat                    shift and go to state 54
+    operadorMat                    shift and go to state 55
 
 state 20
 
-    (32) expresionBool -> valorBool .
+    (35) expresionBool -> valorBool .
 
-    PUNTOYCOMA      reduce using rule 32 (expresionBool -> valorBool .)
+    PUNTOYCOMA      reduce using rule 35 (expresionBool -> valorBool .)
 
 
 state 21
 
     (24) expresion -> valor . operadorMat expresion
     (25) expresion -> valor .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
 
     PUNTOYCOMA      reduce using rule 25 (expresion -> valor .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
 
-    operadorMat                    shift and go to state 55
+    operadorMat                    shift and go to state 56
 
 state 22
 
-    (37) valorInt -> ENTERO .
+    (40) valorInt -> ENTERO .
     (20) valor -> ENTERO .
 
   ! reduce/reduce conflict for SUMA resolved using rule 20 (valor -> ENTERO .)
@@ -573,12 +607,12 @@ state 22
   ! reduce/reduce conflict for DIVENTERO resolved using rule 20 (valor -> ENTERO .)
   ! reduce/reduce conflict for MOD resolved using rule 20 (valor -> ENTERO .)
   ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 20 (valor -> ENTERO .)
-    DIGUAL          reduce using rule 37 (valorInt -> ENTERO .)
-    NOIGUAL         reduce using rule 37 (valorInt -> ENTERO .)
-    MAYOR           reduce using rule 37 (valorInt -> ENTERO .)
-    MENOR           reduce using rule 37 (valorInt -> ENTERO .)
-    MAYIGUAL        reduce using rule 37 (valorInt -> ENTERO .)
-    MENIGUAL        reduce using rule 37 (valorInt -> ENTERO .)
+    DIGUAL          reduce using rule 40 (valorInt -> ENTERO .)
+    NOIGUAL         reduce using rule 40 (valorInt -> ENTERO .)
+    MAYOR           reduce using rule 40 (valorInt -> ENTERO .)
+    MENOR           reduce using rule 40 (valorInt -> ENTERO .)
+    MAYIGUAL        reduce using rule 40 (valorInt -> ENTERO .)
+    MENIGUAL        reduce using rule 40 (valorInt -> ENTERO .)
     SUMA            reduce using rule 20 (valor -> ENTERO .)
     RESTA           reduce using rule 20 (valor -> ENTERO .)
     MULTI           reduce using rule 20 (valor -> ENTERO .)
@@ -587,18 +621,18 @@ state 22
     MOD             reduce using rule 20 (valor -> ENTERO .)
     PUNTOYCOMA      reduce using rule 20 (valor -> ENTERO .)
 
-  ! SUMA            [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! RESTA           [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! MULTI           [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! DIV             [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! DIVENTERO       [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! MOD             [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! PUNTOYCOMA      [ reduce using rule 37 (valorInt -> ENTERO .) ]
+  ! SUMA            [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! RESTA           [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! MULTI           [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! DIV             [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! DIVENTERO       [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! MOD             [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! PUNTOYCOMA      [ reduce using rule 40 (valorInt -> ENTERO .) ]
 
 
 state 23
 
-    (41) valorDouble -> DOUBLE .
+    (44) valorDouble -> DOUBLE .
     (22) valor -> DOUBLE .
 
   ! reduce/reduce conflict for SUMA resolved using rule 22 (valor -> DOUBLE .)
@@ -608,6 +642,12 @@ state 23
   ! reduce/reduce conflict for DIVENTERO resolved using rule 22 (valor -> DOUBLE .)
   ! reduce/reduce conflict for MOD resolved using rule 22 (valor -> DOUBLE .)
   ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 22 (valor -> DOUBLE .)
+    DIGUAL          reduce using rule 44 (valorDouble -> DOUBLE .)
+    NOIGUAL         reduce using rule 44 (valorDouble -> DOUBLE .)
+    MAYOR           reduce using rule 44 (valorDouble -> DOUBLE .)
+    MENOR           reduce using rule 44 (valorDouble -> DOUBLE .)
+    MAYIGUAL        reduce using rule 44 (valorDouble -> DOUBLE .)
+    MENIGUAL        reduce using rule 44 (valorDouble -> DOUBLE .)
     SUMA            reduce using rule 22 (valor -> DOUBLE .)
     RESTA           reduce using rule 22 (valor -> DOUBLE .)
     MULTI           reduce using rule 22 (valor -> DOUBLE .)
@@ -616,18 +656,18 @@ state 23
     MOD             reduce using rule 22 (valor -> DOUBLE .)
     PUNTOYCOMA      reduce using rule 22 (valor -> DOUBLE .)
 
-  ! SUMA            [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! RESTA           [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! MULTI           [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! DIV             [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! DIVENTERO       [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! MOD             [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
+  ! SUMA            [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! RESTA           [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! MULTI           [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! DIV             [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! DIVENTERO       [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! MOD             [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
 
 
 state 24
 
-    (33) valorString -> STRING .
+    (36) valorString -> STRING .
     (23) valor -> STRING .
 
   ! reduce/reduce conflict for SUMA resolved using rule 23 (valor -> STRING .)
@@ -645,13 +685,13 @@ state 24
     MOD             reduce using rule 23 (valor -> STRING .)
     PUNTOYCOMA      reduce using rule 23 (valor -> STRING .)
 
-  ! SUMA            [ reduce using rule 33 (valorString -> STRING .) ]
-  ! RESTA           [ reduce using rule 33 (valorString -> STRING .) ]
-  ! MULTI           [ reduce using rule 33 (valorString -> STRING .) ]
-  ! DIV             [ reduce using rule 33 (valorString -> STRING .) ]
-  ! DIVENTERO       [ reduce using rule 33 (valorString -> STRING .) ]
-  ! MOD             [ reduce using rule 33 (valorString -> STRING .) ]
-  ! PUNTOYCOMA      [ reduce using rule 33 (valorString -> STRING .) ]
+  ! SUMA            [ reduce using rule 36 (valorString -> STRING .) ]
+  ! RESTA           [ reduce using rule 36 (valorString -> STRING .) ]
+  ! MULTI           [ reduce using rule 36 (valorString -> STRING .) ]
+  ! DIV             [ reduce using rule 36 (valorString -> STRING .) ]
+  ! DIVENTERO       [ reduce using rule 36 (valorString -> STRING .) ]
+  ! MOD             [ reduce using rule 36 (valorString -> STRING .) ]
+  ! PUNTOYCOMA      [ reduce using rule 36 (valorString -> STRING .) ]
 
 
 state 25
@@ -717,220 +757,250 @@ state 32
 
     (13) asignacion -> INT VARIABLE . IGUAL expresionInt
 
-    IGUAL           shift and go to state 56
+    IGUAL           shift and go to state 57
 
 
 state 33
 
-    (14) asignacion -> DOUBLER VARIABLE . IGUAL expresionDouble
+    (32) expresionBool -> VARIABLE comparadorMat . expresionDouble
+    (33) expresionBool -> VARIABLE comparadorMat . VARIABLE
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
 
-    IGUAL           shift and go to state 57
+    VARIABLE        shift and go to state 58
+    DOUBLE          shift and go to state 61
+    ENTERO          shift and go to state 63
 
+    expresionDouble                shift and go to state 59
+    valorDouble                    shift and go to state 60
+    valorInt                       shift and go to state 62
 
 state 34
 
-    (15) asignacion -> NUM VARIABLE . IGUAL expresionDouble
+    (54) comparadorMat -> DIGUAL .
 
-    IGUAL           shift and go to state 58
+    VARIABLE        reduce using rule 54 (comparadorMat -> DIGUAL .)
+    DOUBLE          reduce using rule 54 (comparadorMat -> DIGUAL .)
+    ENTERO          reduce using rule 54 (comparadorMat -> DIGUAL .)
 
 
 state 35
 
-    (16) asignacion -> STRINGR VARIABLE . IGUAL expresionString
+    (55) comparadorMat -> NOIGUAL .
 
-    IGUAL           shift and go to state 59
+    VARIABLE        reduce using rule 55 (comparadorMat -> NOIGUAL .)
+    DOUBLE          reduce using rule 55 (comparadorMat -> NOIGUAL .)
+    ENTERO          reduce using rule 55 (comparadorMat -> NOIGUAL .)
 
 
 state 36
 
-    (17) asignacion -> BOOLR VARIABLE . IGUAL expresionBool
+    (56) comparadorMat -> MAYOR .
 
-    IGUAL           shift and go to state 60
+    VARIABLE        reduce using rule 56 (comparadorMat -> MAYOR .)
+    DOUBLE          reduce using rule 56 (comparadorMat -> MAYOR .)
+    ENTERO          reduce using rule 56 (comparadorMat -> MAYOR .)
 
 
 state 37
 
-    (18) asignacion -> DYNAMIC VARIABLE . IGUAL expresion
+    (57) comparadorMat -> MENOR .
 
-    IGUAL           shift and go to state 61
+    VARIABLE        reduce using rule 57 (comparadorMat -> MENOR .)
+    DOUBLE          reduce using rule 57 (comparadorMat -> MENOR .)
+    ENTERO          reduce using rule 57 (comparadorMat -> MENOR .)
 
 
 state 38
 
-    (19) asignacion -> VAR VARIABLE . IGUAL expresion
+    (58) comparadorMat -> MAYIGUAL .
 
-    IGUAL           shift and go to state 62
+    VARIABLE        reduce using rule 58 (comparadorMat -> MAYIGUAL .)
+    DOUBLE          reduce using rule 58 (comparadorMat -> MAYIGUAL .)
+    ENTERO          reduce using rule 58 (comparadorMat -> MAYIGUAL .)
 
 
 state 39
 
-    (39) expresionInt -> valorInt operadorMat . expresionInt
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
+    (59) comparadorMat -> MENIGUAL .
 
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
+    VARIABLE        reduce using rule 59 (comparadorMat -> MENIGUAL .)
+    DOUBLE          reduce using rule 59 (comparadorMat -> MENIGUAL .)
+    ENTERO          reduce using rule 59 (comparadorMat -> MENIGUAL .)
 
-    valorInt                       shift and go to state 63
-    expresionInt                   shift and go to state 64
 
 state 40
 
-    (31) expresionBool -> valorInt comparadorMat . expresionInt
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
+    (14) asignacion -> DOUBLER VARIABLE . IGUAL expresionDouble
 
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
+    IGUAL           shift and go to state 64
 
-    valorInt                       shift and go to state 63
-    expresionInt                   shift and go to state 67
 
 state 41
 
-    (45) operadorMat -> SUMA .
+    (15) asignacion -> NUM VARIABLE . IGUAL expresionDouble
 
-    ENTERO          reduce using rule 45 (operadorMat -> SUMA .)
-    VARIABLE        reduce using rule 45 (operadorMat -> SUMA .)
-    DOUBLE          reduce using rule 45 (operadorMat -> SUMA .)
-    STRING          reduce using rule 45 (operadorMat -> SUMA .)
+    IGUAL           shift and go to state 65
 
 
 state 42
 
-    (46) operadorMat -> RESTA .
+    (16) asignacion -> STRINGR VARIABLE . IGUAL expresionString
 
-    ENTERO          reduce using rule 46 (operadorMat -> RESTA .)
-    VARIABLE        reduce using rule 46 (operadorMat -> RESTA .)
-    DOUBLE          reduce using rule 46 (operadorMat -> RESTA .)
-    STRING          reduce using rule 46 (operadorMat -> RESTA .)
+    IGUAL           shift and go to state 66
 
 
 state 43
 
-    (47) operadorMat -> MULTI .
+    (17) asignacion -> BOOLR VARIABLE . IGUAL expresionBool
 
-    ENTERO          reduce using rule 47 (operadorMat -> MULTI .)
-    VARIABLE        reduce using rule 47 (operadorMat -> MULTI .)
-    DOUBLE          reduce using rule 47 (operadorMat -> MULTI .)
-    STRING          reduce using rule 47 (operadorMat -> MULTI .)
+    IGUAL           shift and go to state 67
 
 
 state 44
 
-    (48) operadorMat -> DIV .
+    (18) asignacion -> DYNAMIC VARIABLE . IGUAL expresion
 
-    ENTERO          reduce using rule 48 (operadorMat -> DIV .)
-    VARIABLE        reduce using rule 48 (operadorMat -> DIV .)
-    DOUBLE          reduce using rule 48 (operadorMat -> DIV .)
-    STRING          reduce using rule 48 (operadorMat -> DIV .)
+    IGUAL           shift and go to state 68
 
 
 state 45
 
-    (49) operadorMat -> DIVENTERO .
+    (19) asignacion -> VAR VARIABLE . IGUAL expresion
 
-    ENTERO          reduce using rule 49 (operadorMat -> DIVENTERO .)
-    VARIABLE        reduce using rule 49 (operadorMat -> DIVENTERO .)
-    DOUBLE          reduce using rule 49 (operadorMat -> DIVENTERO .)
-    STRING          reduce using rule 49 (operadorMat -> DIVENTERO .)
+    IGUAL           shift and go to state 69
 
 
 state 46
 
-    (50) operadorMat -> MOD .
+    (42) expresionInt -> valorInt operadorMat . expresionInt
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
 
-    ENTERO          reduce using rule 50 (operadorMat -> MOD .)
-    VARIABLE        reduce using rule 50 (operadorMat -> MOD .)
-    DOUBLE          reduce using rule 50 (operadorMat -> MOD .)
-    STRING          reduce using rule 50 (operadorMat -> MOD .)
+    ENTERO          shift and go to state 63
+    VARIABLE        shift and go to state 72
 
+    valorInt                       shift and go to state 70
+    expresionInt                   shift and go to state 71
 
 state 47
 
-    (51) comparadorMat -> DIGUAL .
+    (48) operadorMat -> SUMA .
 
-    ENTERO          reduce using rule 51 (comparadorMat -> DIGUAL .)
-    VARIABLE        reduce using rule 51 (comparadorMat -> DIGUAL .)
+    ENTERO          reduce using rule 48 (operadorMat -> SUMA .)
+    VARIABLE        reduce using rule 48 (operadorMat -> SUMA .)
+    DOUBLE          reduce using rule 48 (operadorMat -> SUMA .)
+    STRING          reduce using rule 48 (operadorMat -> SUMA .)
 
 
 state 48
 
-    (52) comparadorMat -> NOIGUAL .
+    (49) operadorMat -> RESTA .
 
-    ENTERO          reduce using rule 52 (comparadorMat -> NOIGUAL .)
-    VARIABLE        reduce using rule 52 (comparadorMat -> NOIGUAL .)
+    ENTERO          reduce using rule 49 (operadorMat -> RESTA .)
+    VARIABLE        reduce using rule 49 (operadorMat -> RESTA .)
+    DOUBLE          reduce using rule 49 (operadorMat -> RESTA .)
+    STRING          reduce using rule 49 (operadorMat -> RESTA .)
 
 
 state 49
 
-    (53) comparadorMat -> MAYOR .
+    (50) operadorMat -> MULTI .
 
-    ENTERO          reduce using rule 53 (comparadorMat -> MAYOR .)
-    VARIABLE        reduce using rule 53 (comparadorMat -> MAYOR .)
+    ENTERO          reduce using rule 50 (operadorMat -> MULTI .)
+    VARIABLE        reduce using rule 50 (operadorMat -> MULTI .)
+    DOUBLE          reduce using rule 50 (operadorMat -> MULTI .)
+    STRING          reduce using rule 50 (operadorMat -> MULTI .)
 
 
 state 50
 
-    (54) comparadorMat -> MENOR .
+    (51) operadorMat -> DIV .
 
-    ENTERO          reduce using rule 54 (comparadorMat -> MENOR .)
-    VARIABLE        reduce using rule 54 (comparadorMat -> MENOR .)
+    ENTERO          reduce using rule 51 (operadorMat -> DIV .)
+    VARIABLE        reduce using rule 51 (operadorMat -> DIV .)
+    DOUBLE          reduce using rule 51 (operadorMat -> DIV .)
+    STRING          reduce using rule 51 (operadorMat -> DIV .)
 
 
 state 51
 
-    (55) comparadorMat -> MAYIGUAL .
+    (52) operadorMat -> DIVENTERO .
 
-    ENTERO          reduce using rule 55 (comparadorMat -> MAYIGUAL .)
-    VARIABLE        reduce using rule 55 (comparadorMat -> MAYIGUAL .)
+    ENTERO          reduce using rule 52 (operadorMat -> DIVENTERO .)
+    VARIABLE        reduce using rule 52 (operadorMat -> DIVENTERO .)
+    DOUBLE          reduce using rule 52 (operadorMat -> DIVENTERO .)
+    STRING          reduce using rule 52 (operadorMat -> DIVENTERO .)
 
 
 state 52
 
-    (56) comparadorMat -> MENIGUAL .
+    (53) operadorMat -> MOD .
 
-    ENTERO          reduce using rule 56 (comparadorMat -> MENIGUAL .)
-    VARIABLE        reduce using rule 56 (comparadorMat -> MENIGUAL .)
+    ENTERO          reduce using rule 53 (operadorMat -> MOD .)
+    VARIABLE        reduce using rule 53 (operadorMat -> MOD .)
+    DOUBLE          reduce using rule 53 (operadorMat -> MOD .)
+    STRING          reduce using rule 53 (operadorMat -> MOD .)
 
 
 state 53
 
-    (43) expresionDouble -> valorDouble operadorMat . expresionDouble
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
+    (46) expresionDouble -> valorDouble operadorMat . expresionDouble
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
 
-    DOUBLE          shift and go to state 69
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
+    DOUBLE          shift and go to state 61
+    ENTERO          shift and go to state 63
+    VARIABLE        shift and go to state 72
 
-    valorDouble                    shift and go to state 18
-    expresionDouble                shift and go to state 68
-    valorInt                       shift and go to state 70
+    valorDouble                    shift and go to state 60
+    expresionDouble                shift and go to state 73
+    valorInt                       shift and go to state 62
 
 state 54
 
-    (35) expresionString -> valorString operadorMat . expresionString
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
+    (31) expresionBool -> valorDouble comparadorMat . expresionDouble
+    (34) expresionBool -> valorDouble comparadorMat . VARIABLE
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
 
-    STRING          shift and go to state 72
-    VARIABLE        shift and go to state 73
+    VARIABLE        shift and go to state 75
+    DOUBLE          shift and go to state 61
+    ENTERO          shift and go to state 63
 
-    valorString                    shift and go to state 19
-    expresionString                shift and go to state 71
+    valorDouble                    shift and go to state 60
+    expresionDouble                shift and go to state 74
+    valorInt                       shift and go to state 62
 
 state 55
+
+    (38) expresionString -> valorString operadorMat . expresionString
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
+
+    STRING          shift and go to state 77
+    VARIABLE        shift and go to state 78
+
+    valorString                    shift and go to state 19
+    expresionString                shift and go to state 76
+
+state 56
 
     (24) expresion -> valor operadorMat . expresion
     (24) expresion -> . valor operadorMat expresion
@@ -942,116 +1012,225 @@ state 55
     (21) valor -> . VARIABLE
     (22) valor -> . DOUBLE
     (23) valor -> . STRING
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
 
-    ENTERO          shift and go to state 78
-    VARIABLE        shift and go to state 79
-    DOUBLE          shift and go to state 80
-    STRING          shift and go to state 81
+    ENTERO          shift and go to state 83
+    VARIABLE        shift and go to state 84
+    DOUBLE          shift and go to state 85
+    STRING          shift and go to state 86
 
     valor                          shift and go to state 21
-    expresion                      shift and go to state 74
-    expresionString                shift and go to state 75
-    expresionInt                   shift and go to state 76
-    expresionDouble                shift and go to state 77
+    expresion                      shift and go to state 79
+    expresionString                shift and go to state 80
+    expresionInt                   shift and go to state 81
+    expresionDouble                shift and go to state 82
     valorString                    shift and go to state 19
-    valorInt                       shift and go to state 82
-    valorDouble                    shift and go to state 18
-
-state 56
-
-    (13) asignacion -> INT VARIABLE IGUAL . expresionInt
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
-
-    expresionInt                   shift and go to state 83
-    valorInt                       shift and go to state 63
+    valorInt                       shift and go to state 17
+    valorDouble                    shift and go to state 60
 
 state 57
 
-    (14) asignacion -> DOUBLER VARIABLE IGUAL . expresionDouble
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
+    (13) asignacion -> INT VARIABLE IGUAL . expresionInt
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
 
-    DOUBLE          shift and go to state 69
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
+    ENTERO          shift and go to state 63
+    VARIABLE        shift and go to state 72
 
-    expresionDouble                shift and go to state 84
-    valorDouble                    shift and go to state 18
+    expresionInt                   shift and go to state 87
     valorInt                       shift and go to state 70
 
 state 58
 
-    (15) asignacion -> NUM VARIABLE IGUAL . expresionDouble
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
+    (33) expresionBool -> VARIABLE comparadorMat VARIABLE .
+    (41) valorInt -> VARIABLE .
 
-    DOUBLE          shift and go to state 69
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 66
+  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 33 (expresionBool -> VARIABLE comparadorMat VARIABLE .)
+    PUNTOYCOMA      reduce using rule 33 (expresionBool -> VARIABLE comparadorMat VARIABLE .)
+    SUMA            reduce using rule 41 (valorInt -> VARIABLE .)
+    RESTA           reduce using rule 41 (valorInt -> VARIABLE .)
+    MULTI           reduce using rule 41 (valorInt -> VARIABLE .)
+    DIV             reduce using rule 41 (valorInt -> VARIABLE .)
+    DIVENTERO       reduce using rule 41 (valorInt -> VARIABLE .)
+    MOD             reduce using rule 41 (valorInt -> VARIABLE .)
 
-    expresionDouble                shift and go to state 85
-    valorDouble                    shift and go to state 18
-    valorInt                       shift and go to state 70
+  ! PUNTOYCOMA      [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+
 
 state 59
 
-    (16) asignacion -> STRINGR VARIABLE IGUAL . expresionString
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
+    (32) expresionBool -> VARIABLE comparadorMat expresionDouble .
 
-    STRING          shift and go to state 72
-    VARIABLE        shift and go to state 73
+    PUNTOYCOMA      reduce using rule 32 (expresionBool -> VARIABLE comparadorMat expresionDouble .)
 
-    expresionString                shift and go to state 86
-    valorString                    shift and go to state 19
 
 state 60
 
-    (17) asignacion -> BOOLR VARIABLE IGUAL . expresionBool
-    (31) expresionBool -> . valorInt comparadorMat expresionInt
-    (32) expresionBool -> . valorBool
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-    (29) valorBool -> . BOOL
-    (30) valorBool -> . VARIABLE
+    (46) expresionDouble -> valorDouble . operadorMat expresionDouble
+    (47) expresionDouble -> valorDouble .
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
 
-    ENTERO          shift and go to state 65
-    VARIABLE        shift and go to state 87
-    BOOL            shift and go to state 25
+    PUNTOYCOMA      reduce using rule 47 (expresionDouble -> valorDouble .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
 
-    expresionBool                  shift and go to state 88
-    valorInt                       shift and go to state 89
-    valorBool                      shift and go to state 20
+    operadorMat                    shift and go to state 53
 
 state 61
+
+    (44) valorDouble -> DOUBLE .
+
+    SUMA            reduce using rule 44 (valorDouble -> DOUBLE .)
+    RESTA           reduce using rule 44 (valorDouble -> DOUBLE .)
+    MULTI           reduce using rule 44 (valorDouble -> DOUBLE .)
+    DIV             reduce using rule 44 (valorDouble -> DOUBLE .)
+    DIVENTERO       reduce using rule 44 (valorDouble -> DOUBLE .)
+    MOD             reduce using rule 44 (valorDouble -> DOUBLE .)
+    PUNTOYCOMA      reduce using rule 44 (valorDouble -> DOUBLE .)
+    DIGUAL          reduce using rule 44 (valorDouble -> DOUBLE .)
+    NOIGUAL         reduce using rule 44 (valorDouble -> DOUBLE .)
+    MAYOR           reduce using rule 44 (valorDouble -> DOUBLE .)
+    MENOR           reduce using rule 44 (valorDouble -> DOUBLE .)
+    MAYIGUAL        reduce using rule 44 (valorDouble -> DOUBLE .)
+    MENIGUAL        reduce using rule 44 (valorDouble -> DOUBLE .)
+
+
+state 62
+
+    (45) valorDouble -> valorInt .
+
+    SUMA            reduce using rule 45 (valorDouble -> valorInt .)
+    RESTA           reduce using rule 45 (valorDouble -> valorInt .)
+    MULTI           reduce using rule 45 (valorDouble -> valorInt .)
+    DIV             reduce using rule 45 (valorDouble -> valorInt .)
+    DIVENTERO       reduce using rule 45 (valorDouble -> valorInt .)
+    MOD             reduce using rule 45 (valorDouble -> valorInt .)
+    PUNTOYCOMA      reduce using rule 45 (valorDouble -> valorInt .)
+    DIGUAL          reduce using rule 45 (valorDouble -> valorInt .)
+    NOIGUAL         reduce using rule 45 (valorDouble -> valorInt .)
+    MAYOR           reduce using rule 45 (valorDouble -> valorInt .)
+    MENOR           reduce using rule 45 (valorDouble -> valorInt .)
+    MAYIGUAL        reduce using rule 45 (valorDouble -> valorInt .)
+    MENIGUAL        reduce using rule 45 (valorDouble -> valorInt .)
+
+
+state 63
+
+    (40) valorInt -> ENTERO .
+
+    SUMA            reduce using rule 40 (valorInt -> ENTERO .)
+    RESTA           reduce using rule 40 (valorInt -> ENTERO .)
+    MULTI           reduce using rule 40 (valorInt -> ENTERO .)
+    DIV             reduce using rule 40 (valorInt -> ENTERO .)
+    DIVENTERO       reduce using rule 40 (valorInt -> ENTERO .)
+    MOD             reduce using rule 40 (valorInt -> ENTERO .)
+    PUNTOYCOMA      reduce using rule 40 (valorInt -> ENTERO .)
+    DIGUAL          reduce using rule 40 (valorInt -> ENTERO .)
+    NOIGUAL         reduce using rule 40 (valorInt -> ENTERO .)
+    MAYOR           reduce using rule 40 (valorInt -> ENTERO .)
+    MENOR           reduce using rule 40 (valorInt -> ENTERO .)
+    MAYIGUAL        reduce using rule 40 (valorInt -> ENTERO .)
+    MENIGUAL        reduce using rule 40 (valorInt -> ENTERO .)
+
+
+state 64
+
+    (14) asignacion -> DOUBLER VARIABLE IGUAL . expresionDouble
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+
+    DOUBLE          shift and go to state 61
+    ENTERO          shift and go to state 63
+    VARIABLE        shift and go to state 72
+
+    expresionDouble                shift and go to state 88
+    valorDouble                    shift and go to state 60
+    valorInt                       shift and go to state 62
+
+state 65
+
+    (15) asignacion -> NUM VARIABLE IGUAL . expresionDouble
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+
+    DOUBLE          shift and go to state 61
+    ENTERO          shift and go to state 63
+    VARIABLE        shift and go to state 72
+
+    expresionDouble                shift and go to state 89
+    valorDouble                    shift and go to state 60
+    valorInt                       shift and go to state 62
+
+state 66
+
+    (16) asignacion -> STRINGR VARIABLE IGUAL . expresionString
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
+
+    STRING          shift and go to state 77
+    VARIABLE        shift and go to state 78
+
+    expresionString                shift and go to state 90
+    valorString                    shift and go to state 19
+
+state 67
+
+    (17) asignacion -> BOOLR VARIABLE IGUAL . expresionBool
+    (31) expresionBool -> . valorDouble comparadorMat expresionDouble
+    (32) expresionBool -> . VARIABLE comparadorMat expresionDouble
+    (33) expresionBool -> . VARIABLE comparadorMat VARIABLE
+    (34) expresionBool -> . valorDouble comparadorMat VARIABLE
+    (35) expresionBool -> . valorBool
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
+    (29) valorBool -> . BOOL
+    (30) valorBool -> . VARIABLE
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+
+    VARIABLE        shift and go to state 91
+    DOUBLE          shift and go to state 61
+    BOOL            shift and go to state 25
+    ENTERO          shift and go to state 63
+
+    expresionBool                  shift and go to state 92
+    valorDouble                    shift and go to state 93
+    valorBool                      shift and go to state 20
+    valorInt                       shift and go to state 62
+
+state 68
 
     (18) asignacion -> DYNAMIC VARIABLE IGUAL . expresion
     (24) expresion -> . valor operadorMat expresion
@@ -1063,34 +1242,34 @@ state 61
     (21) valor -> . VARIABLE
     (22) valor -> . DOUBLE
     (23) valor -> . STRING
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
 
-    ENTERO          shift and go to state 78
-    VARIABLE        shift and go to state 79
-    DOUBLE          shift and go to state 80
-    STRING          shift and go to state 81
+    ENTERO          shift and go to state 83
+    VARIABLE        shift and go to state 84
+    DOUBLE          shift and go to state 85
+    STRING          shift and go to state 86
 
-    expresion                      shift and go to state 90
+    expresion                      shift and go to state 94
     valor                          shift and go to state 21
-    expresionString                shift and go to state 75
-    expresionInt                   shift and go to state 76
-    expresionDouble                shift and go to state 77
+    expresionString                shift and go to state 80
+    expresionInt                   shift and go to state 81
+    expresionDouble                shift and go to state 82
     valorString                    shift and go to state 19
-    valorInt                       shift and go to state 82
-    valorDouble                    shift and go to state 18
+    valorInt                       shift and go to state 17
+    valorDouble                    shift and go to state 60
 
-state 62
+state 69
 
     (19) asignacion -> VAR VARIABLE IGUAL . expresion
     (24) expresion -> . valor operadorMat expresion
@@ -1102,198 +1281,170 @@ state 62
     (21) valor -> . VARIABLE
     (22) valor -> . DOUBLE
     (23) valor -> . STRING
-    (35) expresionString -> . valorString operadorMat expresionString
-    (36) expresionString -> . valorString
-    (39) expresionInt -> . valorInt operadorMat expresionInt
-    (40) expresionInt -> . valorInt
-    (43) expresionDouble -> . valorDouble operadorMat expresionDouble
-    (44) expresionDouble -> . valorDouble
-    (33) valorString -> . STRING
-    (34) valorString -> . VARIABLE
-    (37) valorInt -> . ENTERO
-    (38) valorInt -> . VARIABLE
-    (41) valorDouble -> . DOUBLE
-    (42) valorDouble -> . valorInt
+    (38) expresionString -> . valorString operadorMat expresionString
+    (39) expresionString -> . valorString
+    (42) expresionInt -> . valorInt operadorMat expresionInt
+    (43) expresionInt -> . valorInt
+    (46) expresionDouble -> . valorDouble operadorMat expresionDouble
+    (47) expresionDouble -> . valorDouble
+    (36) valorString -> . STRING
+    (37) valorString -> . VARIABLE
+    (40) valorInt -> . ENTERO
+    (41) valorInt -> . VARIABLE
+    (44) valorDouble -> . DOUBLE
+    (45) valorDouble -> . valorInt
 
-    ENTERO          shift and go to state 78
-    VARIABLE        shift and go to state 79
-    DOUBLE          shift and go to state 80
-    STRING          shift and go to state 81
+    ENTERO          shift and go to state 83
+    VARIABLE        shift and go to state 84
+    DOUBLE          shift and go to state 85
+    STRING          shift and go to state 86
 
-    expresion                      shift and go to state 91
+    expresion                      shift and go to state 95
     valor                          shift and go to state 21
-    expresionString                shift and go to state 75
-    expresionInt                   shift and go to state 76
-    expresionDouble                shift and go to state 77
+    expresionString                shift and go to state 80
+    expresionInt                   shift and go to state 81
+    expresionDouble                shift and go to state 82
     valorString                    shift and go to state 19
-    valorInt                       shift and go to state 82
-    valorDouble                    shift and go to state 18
-
-state 63
-
-    (39) expresionInt -> valorInt . operadorMat expresionInt
-    (40) expresionInt -> valorInt .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
-
-    PUNTOYCOMA      reduce using rule 40 (expresionInt -> valorInt .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
-
-    operadorMat                    shift and go to state 39
-
-state 64
-
-    (39) expresionInt -> valorInt operadorMat expresionInt .
-
-    PUNTOYCOMA      reduce using rule 39 (expresionInt -> valorInt operadorMat expresionInt .)
-
-
-state 65
-
-    (37) valorInt -> ENTERO .
-
-    SUMA            reduce using rule 37 (valorInt -> ENTERO .)
-    RESTA           reduce using rule 37 (valorInt -> ENTERO .)
-    MULTI           reduce using rule 37 (valorInt -> ENTERO .)
-    DIV             reduce using rule 37 (valorInt -> ENTERO .)
-    DIVENTERO       reduce using rule 37 (valorInt -> ENTERO .)
-    MOD             reduce using rule 37 (valorInt -> ENTERO .)
-    PUNTOYCOMA      reduce using rule 37 (valorInt -> ENTERO .)
-    DIGUAL          reduce using rule 37 (valorInt -> ENTERO .)
-    NOIGUAL         reduce using rule 37 (valorInt -> ENTERO .)
-    MAYOR           reduce using rule 37 (valorInt -> ENTERO .)
-    MENOR           reduce using rule 37 (valorInt -> ENTERO .)
-    MAYIGUAL        reduce using rule 37 (valorInt -> ENTERO .)
-    MENIGUAL        reduce using rule 37 (valorInt -> ENTERO .)
-
-
-state 66
-
-    (38) valorInt -> VARIABLE .
-
-    SUMA            reduce using rule 38 (valorInt -> VARIABLE .)
-    RESTA           reduce using rule 38 (valorInt -> VARIABLE .)
-    MULTI           reduce using rule 38 (valorInt -> VARIABLE .)
-    DIV             reduce using rule 38 (valorInt -> VARIABLE .)
-    DIVENTERO       reduce using rule 38 (valorInt -> VARIABLE .)
-    MOD             reduce using rule 38 (valorInt -> VARIABLE .)
-    PUNTOYCOMA      reduce using rule 38 (valorInt -> VARIABLE .)
-
-
-state 67
-
-    (31) expresionBool -> valorInt comparadorMat expresionInt .
-
-    PUNTOYCOMA      reduce using rule 31 (expresionBool -> valorInt comparadorMat expresionInt .)
-
-
-state 68
-
-    (43) expresionDouble -> valorDouble operadorMat expresionDouble .
-
-    PUNTOYCOMA      reduce using rule 43 (expresionDouble -> valorDouble operadorMat expresionDouble .)
-
-
-state 69
-
-    (41) valorDouble -> DOUBLE .
-
-    SUMA            reduce using rule 41 (valorDouble -> DOUBLE .)
-    RESTA           reduce using rule 41 (valorDouble -> DOUBLE .)
-    MULTI           reduce using rule 41 (valorDouble -> DOUBLE .)
-    DIV             reduce using rule 41 (valorDouble -> DOUBLE .)
-    DIVENTERO       reduce using rule 41 (valorDouble -> DOUBLE .)
-    MOD             reduce using rule 41 (valorDouble -> DOUBLE .)
-    PUNTOYCOMA      reduce using rule 41 (valorDouble -> DOUBLE .)
-
+    valorInt                       shift and go to state 17
+    valorDouble                    shift and go to state 60
 
 state 70
 
-    (42) valorDouble -> valorInt .
+    (42) expresionInt -> valorInt . operadorMat expresionInt
+    (43) expresionInt -> valorInt .
+    (48) operadorMat -> . SUMA
+    (49) operadorMat -> . RESTA
+    (50) operadorMat -> . MULTI
+    (51) operadorMat -> . DIV
+    (52) operadorMat -> . DIVENTERO
+    (53) operadorMat -> . MOD
 
-    SUMA            reduce using rule 42 (valorDouble -> valorInt .)
-    RESTA           reduce using rule 42 (valorDouble -> valorInt .)
-    MULTI           reduce using rule 42 (valorDouble -> valorInt .)
-    DIV             reduce using rule 42 (valorDouble -> valorInt .)
-    DIVENTERO       reduce using rule 42 (valorDouble -> valorInt .)
-    MOD             reduce using rule 42 (valorDouble -> valorInt .)
-    PUNTOYCOMA      reduce using rule 42 (valorDouble -> valorInt .)
+    PUNTOYCOMA      reduce using rule 43 (expresionInt -> valorInt .)
+    SUMA            shift and go to state 47
+    RESTA           shift and go to state 48
+    MULTI           shift and go to state 49
+    DIV             shift and go to state 50
+    DIVENTERO       shift and go to state 51
+    MOD             shift and go to state 52
 
+    operadorMat                    shift and go to state 46
 
 state 71
 
-    (35) expresionString -> valorString operadorMat expresionString .
+    (42) expresionInt -> valorInt operadorMat expresionInt .
 
-    PUNTOYCOMA      reduce using rule 35 (expresionString -> valorString operadorMat expresionString .)
+    PUNTOYCOMA      reduce using rule 42 (expresionInt -> valorInt operadorMat expresionInt .)
 
 
 state 72
 
-    (33) valorString -> STRING .
+    (41) valorInt -> VARIABLE .
 
-    SUMA            reduce using rule 33 (valorString -> STRING .)
-    RESTA           reduce using rule 33 (valorString -> STRING .)
-    MULTI           reduce using rule 33 (valorString -> STRING .)
-    DIV             reduce using rule 33 (valorString -> STRING .)
-    DIVENTERO       reduce using rule 33 (valorString -> STRING .)
-    MOD             reduce using rule 33 (valorString -> STRING .)
-    PUNTOYCOMA      reduce using rule 33 (valorString -> STRING .)
+    SUMA            reduce using rule 41 (valorInt -> VARIABLE .)
+    RESTA           reduce using rule 41 (valorInt -> VARIABLE .)
+    MULTI           reduce using rule 41 (valorInt -> VARIABLE .)
+    DIV             reduce using rule 41 (valorInt -> VARIABLE .)
+    DIVENTERO       reduce using rule 41 (valorInt -> VARIABLE .)
+    MOD             reduce using rule 41 (valorInt -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 41 (valorInt -> VARIABLE .)
 
 
 state 73
 
-    (34) valorString -> VARIABLE .
+    (46) expresionDouble -> valorDouble operadorMat expresionDouble .
 
-    SUMA            reduce using rule 34 (valorString -> VARIABLE .)
-    RESTA           reduce using rule 34 (valorString -> VARIABLE .)
-    MULTI           reduce using rule 34 (valorString -> VARIABLE .)
-    DIV             reduce using rule 34 (valorString -> VARIABLE .)
-    DIVENTERO       reduce using rule 34 (valorString -> VARIABLE .)
-    MOD             reduce using rule 34 (valorString -> VARIABLE .)
-    PUNTOYCOMA      reduce using rule 34 (valorString -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 46 (expresionDouble -> valorDouble operadorMat expresionDouble .)
 
 
 state 74
+
+    (31) expresionBool -> valorDouble comparadorMat expresionDouble .
+
+    PUNTOYCOMA      reduce using rule 31 (expresionBool -> valorDouble comparadorMat expresionDouble .)
+
+
+state 75
+
+    (34) expresionBool -> valorDouble comparadorMat VARIABLE .
+    (41) valorInt -> VARIABLE .
+
+  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 34 (expresionBool -> valorDouble comparadorMat VARIABLE .)
+    PUNTOYCOMA      reduce using rule 34 (expresionBool -> valorDouble comparadorMat VARIABLE .)
+    SUMA            reduce using rule 41 (valorInt -> VARIABLE .)
+    RESTA           reduce using rule 41 (valorInt -> VARIABLE .)
+    MULTI           reduce using rule 41 (valorInt -> VARIABLE .)
+    DIV             reduce using rule 41 (valorInt -> VARIABLE .)
+    DIVENTERO       reduce using rule 41 (valorInt -> VARIABLE .)
+    MOD             reduce using rule 41 (valorInt -> VARIABLE .)
+
+  ! PUNTOYCOMA      [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+
+
+state 76
+
+    (38) expresionString -> valorString operadorMat expresionString .
+
+    PUNTOYCOMA      reduce using rule 38 (expresionString -> valorString operadorMat expresionString .)
+
+
+state 77
+
+    (36) valorString -> STRING .
+
+    SUMA            reduce using rule 36 (valorString -> STRING .)
+    RESTA           reduce using rule 36 (valorString -> STRING .)
+    MULTI           reduce using rule 36 (valorString -> STRING .)
+    DIV             reduce using rule 36 (valorString -> STRING .)
+    DIVENTERO       reduce using rule 36 (valorString -> STRING .)
+    MOD             reduce using rule 36 (valorString -> STRING .)
+    PUNTOYCOMA      reduce using rule 36 (valorString -> STRING .)
+
+
+state 78
+
+    (37) valorString -> VARIABLE .
+
+    SUMA            reduce using rule 37 (valorString -> VARIABLE .)
+    RESTA           reduce using rule 37 (valorString -> VARIABLE .)
+    MULTI           reduce using rule 37 (valorString -> VARIABLE .)
+    DIV             reduce using rule 37 (valorString -> VARIABLE .)
+    DIVENTERO       reduce using rule 37 (valorString -> VARIABLE .)
+    MOD             reduce using rule 37 (valorString -> VARIABLE .)
+    PUNTOYCOMA      reduce using rule 37 (valorString -> VARIABLE .)
+
+
+state 79
 
     (24) expresion -> valor operadorMat expresion .
 
     PUNTOYCOMA      reduce using rule 24 (expresion -> valor operadorMat expresion .)
 
 
-state 75
+state 80
 
     (26) expresion -> expresionString .
 
     PUNTOYCOMA      reduce using rule 26 (expresion -> expresionString .)
 
 
-state 76
+state 81
 
     (27) expresion -> expresionInt .
 
     PUNTOYCOMA      reduce using rule 27 (expresion -> expresionInt .)
 
 
-state 77
+state 82
 
     (28) expresion -> expresionDouble .
 
     PUNTOYCOMA      reduce using rule 28 (expresion -> expresionDouble .)
 
 
-state 78
+state 83
 
     (20) valor -> ENTERO .
-    (37) valorInt -> ENTERO .
+    (40) valorInt -> ENTERO .
 
   ! reduce/reduce conflict for SUMA resolved using rule 20 (valor -> ENTERO .)
   ! reduce/reduce conflict for RESTA resolved using rule 20 (valor -> ENTERO .)
@@ -1310,20 +1461,20 @@ state 78
     MOD             reduce using rule 20 (valor -> ENTERO .)
     PUNTOYCOMA      reduce using rule 20 (valor -> ENTERO .)
 
-  ! SUMA            [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! RESTA           [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! MULTI           [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! DIV             [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! DIVENTERO       [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! MOD             [ reduce using rule 37 (valorInt -> ENTERO .) ]
-  ! PUNTOYCOMA      [ reduce using rule 37 (valorInt -> ENTERO .) ]
+  ! SUMA            [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! RESTA           [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! MULTI           [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! DIV             [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! DIVENTERO       [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! MOD             [ reduce using rule 40 (valorInt -> ENTERO .) ]
+  ! PUNTOYCOMA      [ reduce using rule 40 (valorInt -> ENTERO .) ]
 
 
-state 79
+state 84
 
     (21) valor -> VARIABLE .
-    (34) valorString -> VARIABLE .
-    (38) valorInt -> VARIABLE .
+    (37) valorString -> VARIABLE .
+    (41) valorInt -> VARIABLE .
 
   ! reduce/reduce conflict for SUMA resolved using rule 21 (valor -> VARIABLE .)
   ! reduce/reduce conflict for RESTA resolved using rule 21 (valor -> VARIABLE .)
@@ -1347,26 +1498,26 @@ state 79
     MOD             reduce using rule 21 (valor -> VARIABLE .)
     PUNTOYCOMA      reduce using rule 21 (valor -> VARIABLE .)
 
-  ! SUMA            [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! RESTA           [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! MULTI           [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! DIV             [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! DIVENTERO       [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! MOD             [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 34 (valorString -> VARIABLE .) ]
-  ! SUMA            [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! RESTA           [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! MULTI           [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! DIV             [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! DIVENTERO       [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! MOD             [ reduce using rule 38 (valorInt -> VARIABLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 38 (valorInt -> VARIABLE .) ]
+  ! SUMA            [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! RESTA           [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! MULTI           [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! DIV             [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! DIVENTERO       [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! MOD             [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 37 (valorString -> VARIABLE .) ]
+  ! SUMA            [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! RESTA           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MULTI           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! DIV             [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! DIVENTERO       [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MOD             [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 41 (valorInt -> VARIABLE .) ]
 
 
-state 80
+state 85
 
     (22) valor -> DOUBLE .
-    (41) valorDouble -> DOUBLE .
+    (44) valorDouble -> DOUBLE .
 
   ! reduce/reduce conflict for SUMA resolved using rule 22 (valor -> DOUBLE .)
   ! reduce/reduce conflict for RESTA resolved using rule 22 (valor -> DOUBLE .)
@@ -1383,19 +1534,19 @@ state 80
     MOD             reduce using rule 22 (valor -> DOUBLE .)
     PUNTOYCOMA      reduce using rule 22 (valor -> DOUBLE .)
 
-  ! SUMA            [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! RESTA           [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! MULTI           [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! DIV             [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! DIVENTERO       [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! MOD             [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
-  ! PUNTOYCOMA      [ reduce using rule 41 (valorDouble -> DOUBLE .) ]
+  ! SUMA            [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! RESTA           [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! MULTI           [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! DIV             [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! DIVENTERO       [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! MOD             [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
+  ! PUNTOYCOMA      [ reduce using rule 44 (valorDouble -> DOUBLE .) ]
 
 
-state 81
+state 86
 
     (23) valor -> STRING .
-    (33) valorString -> STRING .
+    (36) valorString -> STRING .
 
   ! reduce/reduce conflict for SUMA resolved using rule 23 (valor -> STRING .)
   ! reduce/reduce conflict for RESTA resolved using rule 23 (valor -> STRING .)
@@ -1412,128 +1563,114 @@ state 81
     MOD             reduce using rule 23 (valor -> STRING .)
     PUNTOYCOMA      reduce using rule 23 (valor -> STRING .)
 
-  ! SUMA            [ reduce using rule 33 (valorString -> STRING .) ]
-  ! RESTA           [ reduce using rule 33 (valorString -> STRING .) ]
-  ! MULTI           [ reduce using rule 33 (valorString -> STRING .) ]
-  ! DIV             [ reduce using rule 33 (valorString -> STRING .) ]
-  ! DIVENTERO       [ reduce using rule 33 (valorString -> STRING .) ]
-  ! MOD             [ reduce using rule 33 (valorString -> STRING .) ]
-  ! PUNTOYCOMA      [ reduce using rule 33 (valorString -> STRING .) ]
+  ! SUMA            [ reduce using rule 36 (valorString -> STRING .) ]
+  ! RESTA           [ reduce using rule 36 (valorString -> STRING .) ]
+  ! MULTI           [ reduce using rule 36 (valorString -> STRING .) ]
+  ! DIV             [ reduce using rule 36 (valorString -> STRING .) ]
+  ! DIVENTERO       [ reduce using rule 36 (valorString -> STRING .) ]
+  ! MOD             [ reduce using rule 36 (valorString -> STRING .) ]
+  ! PUNTOYCOMA      [ reduce using rule 36 (valorString -> STRING .) ]
 
 
-state 82
-
-    (39) expresionInt -> valorInt . operadorMat expresionInt
-    (40) expresionInt -> valorInt .
-    (42) valorDouble -> valorInt .
-    (45) operadorMat -> . SUMA
-    (46) operadorMat -> . RESTA
-    (47) operadorMat -> . MULTI
-    (48) operadorMat -> . DIV
-    (49) operadorMat -> . DIVENTERO
-    (50) operadorMat -> . MOD
-
-  ! reduce/reduce conflict for PUNTOYCOMA resolved using rule 40 (expresionInt -> valorInt .)
-  ! shift/reduce conflict for SUMA resolved as shift
-  ! shift/reduce conflict for RESTA resolved as shift
-  ! shift/reduce conflict for MULTI resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for DIVENTERO resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-    PUNTOYCOMA      reduce using rule 40 (expresionInt -> valorInt .)
-    SUMA            shift and go to state 41
-    RESTA           shift and go to state 42
-    MULTI           shift and go to state 43
-    DIV             shift and go to state 44
-    DIVENTERO       shift and go to state 45
-    MOD             shift and go to state 46
-
-  ! SUMA            [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! RESTA           [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! MULTI           [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! DIV             [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! DIVENTERO       [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! MOD             [ reduce using rule 42 (valorDouble -> valorInt .) ]
-  ! PUNTOYCOMA      [ reduce using rule 42 (valorDouble -> valorInt .) ]
-
-    operadorMat                    shift and go to state 39
-
-state 83
+state 87
 
     (13) asignacion -> INT VARIABLE IGUAL expresionInt .
 
     PUNTOYCOMA      reduce using rule 13 (asignacion -> INT VARIABLE IGUAL expresionInt .)
 
 
-state 84
+state 88
 
     (14) asignacion -> DOUBLER VARIABLE IGUAL expresionDouble .
 
     PUNTOYCOMA      reduce using rule 14 (asignacion -> DOUBLER VARIABLE IGUAL expresionDouble .)
 
 
-state 85
+state 89
 
     (15) asignacion -> NUM VARIABLE IGUAL expresionDouble .
 
     PUNTOYCOMA      reduce using rule 15 (asignacion -> NUM VARIABLE IGUAL expresionDouble .)
 
 
-state 86
+state 90
 
     (16) asignacion -> STRINGR VARIABLE IGUAL expresionString .
 
     PUNTOYCOMA      reduce using rule 16 (asignacion -> STRINGR VARIABLE IGUAL expresionString .)
 
 
-state 87
+state 91
 
-    (38) valorInt -> VARIABLE .
+    (32) expresionBool -> VARIABLE . comparadorMat expresionDouble
+    (33) expresionBool -> VARIABLE . comparadorMat VARIABLE
     (30) valorBool -> VARIABLE .
+    (41) valorInt -> VARIABLE .
+    (54) comparadorMat -> . DIGUAL
+    (55) comparadorMat -> . NOIGUAL
+    (56) comparadorMat -> . MAYOR
+    (57) comparadorMat -> . MENOR
+    (58) comparadorMat -> . MAYIGUAL
+    (59) comparadorMat -> . MENIGUAL
 
-    DIGUAL          reduce using rule 38 (valorInt -> VARIABLE .)
-    NOIGUAL         reduce using rule 38 (valorInt -> VARIABLE .)
-    MAYOR           reduce using rule 38 (valorInt -> VARIABLE .)
-    MENOR           reduce using rule 38 (valorInt -> VARIABLE .)
-    MAYIGUAL        reduce using rule 38 (valorInt -> VARIABLE .)
-    MENIGUAL        reduce using rule 38 (valorInt -> VARIABLE .)
+  ! shift/reduce conflict for DIGUAL resolved as shift
+  ! shift/reduce conflict for NOIGUAL resolved as shift
+  ! shift/reduce conflict for MAYOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAYIGUAL resolved as shift
+  ! shift/reduce conflict for MENIGUAL resolved as shift
     PUNTOYCOMA      reduce using rule 30 (valorBool -> VARIABLE .)
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
 
+  ! DIGUAL          [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! NOIGUAL         [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MAYOR           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MENOR           [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MAYIGUAL        [ reduce using rule 41 (valorInt -> VARIABLE .) ]
+  ! MENIGUAL        [ reduce using rule 41 (valorInt -> VARIABLE .) ]
 
-state 88
+    comparadorMat                  shift and go to state 33
+
+state 92
 
     (17) asignacion -> BOOLR VARIABLE IGUAL expresionBool .
 
     PUNTOYCOMA      reduce using rule 17 (asignacion -> BOOLR VARIABLE IGUAL expresionBool .)
 
 
-state 89
+state 93
 
-    (31) expresionBool -> valorInt . comparadorMat expresionInt
-    (51) comparadorMat -> . DIGUAL
-    (52) comparadorMat -> . NOIGUAL
-    (53) comparadorMat -> . MAYOR
-    (54) comparadorMat -> . MENOR
-    (55) comparadorMat -> . MAYIGUAL
-    (56) comparadorMat -> . MENIGUAL
+    (31) expresionBool -> valorDouble . comparadorMat expresionDouble
+    (34) expresionBool -> valorDouble . comparadorMat VARIABLE
+    (54) comparadorMat -> . DIGUAL
+    (55) comparadorMat -> . NOIGUAL
+    (56) comparadorMat -> . MAYOR
+    (57) comparadorMat -> . MENOR
+    (58) comparadorMat -> . MAYIGUAL
+    (59) comparadorMat -> . MENIGUAL
 
-    DIGUAL          shift and go to state 47
-    NOIGUAL         shift and go to state 48
-    MAYOR           shift and go to state 49
-    MENOR           shift and go to state 50
-    MAYIGUAL        shift and go to state 51
-    MENIGUAL        shift and go to state 52
+    DIGUAL          shift and go to state 34
+    NOIGUAL         shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    MAYIGUAL        shift and go to state 38
+    MENIGUAL        shift and go to state 39
 
-    comparadorMat                  shift and go to state 40
+    comparadorMat                  shift and go to state 54
 
-state 90
+state 94
 
     (18) asignacion -> DYNAMIC VARIABLE IGUAL expresion .
 
     PUNTOYCOMA      reduce using rule 18 (asignacion -> DYNAMIC VARIABLE IGUAL expresion .)
 
 
-state 91
+state 95
 
     (19) asignacion -> VAR VARIABLE IGUAL expresion .
 
@@ -1545,18 +1682,24 @@ WARNING:
 WARNING: shift/reduce conflict for PUNTOYCOMA in state 4 resolved as shift
 WARNING: shift/reduce conflict for PUNTOYCOMA in state 5 resolved as shift
 WARNING: shift/reduce conflict for PUNTOYCOMA in state 6 resolved as shift
+WARNING: shift/reduce conflict for DIGUAL in state 10 resolved as shift
+WARNING: shift/reduce conflict for NOIGUAL in state 10 resolved as shift
+WARNING: shift/reduce conflict for MAYOR in state 10 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 10 resolved as shift
+WARNING: shift/reduce conflict for MAYIGUAL in state 10 resolved as shift
+WARNING: shift/reduce conflict for MENIGUAL in state 10 resolved as shift
 WARNING: shift/reduce conflict for SUMA in state 17 resolved as shift
 WARNING: shift/reduce conflict for RESTA in state 17 resolved as shift
 WARNING: shift/reduce conflict for MULTI in state 17 resolved as shift
 WARNING: shift/reduce conflict for DIV in state 17 resolved as shift
 WARNING: shift/reduce conflict for DIVENTERO in state 17 resolved as shift
 WARNING: shift/reduce conflict for MOD in state 17 resolved as shift
-WARNING: shift/reduce conflict for SUMA in state 82 resolved as shift
-WARNING: shift/reduce conflict for RESTA in state 82 resolved as shift
-WARNING: shift/reduce conflict for MULTI in state 82 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 82 resolved as shift
-WARNING: shift/reduce conflict for DIVENTERO in state 82 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 82 resolved as shift
+WARNING: shift/reduce conflict for DIGUAL in state 91 resolved as shift
+WARNING: shift/reduce conflict for NOIGUAL in state 91 resolved as shift
+WARNING: shift/reduce conflict for MAYOR in state 91 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 91 resolved as shift
+WARNING: shift/reduce conflict for MAYIGUAL in state 91 resolved as shift
+WARNING: shift/reduce conflict for MENIGUAL in state 91 resolved as shift
 WARNING: reduce/reduce conflict in state 10 resolved using rule (valorString -> VARIABLE)
 WARNING: rejected rule (valorInt -> VARIABLE) in state 10
 WARNING: reduce/reduce conflict in state 10 resolved using rule (valorBool -> VARIABLE)
@@ -1573,15 +1716,17 @@ WARNING: reduce/reduce conflict in state 23 resolved using rule (valor -> DOUBLE
 WARNING: rejected rule (valorDouble -> DOUBLE) in state 23
 WARNING: reduce/reduce conflict in state 24 resolved using rule (valor -> STRING)
 WARNING: rejected rule (valorString -> STRING) in state 24
-WARNING: reduce/reduce conflict in state 78 resolved using rule (valor -> ENTERO)
-WARNING: rejected rule (valorInt -> ENTERO) in state 78
-WARNING: reduce/reduce conflict in state 79 resolved using rule (valor -> VARIABLE)
-WARNING: rejected rule (valorString -> VARIABLE) in state 79
-WARNING: reduce/reduce conflict in state 79 resolved using rule (valor -> VARIABLE)
-WARNING: rejected rule (valorInt -> VARIABLE) in state 79
-WARNING: reduce/reduce conflict in state 80 resolved using rule (valor -> DOUBLE)
-WARNING: rejected rule (valorDouble -> DOUBLE) in state 80
-WARNING: reduce/reduce conflict in state 81 resolved using rule (valor -> STRING)
-WARNING: rejected rule (valorString -> STRING) in state 81
-WARNING: reduce/reduce conflict in state 82 resolved using rule (expresionInt -> valorInt)
-WARNING: rejected rule (valorDouble -> valorInt) in state 82
+WARNING: reduce/reduce conflict in state 58 resolved using rule (expresionBool -> VARIABLE comparadorMat VARIABLE)
+WARNING: rejected rule (valorInt -> VARIABLE) in state 58
+WARNING: reduce/reduce conflict in state 75 resolved using rule (expresionBool -> valorDouble comparadorMat VARIABLE)
+WARNING: rejected rule (valorInt -> VARIABLE) in state 75
+WARNING: reduce/reduce conflict in state 83 resolved using rule (valor -> ENTERO)
+WARNING: rejected rule (valorInt -> ENTERO) in state 83
+WARNING: reduce/reduce conflict in state 84 resolved using rule (valor -> VARIABLE)
+WARNING: rejected rule (valorString -> VARIABLE) in state 84
+WARNING: reduce/reduce conflict in state 84 resolved using rule (valor -> VARIABLE)
+WARNING: rejected rule (valorInt -> VARIABLE) in state 84
+WARNING: reduce/reduce conflict in state 85 resolved using rule (valor -> DOUBLE)
+WARNING: rejected rule (valorDouble -> DOUBLE) in state 85
+WARNING: reduce/reduce conflict in state 86 resolved using rule (valor -> STRING)
+WARNING: rejected rule (valorString -> STRING) in state 86

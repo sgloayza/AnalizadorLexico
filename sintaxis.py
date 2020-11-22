@@ -87,6 +87,15 @@ def p_valor(p):
              | STRING
     '''
 
+def p_expresionString(p):
+    '''expresion : valor
+    '''
+
+def p_String(p):
+    '''string : String
+             | VARIABLE
+    '''
+
 #****************************************#
 
 def p_expresion_aritmetica(p):

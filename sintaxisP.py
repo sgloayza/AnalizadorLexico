@@ -62,7 +62,10 @@ def p_valorBool(p):
     '''
 
 def p_expresionBool(p):
-    '''expresionBool : valorInt comparadorMat expresionInt
+    '''expresionBool : valorDouble comparadorMat expresionDouble
+                       | VARIABLE comparadorMat expresionDouble
+                       | VARIABLE comparadorMat VARIABLE
+                       | valorDouble comparadorMat VARIABLE
                        | valorBool
     '''
 
