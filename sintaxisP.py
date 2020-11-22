@@ -35,6 +35,7 @@ def p_final(p):
              | imprimir PUNTOYCOMA final
              | negacionBool PUNTOYCOMA
              | negacionBool PUNTOYCOMA final
+             | comparacionBool
     '''
 
 def p_algoritmo(p):
@@ -53,6 +54,7 @@ def p_algoritmo(p):
                  | sentenciaElse
                  | imprimir PUNTOYCOMA
                  | negacionBool PUNTOYCOMA
+                 | comparacionBool
     '''
 
 def p_asignacion(p):
@@ -152,7 +154,10 @@ def p_expresionBool(p):
                        | valorBool
     '''
 
-
+def p_comparacionBool(p):
+    '''comparacionBool : expresionBool operadorLogico expresionBool
+                       | expresionBool operadorLogico comparacionBool
+    '''
 
 def p_negacionBool(p):
     'negacionBool : NOT PIZQ expresionBool PDER'
