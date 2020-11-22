@@ -58,6 +58,9 @@ def p_final(p):
              | sentenciaElseIf final
              | sentenciaElseIf PUNTOYCOMA
              | sentenciaElseIf
+
+             | sentenciaSubstring PUNTOYCOMA final
+             | sentenciaSubstring PUNTOYCOMA
     '''
 
 def p_algoritmo(p):
@@ -87,6 +90,8 @@ def p_algoritmo(p):
 
                  | sentenciaElseIf
                  | sentenciaElseIf PUNTOYCOMA
+
+                 | sentenciaSubstring PUNTOYCOMA
     '''
 
 
@@ -187,7 +192,10 @@ def p_sentenciaWhile(p):
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ algoritmo LDER WHILE PIZQ expresionBool PDER'
 
-
+def p_sentenciaSubstring(p):
+    '''sentenciaSubstring : VARIABLE SUBSTRING PIZQ ENTERO PDER
+                         | VARIABLE SUBSTRING PIZQ ENTERO COMA ENTERO PDER
+    '''
 
 
 
@@ -233,6 +241,7 @@ def p_valorString(p):
                    | VARIABLE
                    | FUNCIONSTDIN
                    | expresionIndexString
+                   | sentenciaSubstring
     '''
 
 def p_expresion_aritmetica_String(p):

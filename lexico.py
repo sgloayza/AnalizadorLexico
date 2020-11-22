@@ -61,6 +61,7 @@ tokens = [
     "LIST",
     "ELSEIF",
     "FUNCIONSTRING",
+    "SUBSTRING",
     "FUNCIONARR",
     "FUNCIONSTDIN",
     "FUNCIONSTDOUT",
@@ -135,6 +136,11 @@ def t_ELSEIF(t):
 def t_FUNCIONSTRING(t):
     r"(\.substring|\.split)"
     return t
+
+def t_SUBSTRING(t):
+    r"(\.substring)"
+    return t
+
 
 def t_FUNCIONARR(t):
     r"(\.forEach|\.firstWhere)"
