@@ -32,6 +32,9 @@ def p_final(p):
              | sentenciaElse
              | sentenciaElse final
              | imprimir PUNTOYCOMA
+             | imprimir PUNTOYCOMA final
+             | negacionBool PUNTOYCOMA
+             | negacionBool PUNTOYCOMA final
     '''
 
 def p_algoritmo(p):
@@ -49,6 +52,7 @@ def p_algoritmo(p):
                  | sentenciaElse PUNTOYCOMA
                  | sentenciaElse
                  | imprimir PUNTOYCOMA
+                 | negacionBool PUNTOYCOMA
     '''
 
 def p_asignacion(p):
@@ -65,6 +69,7 @@ def p_asignacion(p):
 
 def p_asignacionSimple(p):
     'asignacionSimple : VARIABLE IGUAL expresion'
+
 
 
 
@@ -136,7 +141,7 @@ def p_sentenciaDoWhile(p):
 
 def p_valorBool(p):
     '''valorBool : BOOL
-                   | VARIABLE
+                 | VARIABLE
     '''
 
 def p_expresionBool(p):
@@ -146,6 +151,15 @@ def p_expresionBool(p):
                        | valorDouble comparadorMat VARIABLE
                        | valorBool
     '''
+
+
+
+def p_negacionBool(p):
+    'negacionBool : NOT PIZQ expresionBool PDER'
+
+
+
+
 
 
 
@@ -209,19 +223,18 @@ def p_operadorMat(p):
                    | MOD
     '''
 
-def p_comparaedorMat(p):
+def p_comparadorMat(p):
     '''comparadorMat : DIGUAL
-                   | NOIGUAL
-                   | MAYOR
-                   | MENOR
-                   | MAYIGUAL
-                   | MENIGUAL
+                     | NOIGUAL
+                     | MAYOR
+                     | MENOR
+                     | MAYIGUAL
+                     | MENIGUAL
     '''
 
 def p_operadorLogico(p):
     '''operadorLogico : AND
-                   | OR
-                   | NOT
+                      | OR
     '''
 
 #--------------------------------------------------------------------------#
