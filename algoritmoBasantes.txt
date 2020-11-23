@@ -1,2 +1,20 @@
-int a =3;
+
 String a = "hola";
+int b = 1;
+double c = 1.2;
+num d = 1;
+num e = 1.2;
+var f = 1;
+var g = 1.2;
+var h = "hola";
+dynamic i = 3;
+bool j = true;
+bool k = false;
+
+c=a+b;
+c=a-b;
+c=a*b;
+d=a/b;
+
+c=a&&b;
+c=a||b
