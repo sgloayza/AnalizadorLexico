@@ -317,3 +317,18 @@ while True:
     if not s: continue
     result = parser.parse(s)
     print(result)
+
+'''
+parser = yacc.yacc()
+while True:
+    try:
+        f=open("algoritmoBasantes.txt")
+        s = f.read()
+        print(s)
+    except EOFError:
+        break
+    if not s: continue
+    result = parser.parse(s)
+    print(result)
+    input()
+'''
