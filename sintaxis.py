@@ -20,6 +20,9 @@ def p_final(p):
              | expresionBool PUNTOYCOMA
              | expresionBool PUNTOYCOMA final
 
+             | expresionBoolFor PUNTOYCOMA
+             | expresionBoolFor PUNTOYCOMA final
+
              | sentenciaWhile
              | sentenciaWhile final
              | sentenciaWhile PUNTOYCOMA
@@ -56,6 +59,11 @@ def p_final(p):
              | sentenciaElseIf PUNTOYCOMA
              | sentenciaElseIf
 
+             | sentenciaFor PUNTOYCOMA final
+             | sentenciaFor PUNTOYCOMA
+             | sentenciaFor final
+             | sentenciaFor
+
              | sentenciaSubstring PUNTOYCOMA final
              | sentenciaSubstring PUNTOYCOMA
 
@@ -81,7 +89,6 @@ def p_asignacion(p):
                   | DYNAMIC VARIABLE IGUAL expresion
                   | VAR VARIABLE IGUAL expresion
                   | asignacionSimple
-
     '''
 
 def p_asignacionSimple(p):
@@ -153,6 +160,37 @@ def p_expresion(p):
                  | expresionBool
     '''
 
+
+
+
+def p_expresionFor(p):
+    '''asignacionFor : INT VARIABLE IGUAL expresionInt
+                    | DOUBLER VARIABLE IGUAL expresionDouble
+                    | NUM VARIABLE IGUAL expresionDouble
+                    | DYNAMIC VARIABLE IGUAL expresionInt
+                    | DYNAMIC VARIABLE IGUAL expresionDouble
+                    | VAR VARIABLE IGUAL expresionInt
+                    | VAR VARIABLE IGUAL expresionDouble
+                    | VARIABLE IGUAL expresionInt
+                    | VARIABLE IGUAL expresionDouble
+                    '''
+
+def p_expresionBoolFor(p):
+    '''expresionBoolFor : valorDouble comparadorMat expresionDouble
+                        | VARIABLE comparadorMat expresionDouble
+                        | VARIABLE comparadorMat VARIABLE
+                        | valorDouble comparadorMat VARIABLE
+                        | valorBool
+                        | negacionBool
+                        | comparacionBool
+    '''
+
+def p_sentenciaFor(p):
+    '''sentenciaFor : FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER LIZQ final LDER
+                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER final
+                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DRESTA PDER LIZQ final LDER
+                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DRESTA PDER final
+    '''
 
 
 
@@ -322,7 +360,7 @@ while True:
     print(result)
 '''
 
-f=open("algoritmoBasantes.txt")
+f=open("algoritmoLoayza.txt")
 s = f.read()
 print(s)
 result = parser.parse(s)
