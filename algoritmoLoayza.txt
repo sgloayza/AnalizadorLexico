@@ -4,6 +4,8 @@ a==3;
 a=true;
 a=3;
 !(a==2);
+a--;
+a++;
 
 int a = 435+f;
 double b = 4.5+5-d;
@@ -25,8 +27,7 @@ else {a=3;}
 
 while(a==3)int a=3;
 while(a!=0){a--; print(a);}
-do{int a=3;}while(a==3);
-
+do{int a=3;a++;}while(a<=3);
 
 print("sdf");
 print(a=3);
@@ -36,9 +37,6 @@ while(!(a==3)){int a=3;}
 a==4 || a==4;
 a==4 || a==4 || !(a==5);
 if(a==4 || a==4){int a=3;}
- while(a is! String  || a is int ){print(df);};
-
-a--;
-a++;
+while(a is! String  || a is int ){print(df);};
 
 //codigoSandraLoayza

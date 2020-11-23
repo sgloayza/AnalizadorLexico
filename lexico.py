@@ -193,7 +193,7 @@ def analizar(data):
         print(tok)
 
 print("Mi primer analizador léxico :)")
-archivo = open("codigoLoayza.txt")
+archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
     print(">>"+linea)
     analizar(linea)
