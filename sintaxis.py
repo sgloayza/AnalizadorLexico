@@ -310,6 +310,7 @@ def p_error(p):
 
 
 parser = yacc.yacc()
+'''
 while True:
     try:
         s = input('calc > ')
@@ -319,3 +320,11 @@ while True:
     if not s: continue
     result = parser.parse(s)
     print(result)
+'''
+
+f=open("algoritmoBasantes.txt")
+s = f.read()
+print(s)
+result = parser.parse(s)
+print(result)
+f.close()
