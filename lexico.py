@@ -8,6 +8,8 @@ reserved = {
     "String":"STRINGR",
     "bool":"BOOLR",
     "Map":"MAP",
+    "Set":"SET",
+    "List":"LIST",
     "dynamic":"DYNAMIC",
     "if":"IF",
     "do":"DO",
@@ -57,8 +59,8 @@ tokens = [
     "COMILLAD",
     "DOSPUNTOS",
     "COMA",
-    "SET",
-    "LIST",
+    "SETFROM",
+    "NEWLIST",
     "ELSEIF",
     "FUNCIONSUBSTRING",
     "FUNCIONARR",
@@ -113,19 +115,19 @@ t_ignore_CM2 = r"^(\/\*).*(\*\/)$"
 #--------------------------------------------------------------------------#
 
 def t_BOOL(t):
-    r"(True|False)"
+    r"(true|false)"
     return t
 
 def t_ISNEGADO(t):
     r"is\!"
     return t
 
-def t_LIST(t):
-    r"(new\sList|List)"
+def t_NEWLIST(t):
+    r"(new\sList)"
     return t
 
-def t_SET(t):
-    r"(Set\.from|Set)"
+def t_SETFROM(t):
+    r"(Set\.from)"
     return t
 
 def t_ELSEIF(t):

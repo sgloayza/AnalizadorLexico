@@ -72,7 +72,86 @@ def p_final(p):
              | VARIABLE DRESTA PUNTOYCOMA final
              | VARIABLE DRESTA PUNTOYCOMA
 
+             | expresionLista PUNTOYCOMA
+             | expresionLista PUNTOYCOMA final
+             | expresionNewList PUNTOYCOMA
+             | expresionNewList PUNTOYCOMA final
+
     '''
+
+
+
+
+
+def p_expresionNewList(p):
+    '''expresionNewList : NEWLIST PIZQ PDER
+                        | NEWLIST PIZQ ENTERO PDER
+                        | CIZQ CDER
+    '''
+
+def p_expresionLista(p):
+    '''expresionLista : LIST MENOR objetoList MAYOR VARIABLE
+                      | LIST MENOR objetoList MAYOR VARIABLE IGUAL expresionNewList
+                      | expresionListaTipos
+    '''
+
+def p_objetoList(p):
+    '''objetoList : VARIABLE
+                  | STRINGR
+                  | INT
+                  | DOUBLER
+                  | NUM
+                  | BOOLR
+                  | DYNAMIC
+                  | MAP
+                  | SET
+                  | LIST MENOR objetoList MAYOR
+    '''
+
+def p_expresionListaTipos(p):
+    '''expresionListaTipos : LIST MENOR STRINGR MAYOR VARIABLE IGUAL CIZQ expListString CDER
+                           | CIZQ expListString CDER
+
+                           | LIST MENOR INT MAYOR VARIABLE IGUAL CIZQ expListInt CDER
+                           | CIZQ expListInt CDER
+
+                           | LIST MENOR DOUBLER MAYOR VARIABLE IGUAL CIZQ expListDouble CDER
+                           | CIZQ expListDouble CDER
+
+                           | LIST MENOR NUM MAYOR VARIABLE IGUAL CIZQ expListNum CDER
+                           | CIZQ expListNum CDER
+
+                           | LIST MENOR BOOLR MAYOR VARIABLE IGUAL CIZQ expListBool CDER
+                           | CIZQ expListBool CDER
+
+    '''
+
+def p_expListString(p):
+    '''expListString : STRING
+                     | STRING COMA expListString
+    '''
+def p_expListInt(p):
+    '''expListInt : ENTERO
+                  | ENTERO COMA expListInt
+    '''
+def p_expListDouble(p):
+    '''expListDouble : DOUBLE
+                     | DOUBLE COMA expListDouble
+    '''
+def p_expListNum(p):
+    '''expListNum : ENTERO
+                  | DOUBLE
+                  | ENTERO COMA expListNum
+                  | DOUBLE COMA expListNum
+    '''
+def p_expListBool(p):
+    '''expListBool : BOOL
+                   | BOOL COMA expListBool
+    '''
+
+
+
+
 
 
 
@@ -348,7 +427,7 @@ def p_error(p):
 
 
 parser = yacc.yacc()
-'''
+
 while True:
     try:
         s = input('calc > ')
@@ -358,11 +437,12 @@ while True:
     if not s: continue
     result = parser.parse(s)
     print(result)
-'''
 
+'''
 f=open("algoritmoLoayza.txt")
 s = f.read()
 print(s)
 result = parser.parse(s)
 print(result)
 f.close()
+'''
