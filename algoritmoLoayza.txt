@@ -40,4 +40,14 @@ if(a==4 || a==4){int a=3;}
 while(a is! String  || a is int ){print(df);}
 for(dynamic a=3;a>0;a--){print(a); print(a+1);}
 
+List<String>lista = ["a","b"];
+List<int>lista = new List(6);
+List<int>lista = new List();
+new List();
+List<int> lista = [];
+List<String> a = ["S","f","df"];
+List<int> s=[3,4,5];
+List<num>a=[2,3.4];
+List<bool> lista = [true,false,true];
+
 //codigoSandraLoayza
