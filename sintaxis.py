@@ -392,8 +392,23 @@ def p_funcionStdout(p):
 
 
 def p_sentenciaForEach(p):
-    '''sentenciaForEach : FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER algoritmoUnico
-                        | FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER LIZQ final LDER
+    '''sentenciaForEach : FOR PIZQ STRINGR VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ INT VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ DOUBLER VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ NUM VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ DYNAMIC VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ BOOLR VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ MAP VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ SET VARIABLE IN VARIABLE PDER algoritmoUnico
+
+                        | FOR PIZQ STRINGR VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ INT VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ DOUBLER VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ NUM VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ DYNAMIC VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ BOOLR VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ MAP VARIABLE IN VARIABLE PDER LIZQ final LDER
+                        | FOR PIZQ SET VARIABLE IN VARIABLE PDER LIZQ final LDER
     '''
 def p_objetoForEach(p):
     '''objetoForEach : STRINGR
