@@ -24,9 +24,9 @@ reserved = {
     "print":"PRINT",
     "case":"CASE",
     "break":"BREAK",
-    "return":"RETURN",
     "do":"DO",
-    "default":"DEFAULT"
+    "default":"DEFAULT",
+    "return":"RETURN"
 }
 
 tokens = [

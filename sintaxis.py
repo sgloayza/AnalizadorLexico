@@ -93,6 +93,12 @@ def p_final(p):
              | funcionSimple final
              | funcionSimple PUNTOYCOMA
              | funcionSimple PUNTOYCOMA final
+
+             | funcion
+             | funcion final
+
+             | funcionReturn
+             | funcionReturn final
     '''
 
 def p_algoritmoUnico(p):
@@ -120,8 +126,9 @@ def p_algoritmoUnico(p):
                       | expresionMap PUNTOYCOMA
                       | expresionSwitch
                       | declaracionSimple PUNTOYCOMA
-                      | funcionFirstWhere PUNTOYCOMA
                       | sentenciaForEach
+                      | funcionFirstWhere PUNTOYCOMA
+                      | funcionSimple
     '''
 
 
@@ -179,6 +186,7 @@ def p_expresionMap(p):
                     | LIZQ LDER
                     | MAP VARIABLE IGUAL LIZQ expMap LDER
                     | LIZQ expMap LDER
+                    | VARIABLE
 
     '''
 def p_expMap(p):
@@ -216,6 +224,7 @@ def p_expresionSet(p):
                     | SETFROM PIZQ CIZQ expListDynamic CDER PDER
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ expListDynamic CDER PDER
                     | VARIABLE FUNCIONTAKE PIZQ ENTERO PDER
+                    | VARIABLE
     '''
 
 
@@ -275,6 +284,8 @@ def p_expresionLista(p):
                       | VARIABLE CIZQ ENTERO CDER
                       | VARIABLE FUNCIONTAKE PIZQ ENTERO PDER
                       | VARIABLE FUNCIONRANGE PIZQ ENTERO COMA ENTERO PDER
+
+                      | VARIABLE
 
     '''
 def p_expListString(p):
@@ -395,8 +406,81 @@ def p_funcionStdout(p):
 
 
 
+
+
+
+
 def p_funcionSimple(p):
-    'funcionSimple : VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico'
+    '''funcionSimple : VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico
+                     | VOID VARIABLE PIZQ PDER FLECHA algoritmoUnico
+    '''
+def p_funcion(p):
+    '''funcion : VOID VARIABLE PIZQ PDER LIZQ LDER
+               | VOID VARIABLE PIZQ PDER LIZQ final LDER
+
+               | VOID VARIABLE PIZQ objeto VARIABLE PDER LIZQ LDER
+               | VOID VARIABLE PIZQ objeto VARIABLE PDER LIZQ final LDER
+    '''
+
+def p_funcionReturn(p):
+    '''funcionReturn : STRINGR VARIABLE PIZQ PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
+                     | STRINGR VARIABLE PIZQ PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
+                     | STRINGR VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
+                     | STRINGR VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
+
+                     | INT VARIABLE PIZQ PDER LIZQ RETURN expresionInt PUNTOYCOMA LDER
+                     | INT VARIABLE PIZQ PDER LIZQ final RETURN expresionInt PUNTOYCOMA LDER
+                     | INT VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionInt PUNTOYCOMA LDER
+                     | INT VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionInt PUNTOYCOMA LDER
+
+                     | DOUBLER VARIABLE PIZQ PDER LIZQ RETURN expresionDouble PUNTOYCOMA LDER
+                     | DOUBLER VARIABLE PIZQ PDER LIZQ final RETURN expresionDouble PUNTOYCOMA LDER
+                     | DOUBLER VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionDouble PUNTOYCOMA LDER
+                     | DOUBLER VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionDouble PUNTOYCOMA LDER
+
+                     | NUM VARIABLE PIZQ PDER LIZQ RETURN expresionDouble PUNTOYCOMA LDER
+                     | NUM VARIABLE PIZQ PDER LIZQ final RETURN expresionDouble PUNTOYCOMA LDER
+                     | NUM VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionDouble PUNTOYCOMA LDER
+                     | NUM VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionDouble PUNTOYCOMA LDER
+
+                     | VAR VARIABLE PIZQ PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+
+                     | DYNAMIC VARIABLE PIZQ PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+
+                     | BOOLR VARIABLE PIZQ PDER LIZQ RETURN expresionBool PUNTOYCOMA LDER
+                     | BOOLR VARIABLE PIZQ PDER LIZQ final RETURN expresionBool PUNTOYCOMA LDER
+                     | BOOLR VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionBool PUNTOYCOMA LDER
+                     | BOOLR VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionBool PUNTOYCOMA LDER
+
+                     | LIST VARIABLE PIZQ PDER LIZQ RETURN expresionLista PUNTOYCOMA LDER
+                     | LIST VARIABLE PIZQ PDER LIZQ final RETURN expresionLista PUNTOYCOMA LDER
+                     | LIST VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionLista PUNTOYCOMA LDER
+                     | LIST VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionLista PUNTOYCOMA LDER
+
+                     | MAP VARIABLE PIZQ PDER LIZQ RETURN expresionMap PUNTOYCOMA LDER
+                     | MAP VARIABLE PIZQ PDER LIZQ final RETURN expresionMap PUNTOYCOMA LDER
+                     | MAP VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionMap PUNTOYCOMA LDER
+                     | MAP VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionMap PUNTOYCOMA LDER
+
+                     | SET VARIABLE PIZQ PDER LIZQ RETURN expresionSet PUNTOYCOMA LDER
+                     | SET VARIABLE PIZQ PDER LIZQ final RETURN expresionSet PUNTOYCOMA LDER
+                     | SET VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionSet PUNTOYCOMA LDER
+                     | SET VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionSet PUNTOYCOMA LDER
+    '''
+
+
+
+
+
+
+
+
 
 
 def p_sentenciaForEach(p):
@@ -428,6 +512,17 @@ def p_objetoForEach(p):
                      | MAP
                      | SET
     '''
+
+
+
+
+
+
+
+
+
+
+
 
 
 
