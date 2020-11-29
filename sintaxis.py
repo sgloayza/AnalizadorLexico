@@ -80,8 +80,13 @@ def p_final(p):
              | expresionSet PUNTOYCOMA
              | expresionSet PUNTOYCOMA final
 
-             | expresionMap
+             | expresionMap PUNTOYCOMA
+             | expresionMap PUNTOYCOMA final
     '''
+
+
+
+
 
 
 
@@ -253,7 +258,6 @@ def p_asignacion(p):
                   | VAR VARIABLE IGUAL expresion
                   | asignacionSimple
     '''
-
 def p_asignacionSimple(p):
     'asignacionSimple : VARIABLE IGUAL expresion'
 
@@ -276,10 +280,12 @@ def p_imprimir(p):
 
 def p_funcionStdin(p):
     'funcionStdin : FUNCIONSTDIN'
-
 def p_funcionStdout(p):
     '''funcionStdout : FUNCIONSTDOUT PIZQ expresion PDER
                      | FUNCIONSTDOUT PIZQ asignacionSimple PDER'''
+
+
+
 
 
 
@@ -288,13 +294,10 @@ def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER final
                    | IF PIZQ expresionBool PDER LIZQ final LDER
     '''
-
-
 def p_sentenciaElse(p):
     '''sentenciaElse : ELSE final
                      | ELSE LIZQ final LDER
     '''
-
 def p_sentenciaElseIf(p):
     '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER final
                        | ELSEIF PIZQ expresionBool PDER LIZQ final LDER
@@ -313,7 +316,6 @@ def p_valor(p):
              | DOUBLE
              | STRING
     '''
-
 def p_expresion(p):
     '''expresion : valor operadorMat expresion
                  | valor
@@ -322,6 +324,11 @@ def p_expresion(p):
                  | expresionDouble
                  | expresionBool
     '''
+
+
+
+
+
 
 
 
@@ -337,7 +344,6 @@ def p_expresionFor(p):
                     | VARIABLE IGUAL expresionInt
                     | VARIABLE IGUAL expresionDouble
                     '''
-
 def p_expresionBoolFor(p):
     '''expresionBoolFor : valorDouble comparadorMat expresionDouble
                         | VARIABLE comparadorMat expresionDouble
@@ -347,7 +353,6 @@ def p_expresionBoolFor(p):
                         | negacionBool
                         | comparacionBool
     '''
-
 def p_sentenciaFor(p):
     '''sentenciaFor : FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER LIZQ final LDER
                     | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER final
@@ -365,9 +370,12 @@ def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ final LDER
                       | WHILE PIZQ expresionBool PDER final
     '''
-
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ final LDER WHILE PIZQ expresionBool PDER'
+
+
+
+
 
 
 
@@ -376,7 +384,6 @@ def p_valorBool(p):
     '''valorBool : BOOL
                  | VARIABLE
     '''
-
 def p_expresionBool(p):
     '''expresionBool : valorDouble comparadorMat expresionDouble
                      | VARIABLE comparadorMat expresionDouble
@@ -388,10 +395,8 @@ def p_expresionBool(p):
                      | valor IS objeto
                      | valor ISNEGADO objeto
     '''
-
 def p_negacionBool(p):
     'negacionBool : NOT PIZQ expresionBool PDER'
-
 def p_comparacionBool(p):
     '''comparacionBool : expresionBool operadorLogico expresionBool
                        | expresionBool operadorLogico comparacionBool
@@ -415,15 +420,12 @@ def p_valorString(p):
                    | expresionIndexString
                    | sentenciaSubstring
     '''
-
 def p_expresion_aritmetica_String(p):
     '''expresionString : valorString SUMA expresionString
                        | valorString
     '''
-
 def p_expresion_index_String(p):
     'expresionIndexString : valorString CIZQ ENTERO CDER'
-
 def p_sentenciaSubstring(p):
     '''sentenciaSubstring : VARIABLE FUNCIONSUBSTRING PIZQ ENTERO PDER
                          | VARIABLE FUNCIONSUBSTRING PIZQ ENTERO COMA ENTERO PDER
@@ -434,11 +436,12 @@ def p_sentenciaSubstring(p):
 
 
 
+
+
 def p_valorInt(p):
     '''valorInt : ENTERO
                 | VARIABLE
     '''
-
 def p_expresion_aritmetica_Int(p):
     '''expresionInt : valorInt operadorMat expresionInt
                     | valorInt
@@ -453,7 +456,6 @@ def p_valorDouble(p):
     '''valorDouble : DOUBLE
                    | valorInt
     '''
-
 def p_expresion_aritmetica_Double(p):
     '''expresionDouble : valorDouble operadorMat expresionDouble
                        | valorDouble
@@ -473,7 +475,6 @@ def p_operadorMat(p):
                    | DIVENTERO
                    | MOD
     '''
-
 def p_comparadorMat(p):
     '''comparadorMat : DIGUAL
                      | NOIGUAL
@@ -482,12 +483,10 @@ def p_comparadorMat(p):
                      | MAYIGUAL
                      | MENIGUAL
     '''
-
 def p_operadorLogico(p):
     '''operadorLogico : AND
                       | OR
     '''
-
 def p_objeto(p):
     '''objeto : STRINGR
               | INT
