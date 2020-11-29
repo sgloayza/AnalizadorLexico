@@ -112,6 +112,17 @@ def p_algoritmoUnico(p):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 def p_expresionSwitch(p):
     '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
                        | SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
@@ -200,6 +211,8 @@ def p_expresionNewList(p):
     '''
 def p_expresionLista(p):
     '''expresionLista : LIST MENOR STRINGR MAYOR VARIABLE
+                      | funcionSplit
+                      | LIST MENOR STRINGR MAYOR VARIABLE IGUAL funcionSplit
                       | LIST MENOR STRINGR MAYOR VARIABLE IGUAL CIZQ expListString CDER
                       | LIST MENOR STRINGR MAYOR VARIABLE IGUAL expresionNewList
                       | CIZQ expListString CDER
@@ -249,6 +262,8 @@ def p_expListString(p):
                      | VARIABLE
                      | VARIABLE COMA expListString
     '''
+def p_funcionSplit(p):
+    '''funcionSplit : STRING FUNCIONSPLIT PIZQ STRING PDER'''
 def p_expListInt(p):
     '''expListInt : ENTERO
                   | ENTERO COMA expListInt
