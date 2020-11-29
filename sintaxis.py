@@ -302,7 +302,7 @@ def p_declaracionSimple(p):
                          | NUM VARIABLE
                          | VAR VARIABLE
                          | DYNAMIC VARIABLE
-                         | BOOL VARIABLE
+                         | BOOLR VARIABLE
     '''
 
 
