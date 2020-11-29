@@ -80,10 +80,33 @@ def p_final(p):
 
              | declaracionSimple PUNTOYCOMA
              | declaracionSimple PUNTOYCOMA final
-
     '''
-
-
+def p_algoritmoUnico(p):
+    '''algoritmoUnico : asignacion PUNTOYCOMA
+                      | expresionInt PUNTOYCOMA
+                      | expresionDouble PUNTOYCOMA
+                      | expresionString PUNTOYCOMA
+                      | expresionBool PUNTOYCOMA
+                      | expresionBoolFor PUNTOYCOMA
+                      | sentenciaWhile
+                      | sentenciaDoWhile PUNTOYCOMA
+                      | sentenciaIf
+                      | imprimir PUNTOYCOMA
+                      | funcionStdin PUNTOYCOMA
+                      | funcionStdout PUNTOYCOMA
+                      | negacionBool PUNTOYCOMA
+                      | comparacionBool PUNTOYCOMA
+                      | sentenciaFor
+                      | sentenciaSubstring PUNTOYCOMA
+                      | VARIABLE DSUMA PUNTOYCOMA
+                      | VARIABLE DRESTA PUNTOYCOMA
+                      | expresionLista PUNTOYCOMA
+                      | expresionNewList PUNTOYCOMA
+                      | expresionSet PUNTOYCOMA
+                      | expresionMap PUNTOYCOMA
+                      | expresionSwitch
+                      | declaracionSimple PUNTOYCOMA
+    '''
 
 
 
@@ -91,6 +114,7 @@ def p_final(p):
 
 def p_expresionSwitch(p):
     '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
+                       | SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
     '''
 def p_cases(p):
     '''cases : caseString
@@ -338,7 +362,9 @@ def p_funcionStdout(p):
 
 
 def p_sentenciaIf(p):
-    '''sentenciaIf : IF PIZQ expresionBool PDER final
+    '''sentenciaIf : IF PIZQ expresionBool PDER algoritmoUnico
+                   | IF PIZQ expresionBool PDER algoritmoUnico sentenciasElseIf
+                   | IF PIZQ expresionBool PDER algoritmoUnico sentenciasElseIf sentenciaElse
                    | IF PIZQ expresionBool PDER LIZQ final LDER
                    | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf
                    | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf sentenciaElse
@@ -348,11 +374,11 @@ def p_sentenciasElseIf(p):
                         | sentenciaElseIf sentenciasElseIf
     '''
 def p_sentenciaElseIf(p):
-    '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER final
+    '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER algoritmoUnico
                        | ELSEIF PIZQ expresionBool PDER LIZQ final LDER
     '''
 def p_sentenciaElse(p):
-    '''sentenciaElse : ELSE final
+    '''sentenciaElse : ELSE algoritmoUnico
                      | ELSE LIZQ final LDER
     '''
 
@@ -409,9 +435,9 @@ def p_expresionBoolFor(p):
     '''
 def p_sentenciaFor(p):
     '''sentenciaFor : FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER LIZQ final LDER
-                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER final
+                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DSUMA PDER algoritmoUnico
                     | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DRESTA PDER LIZQ final LDER
-                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DRESTA PDER final
+                    | FOR PIZQ asignacionFor PUNTOYCOMA expresionBoolFor PUNTOYCOMA VARIABLE DRESTA PDER algoritmoUnico
     '''
 
 
@@ -424,7 +450,7 @@ def p_sentenciaFor(p):
 
 def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ final LDER
-                      | WHILE PIZQ expresionBool PDER final
+                      | WHILE PIZQ expresionBool PDER algoritmoUnico
     '''
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ final LDER WHILE PIZQ expresionBool PDER'

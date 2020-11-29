@@ -23,7 +23,8 @@ reserved = {
     "case":"CASE",
     "break":"BREAK",
     "return":"RETURN",
-    "do":"DO"
+    "do":"DO",
+    "default":"DEFAULT"
 }
 
 tokens = [
