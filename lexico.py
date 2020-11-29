@@ -3,6 +3,7 @@ import ply.lex as lex
 reserved = {
     "var":"VAR",
     "int":"INT",
+    "in":"IN",
     "double":"DOUBLER",
     "num":"NUM",
     "String":"STRINGR",

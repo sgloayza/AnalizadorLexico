@@ -6,7 +6,7 @@ from sintaxis import *
 
 
 win = tk.Tk()
-win2 = tk.Tk()
+
 #Añadiendo un titulo a nuestra ventana principal
 win.title("Analizador lexico")
 #Dimensiones en pixeles de nuestra ventana principal

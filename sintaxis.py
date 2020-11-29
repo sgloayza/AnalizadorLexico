@@ -621,6 +621,16 @@ def p_objetoForEach(p):
               | SET
     '''
 
+def p_objetoForEach(p):
+    '''objetoForEach : STRINGR
+              | INT
+              | DOUBLER
+              | NUM
+              | DYNAMIC
+              | BOOLR
+              | MAP
+              | SET
+    '''
 
 
 
