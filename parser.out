@@ -73,7 +73,7 @@ Rule 56    final -> expresionSet PUNTOYCOMA final
 Rule 57    final -> expresionMap PUNTOYCOMA
 Rule 58    final -> expresionMap PUNTOYCOMA final
 Rule 59    final -> expresionSwitch
-Rule 60    expresionSwitch -> SWITCH PIZQ expresionBool PDER
+Rule 60    expresionSwitch -> SWITCH PIZQ VARIABLE PDER
 Rule 61    expresionMap -> MAP VARIABLE
 Rule 62    expresionMap -> MAP VARIABLE IGUAL LIZQ LDER
 Rule 63    expresionMap -> LIZQ LDER
@@ -354,7 +354,7 @@ STRINGR              : 89 90 91 166 263
 SUMA                 : 236 249
 SWITCH               : 60
 VAR                  : 169 198 199 267
-VARIABLE             : 47 48 49 50 61 62 64 68 80 82 84 85 89 90 91 93 94 95 97 98 99 101 102 103 104 105 106 108 109 110 112 113 114 116 117 118 120 121 122 125 126 129 130 135 136 139 140 149 150 155 156 161 162 163 164 165 166 167 168 169 171 184 193 194 195 196 197 198 199 200 201 203 204 204 205 209 210 211 212 217 219 220 220 221 231 239 240 242
+VARIABLE             : 47 48 49 50 60 61 62 64 68 80 82 84 85 89 90 91 93 94 95 97 98 99 101 102 103 104 105 106 108 109 110 112 113 114 116 117 118 120 121 122 125 126 129 130 135 136 139 140 149 150 155 156 161 162 163 164 165 166 167 168 169 171 184 193 194 195 196 197 198 199 200 201 203 204 204 205 209 210 211 212 217 219 220 220 221 231 239 240 242
 WHILE                : 213 214 215
 error                : 
 
@@ -375,7 +375,7 @@ expListSet           : 74 113 115 153 154 156
 expListString        : 90 92 124 126
 expMap               : 64 65 67 79 158 160
 expresion            : 168 169 171 172 175 187
-expresionBool        : 9 10 60 167 177 178 181 182 192 213 214 215 227 228 228 229
+expresionBool        : 9 10 167 177 178 181 182 192 213 214 215 227 228 228 229
 expresionBoolFor     : 11 12 209 210 211 212
 expresionDouble      : 5 6 164 165 191 194 195 197 199 201 202 203 218 219 247
 expresionIndexString : 233
@@ -572,7 +572,7 @@ state 0
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -882,7 +882,7 @@ state 8
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -1205,7 +1205,7 @@ state 10
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -1520,7 +1520,7 @@ state 11
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -1893,7 +1893,7 @@ state 17
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -2208,7 +2208,7 @@ state 18
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -2916,7 +2916,7 @@ state 43
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -3209,7 +3209,7 @@ state 56
 
 state 57
 
-    (60) expresionSwitch -> SWITCH . PIZQ expresionBool PDER
+    (60) expresionSwitch -> SWITCH . PIZQ VARIABLE PDER
 
     PIZQ            shift and go to state 168
 
@@ -3436,7 +3436,7 @@ state 62
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -3747,7 +3747,7 @@ state 63
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -4058,7 +4058,7 @@ state 64
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -4369,7 +4369,7 @@ state 65
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -4680,7 +4680,7 @@ state 66
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -5057,7 +5057,7 @@ state 70
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -5407,7 +5407,7 @@ state 72
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -5718,7 +5718,7 @@ state 73
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -6029,7 +6029,7 @@ state 74
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -6379,7 +6379,7 @@ state 76
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -6729,7 +6729,7 @@ state 78
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -7040,7 +7040,7 @@ state 79
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -7351,7 +7351,7 @@ state 80
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -7662,7 +7662,7 @@ state 81
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -7973,7 +7973,7 @@ state 82
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -8284,7 +8284,7 @@ state 83
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -8634,7 +8634,7 @@ state 85
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -8984,7 +8984,7 @@ state 87
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -9486,7 +9486,7 @@ state 102
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -9797,7 +9797,7 @@ state 103
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -10108,7 +10108,7 @@ state 104
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -10419,7 +10419,7 @@ state 105
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -11190,7 +11190,7 @@ state 139
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -11521,7 +11521,7 @@ state 142
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO
@@ -12151,44 +12151,10 @@ state 167
 
 state 168
 
-    (60) expresionSwitch -> SWITCH PIZQ . expresionBool PDER
-    (218) expresionBool -> . valorDouble comparadorMat expresionDouble
-    (219) expresionBool -> . VARIABLE comparadorMat expresionDouble
-    (220) expresionBool -> . VARIABLE comparadorMat VARIABLE
-    (221) expresionBool -> . valorDouble comparadorMat VARIABLE
-    (222) expresionBool -> . valorBool
-    (223) expresionBool -> . negacionBool
-    (224) expresionBool -> . comparacionBool
-    (225) expresionBool -> . valor IS objeto
-    (226) expresionBool -> . valor ISNEGADO objeto
-    (245) valorDouble -> . DOUBLE
-    (246) valorDouble -> . valorInt
-    (216) valorBool -> . BOOL
-    (217) valorBool -> . VARIABLE
-    (227) negacionBool -> . NOT PIZQ expresionBool PDER
-    (228) comparacionBool -> . expresionBool operadorLogico expresionBool
-    (229) comparacionBool -> . expresionBool operadorLogico comparacionBool
-    (183) valor -> . ENTERO
-    (184) valor -> . VARIABLE
-    (185) valor -> . DOUBLE
-    (186) valor -> . STRING
-    (241) valorInt -> . ENTERO
-    (242) valorInt -> . VARIABLE
+    (60) expresionSwitch -> SWITCH PIZQ . VARIABLE PDER
 
-    VARIABLE        shift and go to state 178
-    DOUBLE          shift and go to state 58
-    BOOL            shift and go to state 61
-    NOT             shift and go to state 47
-    ENTERO          shift and go to state 182
-    STRING          shift and go to state 183
+    VARIABLE        shift and go to state 321
 
-    expresionBool                  shift and go to state 321
-    valorDouble                    shift and go to state 177
-    valorBool                      shift and go to state 179
-    negacionBool                   shift and go to state 180
-    comparacionBool                shift and go to state 218
-    valor                          shift and go to state 38
-    valorInt                       shift and go to state 181
 
 state 169
 
@@ -13255,7 +13221,7 @@ state 197
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -13566,7 +13532,7 @@ state 198
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -15830,17 +15796,10 @@ state 320
 
 state 321
 
-    (60) expresionSwitch -> SWITCH PIZQ expresionBool . PDER
-    (228) comparacionBool -> expresionBool . operadorLogico expresionBool
-    (229) comparacionBool -> expresionBool . operadorLogico comparacionBool
-    (261) operadorLogico -> . AND
-    (262) operadorLogico -> . OR
+    (60) expresionSwitch -> SWITCH PIZQ VARIABLE . PDER
 
     PDER            shift and go to state 410
-    AND             shift and go to state 68
-    OR              shift and go to state 69
 
-    operadorLogico                 shift and go to state 67
 
 state 322
 
@@ -16296,7 +16255,7 @@ state 340
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -16729,7 +16688,7 @@ state 352
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -17096,7 +17055,7 @@ state 364
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -17678,41 +17637,41 @@ state 409
 
 state 410
 
-    (60) expresionSwitch -> SWITCH PIZQ expresionBool PDER .
+    (60) expresionSwitch -> SWITCH PIZQ VARIABLE PDER .
 
-    $end            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    PUNTOYCOMA      reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    VARIABLE        reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    INT             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    DOUBLER         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    NUM             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    STRINGR         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    BOOLR           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    DYNAMIC         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    VAR             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    WHILE           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    DO              reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    IF              reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    ELSE            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    PRINT           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    FUNCIONSTDIN    reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    FUNCIONSTDOUT   reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    NOT             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    ELSEIF          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    FOR             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    LIST            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    CIZQ            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    NEWLIST         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    SET             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    SETFROM         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    MAP             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    LIZQ            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    SWITCH          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    ENTERO          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    DOUBLE          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    STRING          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    BOOL            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
-    LDER            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ expresionBool PDER .)
+    $end            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    PUNTOYCOMA      reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    VARIABLE        reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    INT             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    DOUBLER         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    NUM             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    STRINGR         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    BOOLR           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    DYNAMIC         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    VAR             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    WHILE           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    DO              reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    IF              reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    ELSE            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    PRINT           reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    FUNCIONSTDIN    reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    FUNCIONSTDOUT   reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    NOT             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    ELSEIF          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    FOR             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    LIST            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    CIZQ            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    NEWLIST         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    SET             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    SETFROM         reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    MAP             reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    LIZQ            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    SWITCH          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    ENTERO          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    DOUBLE          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    STRING          reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    BOOL            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
+    LDER            reduce using rule 60 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER .)
 
 
 state 411
@@ -18007,7 +17966,7 @@ state 421
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO
@@ -18406,7 +18365,7 @@ state 428
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO
@@ -18763,7 +18722,7 @@ state 434
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO
@@ -20684,7 +20643,7 @@ state 569
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -20931,7 +20890,7 @@ state 570
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (171) asignacionSimple -> . VARIABLE IGUAL expresion
     (241) valorInt -> . ENTERO
     (242) valorInt -> . VARIABLE
@@ -21392,7 +21351,7 @@ state 591
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO
@@ -21696,7 +21655,7 @@ state 593
     (63) expresionMap -> . LIZQ LDER
     (64) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (65) expresionMap -> . LIZQ expMap LDER
-    (60) expresionSwitch -> . SWITCH PIZQ expresionBool PDER
+    (60) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER
     (68) claveValor -> . VARIABLE
     (69) claveValor -> . STRING
     (70) claveValor -> . ENTERO

@@ -1,5 +1,9 @@
-from lexico import *
+import sintaxis
+import lexico
 import tkinter as tk
+from lexico import *
+from sintaxis import *
+
 
 
 win = tk.Tk()
@@ -9,14 +13,26 @@ win.title("Analizador lexico")
 win.geometry('400x400')
 lbl = tk.Label(win, text="Codigo:")
 lbl.pack()
-txt = tk.Entry(win,width=10)
+txt = tk.Entry(win,width=100)
 txt.pack()
+
 def prueba():
-    print("Hola",txt.get())
-btn = tk.Button(win, text="Analizador lexico", command=prueba)
+    s=txt.get()
+    result = parser.parse(s)
+    print(result)
+
+def prueba2():
+    x = txt.get()
+    for linea in x:
+        print(">>" + linea)
+        analizar(linea)
+        if len(linea) == 0:
+            break
+
+btn = tk.Button(win, text="Analizador lexico", command= prueba2)
 btn.pack()
-btn1 = tk.Button(win, text="Analizador sintactico", command=prueba)
-btn1.pack()
+btn2 = tk.Button(win, text="Analizador sintactico", command= prueba)
+btn2.pack()
 
 
 win.mainloop()

@@ -88,7 +88,7 @@ def p_final(p):
 
 
 def p_expresionSwitch(p):
-    '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LLAVE
+    '''expresionSwitch : SWITCH PIZQ VARIABLE PDER
     '''
 
 
@@ -522,7 +522,7 @@ def p_error(p):
 
 
 parser = yacc.yacc()
-
+'''
 while True:
     try:
         s = input('calc > ')
@@ -533,7 +533,7 @@ while True:
     result = parser.parse(s)
     print(result)
 
-'''
+
 archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
     try:
@@ -545,3 +545,10 @@ for linea in archivo:
     result = parser.parse(s)
     print(result)
 '''
+def leerArchivo():
+    f=open("algoritmoBasantes.txt")
+    s = f.read()
+    print(s)
+    result = parser.parse(s)
+    print(result)
+    f.close()
