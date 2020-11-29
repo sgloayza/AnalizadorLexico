@@ -76,9 +76,20 @@ def p_final(p):
              | expresionLista PUNTOYCOMA final
              | expresionNewList PUNTOYCOMA
              | expresionNewList PUNTOYCOMA final
+
+             | expresionSet PUNTOYCOMA
+             | expresionSet PUNTOYCOMA final
     '''
 
 
+
+
+def p_expresionSet(p):
+    '''expresionSet : SET VARIABLE
+                    | SETFROM PIZQ CIZQ CDER PDER
+                    | SET VARIABLE IGUAL SETFROM PIZQ CIZQ CDER PDER
+                    | SET VARIABLE IGUAL SETFROM PIZQ CIZQ expListDynamic CDER PDER
+    '''
 
 
 
