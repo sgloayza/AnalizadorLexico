@@ -85,6 +85,7 @@ def p_final(p):
 
              | expresionSwitch PUNTOYCOMA
              | expresionSwitch PUNTOYCOMA final
+
     '''
 
 
@@ -547,11 +548,10 @@ def p_objeto(p):
               | VAR
               | DYNAMIC
               | LIST
-              | BOOL
+              | BOOLR
               | MAP
               | SET
     '''
-
 
 
 
@@ -567,7 +567,6 @@ def p_error(p):
 
 parser = yacc.yacc()
 
-'''
 while True:
     try:
         s = input('calc > ')
@@ -577,7 +576,7 @@ while True:
     result = parser.parse(s)
     print(result)
 
-
+'''
 archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
     try:

@@ -25,6 +25,7 @@ def lexico():
 def sintaxis():
     s=txt.get("1.0","end")
     resultado = parser.parse(s)
+
     print(resultado)
 
 btn = tk.Button(win, text="Analizador lexico", command= lexico)
