@@ -297,12 +297,12 @@ def p_asignacionSimple(p):
 
 def p_declaracionSimple(p):
     '''declaracionSimple : STRINGR VARIABLE
-                        | INT VARIABLE
-                        | DOUBLER VARIABLE
-                        | NUM VARIABLE
-                        | VAR VARIABLE
-                        | DYNAMIC VARIABLE
-                        | BOOL VARIABLE
+                         | INT VARIABLE
+                         | DOUBLER VARIABLE
+                         | NUM VARIABLE
+                         | VAR VARIABLE
+                         | DYNAMIC VARIABLE
+                         | BOOL VARIABLE
     '''
 
 
