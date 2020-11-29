@@ -16,28 +16,30 @@ lbl.pack()
 txt = tk.Text(win,width=50)
 txt.pack()
 
-def prueba():
-    s=txt.get("1.0","end")
-    parser.parse(s)
-    createNewWindow()
-
-def prueba2():
+def lexico():
     x = txt.get("1.0","end")
     print(">>" + x)
-    analizar(x)
-    createNewWindow()
+    resultado = analizar(x)
+    createNewWindow(resultado)
 
+def sintaxis():
+    s=txt.get("1.0","end")
+    resultado = parser.parse(s)
+    print(resultado)
 
-btn = tk.Button(win, text="Analizador lexico", command= prueba2)
+btn = tk.Button(win, text="Analizador lexico", command= lexico)
 btn.pack()
-btn2 = tk.Button(win, text="Analizador sintactico", command= prueba)
+btn2 = tk.Button(win, text="Analizador sintactico", command= sintaxis)
 btn2.pack()
 
-def createNewWindow():
+def createNewWindow(resultado):
     newWindow = tk.Toplevel(win)
-    labelTitulo = tk.Label(newWindow, text = "Resultado:")
-    label = tk.Label(newWindow, text ="")
-    labelTitulo.pack()
+    tk.Label(newWindow, text = "Resultado:").pack()
+    label = tk.Label(newWindow)
+    for i in resultado:
+        tk.Label(newWindow, text = i).pack()
+    btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
+    btn3.pack()
     label.pack()
 
 win.mainloop()

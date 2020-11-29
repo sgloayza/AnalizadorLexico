@@ -187,12 +187,15 @@ lexer = lex.lex()
 
 
 def analizar(data):
+    resultado = []
     lex.input(data)
     while True:
         tok = lexer.token()
         if not tok:
             break
         print(tok)
+        resultado.append(tok)
+    return resultado
 '''
 print("Mi primer analizador léxico :)")
 archivo = open("algoritmoLoayza.txt")
@@ -206,4 +209,4 @@ while True:
     data = input("> ")
     analizar(data)
     if len(data)==0: break
-    '''
+'''
