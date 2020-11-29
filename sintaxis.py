@@ -114,7 +114,7 @@ def p_algoritmoUnico(p):
 
 def p_expresionSwitch(p):
     '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-                       | SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+                       | SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     '''
 def p_cases(p):
     '''cases : caseString

@@ -92,7 +92,7 @@ Rule 77    algoritmoUnico -> expresionMap PUNTOYCOMA
 Rule 78    algoritmoUnico -> expresionSwitch
 Rule 79    algoritmoUnico -> declaracionSimple PUNTOYCOMA
 Rule 80    expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-Rule 81    expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+Rule 81    expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
 Rule 82    cases -> caseString
 Rule 83    cases -> caseInt
 Rule 84    cases -> caseBool
@@ -402,7 +402,7 @@ error                :
 
 Nonterminals, with rules where they appear
 
-algoritmoUnico       : 214 215 216 222 224 253 255 257
+algoritmoUnico       : 81 214 215 216 222 224 253 255 257
 asignacion           : 1 2 56
 asignacionFor        : 252 253 254 255
 asignacionSimple     : 200 210 213
@@ -434,7 +434,7 @@ expresionNewList     : 45 46 75 105 121 125 129 133 136 140 144 148
 expresionSet         : 47 48 76
 expresionString      : 7 8 59 196 232 279
 expresionSwitch      : 51 52 53 78
-final                : 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 31 33 35 37 39 41 44 46 48 50 53 55 81 85 86 87 88 89 90 217 218 219 223 225 252 254 256 258 0
+final                : 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 31 33 35 37 39 41 44 46 48 50 53 55 85 86 87 88 89 90 217 218 219 223 225 252 254 256 258 0
 funcionStdin         : 25 26 66
 funcionStdout        : 27 28 67
 imprimir             : 23 24 65
@@ -618,7 +618,7 @@ state 0
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -929,7 +929,7 @@ state 8
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -1191,7 +1191,7 @@ state 10
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -1503,7 +1503,7 @@ state 16
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -2184,7 +2184,7 @@ state 53
 state 54
 
     (80) expresionSwitch -> SWITCH . PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> SWITCH . PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH . PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
 
     PIZQ            shift and go to state 160
 
@@ -2408,7 +2408,7 @@ state 59
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -2659,7 +2659,7 @@ state 60
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -2910,7 +2910,7 @@ state 61
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -3161,7 +3161,7 @@ state 62
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -3412,7 +3412,7 @@ state 63
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -3729,7 +3729,7 @@ state 67
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -3989,7 +3989,7 @@ state 69
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -4240,7 +4240,7 @@ state 70
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -4491,7 +4491,7 @@ state 71
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -4751,7 +4751,7 @@ state 73
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -5002,7 +5002,7 @@ state 74
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -5253,7 +5253,7 @@ state 75
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -5504,7 +5504,7 @@ state 76
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -5755,7 +5755,7 @@ state 77
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -6006,7 +6006,7 @@ state 78
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -6266,7 +6266,7 @@ state 80
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -6708,7 +6708,7 @@ state 95
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -6959,7 +6959,7 @@ state 96
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -7210,7 +7210,7 @@ state 97
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -7461,7 +7461,7 @@ state 98
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -7712,7 +7712,7 @@ state 99
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -7963,7 +7963,7 @@ state 100
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -8688,7 +8688,7 @@ state 134
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -9312,7 +9312,7 @@ state 159
 state 160
 
     (80) expresionSwitch -> SWITCH PIZQ . VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> SWITCH PIZQ . VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ . VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
 
     VARIABLE        shift and go to state 302
 
@@ -9821,7 +9821,7 @@ state 187
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -10072,7 +10072,7 @@ state 188
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -11876,7 +11876,7 @@ state 301
 state 302
 
     (80) expresionSwitch -> SWITCH PIZQ VARIABLE . PDER LIZQ cases LDER
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE . PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE . PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
 
     PDER            shift and go to state 384
 
@@ -12241,7 +12241,7 @@ state 321
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -12648,7 +12648,7 @@ state 333
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -13273,7 +13273,7 @@ state 383
 state 384
 
     (80) expresionSwitch -> SWITCH PIZQ VARIABLE PDER . LIZQ cases LDER
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER . LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER . LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
 
     LIZQ            shift and go to state 464
 
@@ -13581,7 +13581,7 @@ state 396
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -14373,7 +14373,7 @@ state 425
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -15040,7 +15040,7 @@ state 463
 state 464
 
     (80) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ . cases LDER
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ . cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ . cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (82) cases -> . caseString
     (83) cases -> . caseInt
     (84) cases -> . caseBool
@@ -16560,7 +16560,7 @@ state 529
 state 530
 
     (80) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases . LDER
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases . DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases . DEFAULT DOSPUNTOS algoritmoUnico LDER
 
     LDER            shift and go to state 577
     DEFAULT         shift and go to state 578
@@ -16977,7 +16977,7 @@ state 548
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -17551,7 +17551,7 @@ state 577
 
 state 578
 
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT . DOSPUNTOS final LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT . DOSPUNTOS algoritmoUnico LDER
 
     DOSPUNTOS       shift and go to state 615
 
@@ -17844,7 +17844,7 @@ state 588
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -18208,62 +18208,31 @@ state 614
 
 state 615
 
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS . final LDER
-    (1) final -> . asignacion PUNTOYCOMA
-    (2) final -> . asignacion PUNTOYCOMA final
-    (3) final -> . expresionInt PUNTOYCOMA
-    (4) final -> . expresionInt PUNTOYCOMA final
-    (5) final -> . expresionDouble PUNTOYCOMA
-    (6) final -> . expresionDouble PUNTOYCOMA final
-    (7) final -> . expresionString PUNTOYCOMA
-    (8) final -> . expresionString PUNTOYCOMA final
-    (9) final -> . expresionBool PUNTOYCOMA
-    (10) final -> . expresionBool PUNTOYCOMA final
-    (11) final -> . expresionBoolFor PUNTOYCOMA
-    (12) final -> . expresionBoolFor PUNTOYCOMA final
-    (13) final -> . sentenciaWhile
-    (14) final -> . sentenciaWhile final
-    (15) final -> . sentenciaWhile PUNTOYCOMA
-    (16) final -> . sentenciaWhile PUNTOYCOMA final
-    (17) final -> . sentenciaDoWhile PUNTOYCOMA
-    (18) final -> . sentenciaDoWhile PUNTOYCOMA final
-    (19) final -> . sentenciaIf PUNTOYCOMA
-    (20) final -> . sentenciaIf PUNTOYCOMA final
-    (21) final -> . sentenciaIf
-    (22) final -> . sentenciaIf final
-    (23) final -> . imprimir PUNTOYCOMA
-    (24) final -> . imprimir PUNTOYCOMA final
-    (25) final -> . funcionStdin PUNTOYCOMA
-    (26) final -> . funcionStdin PUNTOYCOMA final
-    (27) final -> . funcionStdout PUNTOYCOMA
-    (28) final -> . funcionStdout PUNTOYCOMA final
-    (29) final -> . negacionBool PUNTOYCOMA
-    (30) final -> . negacionBool PUNTOYCOMA final
-    (31) final -> . comparacionBool PUNTOYCOMA final
-    (32) final -> . comparacionBool PUNTOYCOMA
-    (33) final -> . sentenciaFor PUNTOYCOMA final
-    (34) final -> . sentenciaFor PUNTOYCOMA
-    (35) final -> . sentenciaFor final
-    (36) final -> . sentenciaFor
-    (37) final -> . sentenciaSubstring PUNTOYCOMA final
-    (38) final -> . sentenciaSubstring PUNTOYCOMA
-    (39) final -> . VARIABLE DSUMA PUNTOYCOMA final
-    (40) final -> . VARIABLE DSUMA PUNTOYCOMA
-    (41) final -> . VARIABLE DRESTA PUNTOYCOMA final
-    (42) final -> . VARIABLE DRESTA PUNTOYCOMA
-    (43) final -> . expresionLista PUNTOYCOMA
-    (44) final -> . expresionLista PUNTOYCOMA final
-    (45) final -> . expresionNewList PUNTOYCOMA
-    (46) final -> . expresionNewList PUNTOYCOMA final
-    (47) final -> . expresionSet PUNTOYCOMA
-    (48) final -> . expresionSet PUNTOYCOMA final
-    (49) final -> . expresionMap PUNTOYCOMA
-    (50) final -> . expresionMap PUNTOYCOMA final
-    (51) final -> . expresionSwitch
-    (52) final -> . expresionSwitch PUNTOYCOMA
-    (53) final -> . expresionSwitch PUNTOYCOMA final
-    (54) final -> . declaracionSimple PUNTOYCOMA
-    (55) final -> . declaracionSimple PUNTOYCOMA final
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS . algoritmoUnico LDER
+    (56) algoritmoUnico -> . asignacion PUNTOYCOMA
+    (57) algoritmoUnico -> . expresionInt PUNTOYCOMA
+    (58) algoritmoUnico -> . expresionDouble PUNTOYCOMA
+    (59) algoritmoUnico -> . expresionString PUNTOYCOMA
+    (60) algoritmoUnico -> . expresionBool PUNTOYCOMA
+    (61) algoritmoUnico -> . expresionBoolFor PUNTOYCOMA
+    (62) algoritmoUnico -> . sentenciaWhile
+    (63) algoritmoUnico -> . sentenciaDoWhile PUNTOYCOMA
+    (64) algoritmoUnico -> . sentenciaIf
+    (65) algoritmoUnico -> . imprimir PUNTOYCOMA
+    (66) algoritmoUnico -> . funcionStdin PUNTOYCOMA
+    (67) algoritmoUnico -> . funcionStdout PUNTOYCOMA
+    (68) algoritmoUnico -> . negacionBool PUNTOYCOMA
+    (69) algoritmoUnico -> . comparacionBool PUNTOYCOMA
+    (70) algoritmoUnico -> . sentenciaFor
+    (71) algoritmoUnico -> . sentenciaSubstring PUNTOYCOMA
+    (72) algoritmoUnico -> . VARIABLE DSUMA PUNTOYCOMA
+    (73) algoritmoUnico -> . VARIABLE DRESTA PUNTOYCOMA
+    (74) algoritmoUnico -> . expresionLista PUNTOYCOMA
+    (75) algoritmoUnico -> . expresionNewList PUNTOYCOMA
+    (76) algoritmoUnico -> . expresionSet PUNTOYCOMA
+    (77) algoritmoUnico -> . expresionMap PUNTOYCOMA
+    (78) algoritmoUnico -> . expresionSwitch
+    (79) algoritmoUnico -> . declaracionSimple PUNTOYCOMA
     (193) asignacion -> . INT VARIABLE IGUAL expresionInt
     (194) asignacion -> . DOUBLER VARIABLE IGUAL expresionDouble
     (195) asignacion -> . NUM VARIABLE IGUAL expresionDouble
@@ -18366,7 +18335,7 @@ state 615
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -18393,7 +18362,7 @@ state 615
     (229) valor -> . STRING
     (281) expresionIndexString -> . valorString CIZQ ENTERO CDER
 
-    VARIABLE        shift and go to state 18
+    VARIABLE        shift and go to state 413
     INT             shift and go to state 25
     DOUBLER         shift and go to state 26
     NUM             shift and go to state 27
@@ -18422,29 +18391,29 @@ state 615
     STRING          shift and go to state 56
     BOOL            shift and go to state 58
 
-    final                          shift and go to state 646
-    asignacion                     shift and go to state 2
-    expresionInt                   shift and go to state 3
-    expresionDouble                shift and go to state 4
-    expresionString                shift and go to state 5
-    expresionBool                  shift and go to state 6
-    expresionBoolFor               shift and go to state 7
-    sentenciaWhile                 shift and go to state 8
-    sentenciaDoWhile               shift and go to state 9
-    sentenciaIf                    shift and go to state 10
-    imprimir                       shift and go to state 11
-    funcionStdin                   shift and go to state 12
-    funcionStdout                  shift and go to state 13
-    negacionBool                   shift and go to state 14
-    comparacionBool                shift and go to state 15
-    sentenciaFor                   shift and go to state 16
-    sentenciaSubstring             shift and go to state 17
-    expresionLista                 shift and go to state 19
-    expresionNewList               shift and go to state 20
-    expresionSet                   shift and go to state 21
-    expresionMap                   shift and go to state 22
-    expresionSwitch                shift and go to state 23
-    declaracionSimple              shift and go to state 24
+    algoritmoUnico                 shift and go to state 646
+    asignacion                     shift and go to state 398
+    expresionInt                   shift and go to state 399
+    expresionDouble                shift and go to state 400
+    expresionString                shift and go to state 401
+    expresionBool                  shift and go to state 395
+    expresionBoolFor               shift and go to state 402
+    sentenciaWhile                 shift and go to state 403
+    sentenciaDoWhile               shift and go to state 404
+    sentenciaIf                    shift and go to state 405
+    imprimir                       shift and go to state 406
+    funcionStdin                   shift and go to state 407
+    funcionStdout                  shift and go to state 408
+    negacionBool                   shift and go to state 409
+    comparacionBool                shift and go to state 410
+    sentenciaFor                   shift and go to state 411
+    sentenciaSubstring             shift and go to state 412
+    expresionLista                 shift and go to state 414
+    expresionNewList               shift and go to state 415
+    expresionSet                   shift and go to state 416
+    expresionMap                   shift and go to state 417
+    expresionSwitch                shift and go to state 418
+    declaracionSimple              shift and go to state 419
     asignacionSimple               shift and go to state 32
     valorInt                       shift and go to state 33
     valorDouble                    shift and go to state 34
@@ -18614,7 +18583,7 @@ state 616
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -18862,7 +18831,7 @@ state 617
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -19110,7 +19079,7 @@ state 618
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -19350,7 +19319,7 @@ state 622
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -19607,7 +19576,7 @@ state 624
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -19824,7 +19793,7 @@ state 625
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -20124,7 +20093,7 @@ state 645
 
 state 646
 
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final . LDER
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico . LDER
 
     LDER            shift and go to state 659
 
@@ -20414,7 +20383,7 @@ state 654
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -20680,7 +20649,7 @@ state 655
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -20986,7 +20955,7 @@ state 657
     (94) expresionMap -> . MAP VARIABLE IGUAL LIZQ expMap LDER
     (95) expresionMap -> . LIZQ expMap LDER
     (80) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
-    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER
+    (81) expresionSwitch -> . SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER
     (202) declaracionSimple -> . STRINGR VARIABLE
     (203) declaracionSimple -> . INT VARIABLE
     (204) declaracionSimple -> . DOUBLER VARIABLE
@@ -21130,42 +21099,42 @@ state 658
 
 state 659
 
-    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .
+    (81) expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .
 
-    PUNTOYCOMA      reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    $end            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    LDER            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    BREAK           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    VARIABLE        reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    INT             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    DOUBLER         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    NUM             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    STRINGR         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    BOOLR           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    DYNAMIC         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    VAR             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    WHILE           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    DO              reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    IF              reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    PRINT           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    FUNCIONSTDIN    reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    FUNCIONSTDOUT   reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    NOT             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    FOR             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    LIST            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    CIZQ            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    NEWLIST         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    SET             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    SETFROM         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    MAP             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    LIZQ            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    SWITCH          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    ENTERO          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    DOUBLE          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    STRING          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    BOOL            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    ELSEIF          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
-    ELSE            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS final LDER .)
+    PUNTOYCOMA      reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    $end            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    LDER            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    BREAK           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    VARIABLE        reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    INT             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    DOUBLER         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    NUM             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    STRINGR         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    BOOLR           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    DYNAMIC         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    VAR             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    WHILE           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    DO              reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    IF              reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    PRINT           reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    FUNCIONSTDIN    reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    FUNCIONSTDOUT   reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    NOT             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    FOR             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    LIST            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    CIZQ            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    NEWLIST         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    SET             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    SETFROM         reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    MAP             reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    LIZQ            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    SWITCH          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    ENTERO          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    DOUBLE          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    STRING          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    BOOL            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    ELSEIF          reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
+    ELSE            reduce using rule 81 (expresionSwitch -> SWITCH PIZQ VARIABLE PDER LIZQ cases DEFAULT DOSPUNTOS algoritmoUnico LDER .)
 
 
 state 660
