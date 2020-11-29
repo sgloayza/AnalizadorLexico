@@ -65,7 +65,6 @@ tokens = [
     "NEWLIST",
     "ELSEIF",
     "FUNCIONSUBSTRING",
-    "FUNCIONARR",
     "FUNCIONSTDIN",
     "FUNCIONSTDOUT",
     "FUNCIONTAKE",
@@ -143,10 +142,6 @@ def t_FUNCIONSUBSTRING(t):
 
 def t_FUNCIONSPLIT(t):
     r"(\.split)"
-    return t
-
-def t_FUNCIONARR(t):
-    r"(\.forEach|\.firstWhere)"
     return t
 
 def t_FUNCIONSTDIN(t):

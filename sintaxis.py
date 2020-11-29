@@ -378,10 +378,33 @@ def p_funcionStdout(p):
 
 
 
+
+
+
+
 def p_sentenciaForEach(p):
     '''sentenciaForEach : FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER algoritmoUnico
                         | FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER LIZQ final LDER
     '''
+def p_objetoForEach(p):
+    '''objetoForEach : STRINGR
+                     | INT
+                     | DOUBLER
+                     | NUM
+                     | DYNAMIC
+                     | BOOLR
+                     | MAP
+                     | SET
+    '''
+
+
+
+
+
+
+
+
+
 
 
 def p_sentenciaIf(p):
@@ -605,28 +628,6 @@ def p_objeto(p):
               | VAR
               | DYNAMIC
               | LIST
-              | BOOLR
-              | MAP
-              | SET
-    '''
-
-def p_objetoForEach(p):
-    '''objetoForEach : STRINGR
-              | INT
-              | DOUBLER
-              | NUM
-              | DYNAMIC
-              | BOOLR
-              | MAP
-              | SET
-    '''
-
-def p_objetoForEach(p):
-    '''objetoForEach : STRINGR
-              | INT
-              | DOUBLER
-              | NUM
-              | DYNAMIC
               | BOOLR
               | MAP
               | SET
