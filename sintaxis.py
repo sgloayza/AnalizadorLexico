@@ -85,6 +85,9 @@ def p_final(p):
              | sentenciaForEach final
              | sentenciaForEach PUNTOYCOMA
              | sentenciaForEach PUNTOYCOMA final
+
+             | funcionFirstWhere PUNTOYCOMA
+             | funcionFirstWhere PUNTOYCOMA final
     '''
 def p_algoritmoUnico(p):
     '''algoritmoUnico : asignacion PUNTOYCOMA
@@ -111,6 +114,7 @@ def p_algoritmoUnico(p):
                       | expresionMap PUNTOYCOMA
                       | expresionSwitch
                       | declaracionSimple PUNTOYCOMA
+                      | funcionFirstWhere PUNTOYCOMA
     '''
 
 
@@ -119,6 +123,11 @@ def p_algoritmoUnico(p):
 
 
 
+
+
+def p_funcionFirstWhere(p):
+    '''funcionFirstWhere : VARIABLE FUNCIONFIRSTWHERE PIZQ PIZQ VARIABLE PDER FLECHA expresionBool PDER
+    '''
 
 
 
@@ -449,6 +458,7 @@ def p_expresion(p):
                  | expresionInt
                  | expresionDouble
                  | expresionBool
+                 | funcionFirstWhere
     '''
 
 

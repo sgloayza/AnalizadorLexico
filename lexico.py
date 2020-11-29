@@ -70,6 +70,7 @@ tokens = [
     "FUNCIONTAKE",
     "FUNCIONRANGE",
     "FUNCIONSPLIT",
+    "FUNCIONFIRSTWHERE",
     "FLECHA",
     "AND",
     "OR",
@@ -158,6 +159,10 @@ def t_FUNCIONTAKE(t):
 
 def t_FUNCIONRANGE(t):
     r"\.getRange"
+    return t
+
+def t_FUNCIONFIRSTWHERE(t):
+    r"\.firstWhere"
     return t
 
 def t_VARIABLE(t):
