@@ -185,7 +185,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
-'''
+
 def analizar(data):
     lex.input(data)
     while True:
@@ -193,7 +193,7 @@ def analizar(data):
         if not tok:
             break
         print(tok)
-
+'''
 print("Mi primer analizador léxico :)")
 archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
