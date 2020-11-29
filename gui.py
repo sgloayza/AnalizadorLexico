@@ -11,36 +11,65 @@ win = tk.Tk()
 win.title("Analizador lexico")
 #Dimensiones en pixeles de nuestra ventana principal
 win.geometry('500x500')
-lbl = tk.Label(win, text="Codigo:")
-lbl.pack()
-txt = tk.Text(win,width=50)
-txt.pack()
+label = tk.Label(win, text="Codigo:")
+label.pack()
+texto = tk.Text(win,width=50)
+texto.pack()
+
+
+
+
+
+
+
+
 
 def lexico():
-    x = txt.get("1.0","end")
-    print(">>" + x)
-    resultado = analizar(x)
-    createNewWindow(resultado)
+    data = texto.get("1.0","end")
+    print(">> "+ data)
+    resultado = analizar(data)
+    createNewWindow(resultado,"léxico")
+
+
 
 def sintaxis():
-    s=txt.get("1.0","end")
+    s=texto.get("1.0","end")
     resultado = parser.parse(s)
-
     print(resultado)
+    createNewWindow(resultado,"sintaxis")
 
-btn = tk.Button(win, text="Analizador lexico", command= lexico)
+btn = tk.Button(win, text="Analizador léxico", command= lexico)
 btn.pack()
-btn2 = tk.Button(win, text="Analizador sintactico", command= sintaxis)
+btn2 = tk.Button(win, text="Analizador sintáctico", command= sintaxis)
 btn2.pack()
 
-def createNewWindow(resultado):
+
+
+
+
+
+
+
+
+
+def createNewWindow(resultado,tipo):
     newWindow = tk.Toplevel(win)
-    tk.Label(newWindow, text = "Resultado:").pack()
-    label = tk.Label(newWindow)
-    for i in resultado:
-        tk.Label(newWindow, text = i).pack()
+    tk.Label(newWindow, text = "Resultado "+tipo+":").pack();
+    label3 = tk.Label(newWindow)
+    if tipo=="léxico":
+        for i in resultado:
+            tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
+    else:
+        tk.Label(newWindow, text = resultado, anchor="w").pack(fill='both')
     btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
     btn3.pack()
-    label.pack()
+    label3.pack()
+
+
+
+
+
+
+
 
 win.mainloop()

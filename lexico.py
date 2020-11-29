@@ -196,7 +196,7 @@ lexer = lex.lex()
 
 def analizar(data):
     resultado = []
-    lex.input(data)
+    lexer.input(data)
     while True:
         tok = lexer.token()
         if not tok:
