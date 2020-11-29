@@ -4,6 +4,7 @@ from lexico import tokens
 
 #--------------------------------------------------------------------------#
 
+
 def p_final(p):
     '''final : asignacion PUNTOYCOMA
              | asignacion PUNTOYCOMA final
@@ -36,11 +37,6 @@ def p_final(p):
              | sentenciaIf
              | sentenciaIf final
 
-             | sentenciaElse PUNTOYCOMA
-             | sentenciaElse PUNTOYCOMA final
-             | sentenciaElse
-             | sentenciaElse final
-
              | imprimir PUNTOYCOMA
              | imprimir PUNTOYCOMA final
              | funcionStdin PUNTOYCOMA
@@ -53,11 +49,6 @@ def p_final(p):
 
              | comparacionBool PUNTOYCOMA final
              | comparacionBool PUNTOYCOMA
-
-             | sentenciaElseIf PUNTOYCOMA final
-             | sentenciaElseIf final
-             | sentenciaElseIf PUNTOYCOMA
-             | sentenciaElseIf
 
              | sentenciaFor PUNTOYCOMA final
              | sentenciaFor PUNTOYCOMA
@@ -83,11 +74,13 @@ def p_final(p):
              | expresionMap PUNTOYCOMA
              | expresionMap PUNTOYCOMA final
 
+             | expresionSwitch
              | expresionSwitch PUNTOYCOMA
              | expresionSwitch PUNTOYCOMA final
 
              | declaracionSimple PUNTOYCOMA
              | declaracionSimple PUNTOYCOMA final
+
     '''
 
 
@@ -347,14 +340,20 @@ def p_funcionStdout(p):
 def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER final
                    | IF PIZQ expresionBool PDER LIZQ final LDER
+                   | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf
+                   | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf sentenciaElse
     '''
-def p_sentenciaElse(p):
-    '''sentenciaElse : ELSE final
-                     | ELSE LIZQ final LDER
+def p_sentenciasElseIf(p):
+    '''sentenciasElseIf : sentenciaElseIf
+                        | sentenciaElseIf sentenciasElseIf
     '''
 def p_sentenciaElseIf(p):
     '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER final
                        | ELSEIF PIZQ expresionBool PDER LIZQ final LDER
+    '''
+def p_sentenciaElse(p):
+    '''sentenciaElse : ELSE final
+                     | ELSE LIZQ final LDER
     '''
 
 
