@@ -69,6 +69,7 @@ tokens = [
     "FUNCIONSTDOUT",
     "FUNCIONTAKE",
     "FUNCIONRANGE",
+    "FUNCIONSPLIT",
     "FLECHA",
     "AND",
     "OR",
@@ -137,6 +138,10 @@ def t_ELSEIF(t):
 
 def t_FUNCIONSUBSTRING(t):
     r"(\.substring)"
+    return t
+
+def t_FUNCIONSPLIT(t):
+    r"(\.split)"
     return t
 
 def t_FUNCIONARR(t):
