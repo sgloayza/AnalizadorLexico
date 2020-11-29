@@ -82,6 +82,8 @@ def p_final(p):
 
              | expresionMap PUNTOYCOMA
              | expresionMap PUNTOYCOMA final
+
+             |
     '''
 
 
@@ -131,6 +133,7 @@ def p_expresionSet(p):
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ CDER PDER
                     | SETFROM PIZQ CIZQ expListDynamic CDER PDER
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ expListDynamic CDER PDER
+                    | VARIABLE FUNCIONTAKE PIZQ ENTERO PDER
     '''
 
 
@@ -183,6 +186,10 @@ def p_expresionLista(p):
                       | LIST MENOR MAP MAYOR VARIABLE IGUAL CIZQ expListMap CDER
                       | LIST MENOR MAP MAYOR VARIABLE IGUAL expresionNewList
                       | CIZQ expListMap CDER
+
+                      | VARIABLE CIZQ ENTERO CDER
+                      | VARIABLE FUNCIONTAKE PIZQ ENTERO PDER
+                      | VARIABLE FUNCIONRANGE PIZQ ENTERO COMA ENTERO PDER
 
     '''
 def p_expListString(p):
@@ -419,6 +426,7 @@ def p_valorString(p):
                    | FUNCIONSTDIN
                    | expresionIndexString
                    | sentenciaSubstring
+                   | STRING CIZQ ENTERO CDER
     '''
 def p_expresion_aritmetica_String(p):
     '''expresionString : valorString SUMA expresionString
