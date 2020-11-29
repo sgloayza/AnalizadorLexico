@@ -84,10 +84,12 @@ def p_final(p):
 
 
 
+
 def p_expresionSet(p):
     '''expresionSet : SET VARIABLE
                     | SETFROM PIZQ CIZQ CDER PDER
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ CDER PDER
+                    | SETFROM PIZQ CIZQ expListDynamic CDER PDER
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ expListDynamic CDER PDER
     '''
 
@@ -132,29 +134,38 @@ def p_expresionLista(p):
                       | LIST MENOR DYNAMIC MAYOR VARIABLE IGUAL expresionNewList
                       | CIZQ expListDynamic CDER
 
-
-
-
+                      | LIST MENOR SET MAYOR VARIABLE
+                      | LIST MENOR SET MAYOR VARIABLE IGUAL CIZQ expListSet CDER
+                      | LIST MENOR SET MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListSet CDER
 
     '''
 
 def p_expListString(p):
     '''expListString : STRING
                      | STRING COMA expListString
+                     | VARIABLE
+                     | VARIABLE COMA expListString
     '''
 def p_expListInt(p):
     '''expListInt : ENTERO
                   | ENTERO COMA expListInt
+                  | VARIABLE
+                  | VARIABLE COMA expListInt
     '''
 def p_expListNum(p):
     '''expListNum : ENTERO
                   | DOUBLE
                   | ENTERO COMA expListNum
                   | DOUBLE COMA expListNum
+                  | VARIABLE
+                  | VARIABLE COMA expListNum
     '''
 def p_expListBool(p):
     '''expListBool : BOOL
                    | BOOL COMA expListBool
+                   | VARIABLE
+                   | VARIABLE COMA expListBool
     '''
 def p_expListDynamic(p):
     '''expListDynamic : STRING
@@ -165,9 +176,16 @@ def p_expListDynamic(p):
                       | ENTERO COMA expListDynamic
                       | DOUBLE COMA expListDynamic
                       | BOOL COMA expListDynamic
+                      | VARIABLE
+                      | VARIABLE COMA expListDynamic
     '''
-def p_expListList(p):
-    '''expListList : VAR
+def p_expListSet(p):
+    '''expListSet : SETFROM PIZQ CIZQ CDER PDER
+                  | SETFROM PIZQ CIZQ expListDynamic CDER PDER
+                  | SETFROM PIZQ CIZQ CDER PDER COMA expListSet
+                  | SETFROM PIZQ CIZQ expListDynamic CDER PDER COMA expListSet
+                  | VARIABLE
+                  | VARIABLE COMA expListSet
     '''
 
 
