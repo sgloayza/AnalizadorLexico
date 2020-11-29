@@ -80,6 +80,11 @@ def p_final(p):
 
              | declaracionSimple PUNTOYCOMA
              | declaracionSimple PUNTOYCOMA final
+
+             | sentenciaForEach
+             | sentenciaForEach final
+             | sentenciaForEach PUNTOYCOMA
+             | sentenciaForEach PUNTOYCOMA final
     '''
 def p_algoritmoUnico(p):
     '''algoritmoUnico : asignacion PUNTOYCOMA
@@ -358,7 +363,10 @@ def p_funcionStdout(p):
 
 
 
-
+def p_sentenciaForEach(p):
+    '''sentenciaForEach : FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER algoritmoUnico
+                        | FOR PIZQ objetoForEach VARIABLE IN VARIABLE PDER LIZQ final LDER
+    '''
 
 
 def p_sentenciaIf(p):
@@ -587,6 +595,16 @@ def p_objeto(p):
               | SET
     '''
 
+def p_objetoForEach(p):
+    '''objetoForEach : STRINGR
+              | INT
+              | DOUBLER
+              | NUM
+              | DYNAMIC
+              | BOOLR
+              | MAP
+              | SET
+    '''
 
 
 
