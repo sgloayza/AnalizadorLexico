@@ -87,9 +87,33 @@ def p_final(p):
     '''
 
 
+
+
+
+
+
 def p_expresionSwitch(p):
-    '''expresionSwitch : SWITCH PIZQ VARIABLE PDER
+    '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LIZQ cases LDER
     '''
+def p_cases(p):
+    '''cases : caseString
+             | caseInt
+             | caseBool
+    '''
+def p_caseString(p):
+    '''caseString : CASE STRING DOSPUNTOS final BREAK PUNTOYCOMA
+                  | CASE STRING DOSPUNTOS final BREAK PUNTOYCOMA caseString
+    '''
+def p_caseInt(p):
+    '''caseInt : CASE ENTERO DOSPUNTOS final BREAK PUNTOYCOMA
+               | CASE ENTERO DOSPUNTOS final BREAK PUNTOYCOMA caseInt
+    '''
+def p_caseBool(p):
+    '''caseBool : CASE BOOL DOSPUNTOS final BREAK PUNTOYCOMA
+                | CASE BOOL DOSPUNTOS final BREAK PUNTOYCOMA caseBool
+    '''
+
+
 
 
 
@@ -131,6 +155,7 @@ def p_claveValor(p):
 
 
 
+
 def p_expresionSet(p):
     '''expresionSet : SET VARIABLE
                     | SETFROM PIZQ CIZQ CDER PDER
@@ -139,6 +164,7 @@ def p_expresionSet(p):
                     | SET VARIABLE IGUAL SETFROM PIZQ CIZQ expListDynamic CDER PDER
                     | VARIABLE FUNCIONTAKE PIZQ ENTERO PDER
     '''
+
 
 
 
@@ -279,9 +305,13 @@ def p_asignacionSimple(p):
 
 
 
+
 def p_imprimir(p):
     '''imprimir : PRINT PIZQ expresion PDER
                 | PRINT PIZQ asignacionSimple PDER'''
+
+
+
 
 
 
@@ -301,6 +331,8 @@ def p_funcionStdout(p):
 
 
 
+
+
 def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER final
                    | IF PIZQ expresionBool PDER LIZQ final LDER
@@ -313,6 +345,7 @@ def p_sentenciaElseIf(p):
     '''sentenciaElseIf : ELSEIF PIZQ expresionBool PDER final
                        | ELSEIF PIZQ expresionBool PDER LIZQ final LDER
     '''
+
 
 
 
@@ -377,12 +410,15 @@ def p_sentenciaFor(p):
 
 
 
+
+
 def p_sentenciaWhile(p):
     '''sentenciaWhile : WHILE PIZQ expresionBool PDER LIZQ final LDER
                       | WHILE PIZQ expresionBool PDER final
     '''
 def p_sentenciaDoWhile(p):
     'sentenciaDoWhile : DO LIZQ final LDER WHILE PIZQ expresionBool PDER'
+
 
 
 
@@ -464,6 +500,8 @@ def p_expresion_aritmetica_Int(p):
 
 
 
+
+
 def p_valorDouble(p):
     '''valorDouble : DOUBLE
                    | valorInt
@@ -472,6 +510,7 @@ def p_expresion_aritmetica_Double(p):
     '''expresionDouble : valorDouble operadorMat expresionDouble
                        | valorDouble
     '''
+
 
 
 
@@ -513,6 +552,10 @@ def p_objeto(p):
     '''
 
 
+
+
+
+
 #--------------------------------------------------------------------------#
 
 def p_error(p):
@@ -522,11 +565,11 @@ def p_error(p):
 
 
 parser = yacc.yacc()
+
 '''
 while True:
     try:
         s = input('calc > ')
-
     except EOFError:
         break
     if not s: continue
@@ -544,11 +587,12 @@ for linea in archivo:
     if not s: continue
     result = parser.parse(s)
     print(result)
+
+
+f=open("algoritmoLoayza.txt")
+s = f.read()
+print(s)
+result = parser.parse(s)
+print(result)
+f.close()
 '''
-def leerArchivo():
-    f=open("algoritmoBasantes.txt")
-    s = f.read()
-    print(s)
-    result = parser.parse(s)
-    print(result)
-    f.close()
