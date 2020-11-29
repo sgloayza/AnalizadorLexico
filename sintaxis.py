@@ -86,6 +86,8 @@ def p_final(p):
              | expresionSwitch PUNTOYCOMA
              | expresionSwitch PUNTOYCOMA final
 
+             | declaracionSimple PUNTOYCOMA
+             | declaracionSimple PUNTOYCOMA final
     '''
 
 
@@ -300,8 +302,15 @@ def p_asignacion(p):
 def p_asignacionSimple(p):
     'asignacionSimple : VARIABLE IGUAL expresion'
 
-
-
+def p_declaracionSimple(p):
+    '''declaracionSimple : STRINGR VARIABLE
+                        | INT VARIABLE
+                        | DOUBLER VARIABLE
+                        | NUM VARIABLE
+                        | VAR VARIABLE
+                        | DYNAMIC VARIABLE
+                        | BOOL VARIABLE
+    '''
 
 
 
