@@ -79,7 +79,42 @@ def p_final(p):
 
              | expresionSet PUNTOYCOMA
              | expresionSet PUNTOYCOMA final
+
+             | expresionMap
     '''
+
+
+
+def p_expresionMap(p):
+    '''expresionMap : MAP VARIABLE
+                    | MAP VARIABLE IGUAL LIZQ LDER
+                    | LIZQ LDER
+                    | MAP VARIABLE IGUAL LIZQ expMap LDER
+                    | LIZQ expMap LDER
+
+    '''
+def p_expMap(p):
+    '''expMap : claveValor DOSPUNTOS claveValor
+              | claveValor DOSPUNTOS claveValor COMA expMap
+    '''
+def p_claveValor(p):
+    '''claveValor : VARIABLE
+                  | STRING
+                  | ENTERO
+                  | DOUBLE
+                  | BOOL
+
+                  | CIZQ expListDynamic CDER
+                  | CIZQ expListSet CDER
+                  | expresionNewList
+
+                  | SETFROM PIZQ CIZQ CDER PDER
+                  | SETFROM PIZQ CIZQ expListDynamic CDER PDER
+
+                  | LIZQ LDER
+                  | LIZQ expMap LDER
+    '''
+
 
 
 
@@ -139,8 +174,12 @@ def p_expresionLista(p):
                       | LIST MENOR SET MAYOR VARIABLE IGUAL expresionNewList
                       | CIZQ expListSet CDER
 
-    '''
+                      | LIST MENOR MAP MAYOR VARIABLE
+                      | LIST MENOR MAP MAYOR VARIABLE IGUAL CIZQ expListMap CDER
+                      | LIST MENOR MAP MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListMap CDER
 
+    '''
 def p_expListString(p):
     '''expListString : STRING
                      | STRING COMA expListString
@@ -187,7 +226,14 @@ def p_expListSet(p):
                   | VARIABLE
                   | VARIABLE COMA expListSet
     '''
-
+def p_expListMap(p):
+    '''expListMap : LIZQ LDER
+                  | LIZQ expMap LDER
+                  | LIZQ LDER COMA expListMap
+                  | LIZQ expMap LDER COMA expListMap
+                  | VARIABLE
+                  | VARIABLE COMA expListMap
+    '''
 
 
 
