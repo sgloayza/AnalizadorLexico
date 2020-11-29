@@ -566,6 +566,7 @@ def p_error(p):
 
 parser = yacc.yacc()
 
+'''
 while True:
     try:
         s = input('calc > ')
@@ -575,7 +576,7 @@ while True:
     result = parser.parse(s)
     print(result)
 
-'''
+
 archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
     try:
