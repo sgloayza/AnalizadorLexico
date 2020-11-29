@@ -88,7 +88,13 @@ def p_final(p):
 
              | funcionFirstWhere PUNTOYCOMA
              | funcionFirstWhere PUNTOYCOMA final
+
+             | funcionSimple
+             | funcionSimple final
+             | funcionSimple PUNTOYCOMA
+             | funcionSimple PUNTOYCOMA final
     '''
+
 def p_algoritmoUnico(p):
     '''algoritmoUnico : asignacion PUNTOYCOMA
                       | expresionInt PUNTOYCOMA
@@ -115,6 +121,7 @@ def p_algoritmoUnico(p):
                       | expresionSwitch
                       | declaracionSimple PUNTOYCOMA
                       | funcionFirstWhere PUNTOYCOMA
+                      | sentenciaForEach
     '''
 
 
@@ -388,7 +395,8 @@ def p_funcionStdout(p):
 
 
 
-
+def p_funcionSimple(p):
+    'funcionSimple : VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico'
 
 
 def p_sentenciaForEach(p):
