@@ -83,9 +83,13 @@ def p_final(p):
              | expresionMap PUNTOYCOMA
              | expresionMap PUNTOYCOMA final
 
-             |
+             | expresionSwitch
     '''
 
+
+def p_expresionSwitch(p):
+    '''expresionSwitch : SWITCH PIZQ VARIABLE PDER LLAVE
+    '''
 
 
 
@@ -530,10 +534,14 @@ while True:
     print(result)
 
 '''
-f=open("algoritmoLoayza.txt")
-s = f.read()
-print(s)
-result = parser.parse(s)
-print(result)
-f.close()
+archivo = open("algoritmoLoayza.txt")
+for linea in archivo:
+    try:
+        s = linea.rstrip('\n')
+        print("> "+s)
+    except EOFError:
+        break
+    if not s: continue
+    result = parser.parse(s)
+    print(result)
 '''
