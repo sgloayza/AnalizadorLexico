@@ -201,4 +201,9 @@ for linea in archivo:
     analizar(linea)
     if len(linea)==0:
         break
-'''
+
+while True:
+    data = input("> ")
+    analizar(data)
+    if len(data)==0: break
+    '''

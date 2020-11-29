@@ -17,17 +17,15 @@ txt = tk.Text(win,width=50)
 txt.pack()
 
 def prueba():
-    s=txt.get("1.0","end-1c")
+    s=txt.get("1.0","end")
     result = parser.parse(s)
     print(result)
 
 def prueba2():
-    x = txt.get("1.0","end-1c")
-    for linea in x:
-        print(">>" + linea)
-        analizar(linea)
-        if len(linea) == 0:
-            break
+    x = txt.get("1.0","end")
+    print(">>" + x)
+    analizar(x)
+
 
 btn = tk.Button(win, text="Analizador lexico", command= prueba2)
 btn.pack()

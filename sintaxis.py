@@ -83,7 +83,8 @@ def p_final(p):
              | expresionMap PUNTOYCOMA
              | expresionMap PUNTOYCOMA final
 
-             | expresionSwitch
+             | expresionSwitch PUNTOYCOMA
+             | expresionSwitch PUNTOYCOMA final
     '''
 
 
