@@ -55,7 +55,6 @@ btn2.pack()
 def createNewWindow(resultado,tipo):
     newWindow = tk.Toplevel(win)
     tk.Label(newWindow, text = "Resultado "+tipo+":").pack();
-    label3 = tk.Label(newWindow)
     if tipo=="léxico":
         for i in resultado:
             tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
@@ -63,7 +62,6 @@ def createNewWindow(resultado,tipo):
         tk.Label(newWindow, text = resultado, anchor="w").pack(fill='both')
     btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
     btn3.pack()
-    label3.pack()
 
 
 
