@@ -76,30 +76,8 @@ def p_final(p):
              | expresionLista PUNTOYCOMA final
              | expresionNewList PUNTOYCOMA
              | expresionNewList PUNTOYCOMA final
-
-             | expListaLista
-
     '''
 
-
-
-
-
-def p_expListaLista(p):
-    '''expListaLista : LIST MENOR LIST MENOR tipo MAYOR MAYOR VARIABLE
-                     | LIST MENOR LIST MENOR tipo MAYOR MAYOR VARIABLE IGUAL expresionNewList
-    '''
-def p_tipo(p):
-    '''tipo : STRINGR
-            | INT
-            | DOUBLER
-            | NUM
-            | DYNAMIC
-            | BOOL
-            | MAP
-            | SET
-            | LIST MENOR tipo MAYOR
-    '''
 
 
 
@@ -142,9 +120,6 @@ def p_expresionLista(p):
                       | LIST MENOR DYNAMIC MAYOR VARIABLE IGUAL CIZQ expListDynamic CDER
                       | LIST MENOR DYNAMIC MAYOR VARIABLE IGUAL expresionNewList
                       | CIZQ expListDynamic CDER
-
-                      | LIST MENOR VARIABLE MAYOR VARIABLE
-                      | LIST MENOR VARIABLE MAYOR VARIABLE IGUAL expresionNewList
 
 
 
