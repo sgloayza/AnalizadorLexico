@@ -10,19 +10,19 @@ win = tk.Tk()
 #Añadiendo un titulo a nuestra ventana principal
 win.title("Analizador lexico")
 #Dimensiones en pixeles de nuestra ventana principal
-win.geometry('400x400')
+win.geometry('500x500')
 lbl = tk.Label(win, text="Codigo:")
 lbl.pack()
-txt = tk.Entry(win,width=100)
+txt = tk.Text(win,width=50)
 txt.pack()
 
 def prueba():
-    s=txt.get()
+    s=txt.get("1.0","end-1c")
     result = parser.parse(s)
     print(result)
 
 def prueba2():
-    x = txt.get()
+    x = txt.get("1.0","end-1c")
     for linea in x:
         print(">>" + linea)
         analizar(linea)
