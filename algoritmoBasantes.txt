@@ -43,10 +43,15 @@ a = stdin.readLineSync();
 stdout.write("hola");
 print("chao");
 
+for(int i=0;i<10;i++){print(i);}
+
 while(a==3){int a=3;};
 do{a++;}while(a==3);
 while(a==3) a++;
 
-if(a==3){b=3;};
+if(a==3){
+b=3;
+};
+
 else if(a==1) b=1;
 else {b="if";}
