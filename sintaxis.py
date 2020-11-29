@@ -77,7 +77,32 @@ def p_final(p):
              | expresionNewList PUNTOYCOMA
              | expresionNewList PUNTOYCOMA final
 
+             | expListaLista
+
     '''
+
+
+
+
+
+def p_expListaLista(p):
+    '''expListaLista : LIST MENOR LIST MENOR tipo MAYOR MAYOR VARIABLE
+                     | LIST MENOR LIST MENOR tipo MAYOR MAYOR VARIABLE IGUAL expresionNewList
+    '''
+def p_tipo(p):
+    '''tipo : STRINGR
+            | INT
+            | DOUBLER
+            | NUM
+            | DYNAMIC
+            | BOOL
+            | MAP
+            | SET
+            | LIST MENOR tipo MAYOR
+    '''
+
+
+
 
 
 
@@ -88,41 +113,42 @@ def p_expresionNewList(p):
                         | NEWLIST PIZQ ENTERO PDER
                         | CIZQ CDER
     '''
-
 def p_expresionLista(p):
-    '''expresionLista : LIST MENOR objetoList MAYOR VARIABLE
-                      | LIST MENOR objetoList MAYOR VARIABLE IGUAL expresionNewList
-                      | expresionListaTipos
-    '''
+    '''expresionLista : LIST MENOR STRINGR MAYOR VARIABLE
+                      | LIST MENOR STRINGR MAYOR VARIABLE IGUAL CIZQ expListString CDER
+                      | LIST MENOR STRINGR MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListString CDER
 
-def p_objetoList(p):
-    '''objetoList : VARIABLE
-                  | STRINGR
-                  | INT
-                  | DOUBLER
-                  | NUM
-                  | BOOLR
-                  | DYNAMIC
-                  | MAP
-                  | SET
-                  | LIST MENOR objetoList MAYOR
-    '''
+                      | LIST MENOR INT MAYOR VARIABLE
+                      | LIST MENOR INT MAYOR VARIABLE IGUAL CIZQ expListInt CDER
+                      | LIST MENOR INT MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListInt CDER
 
-def p_expresionListaTipos(p):
-    '''expresionListaTipos : LIST MENOR STRINGR MAYOR VARIABLE IGUAL CIZQ expListString CDER
-                           | CIZQ expListString CDER
+                      | LIST MENOR DOUBLER MAYOR VARIABLE
+                      | LIST MENOR DOUBLER MAYOR VARIABLE IGUAL CIZQ expListNum CDER
+                      | LIST MENOR DOUBLER MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListNum CDER
 
-                           | LIST MENOR INT MAYOR VARIABLE IGUAL CIZQ expListInt CDER
-                           | CIZQ expListInt CDER
+                      | LIST MENOR NUM MAYOR VARIABLE
+                      | LIST MENOR NUM MAYOR VARIABLE IGUAL CIZQ expListNum CDER
+                      | LIST MENOR NUM MAYOR VARIABLE IGUAL expresionNewList
 
-                           | LIST MENOR DOUBLER MAYOR VARIABLE IGUAL CIZQ expListDouble CDER
-                           | CIZQ expListDouble CDER
+                      | LIST MENOR BOOLR MAYOR VARIABLE
+                      | LIST MENOR BOOLR MAYOR VARIABLE IGUAL CIZQ expListBool CDER
+                      | LIST MENOR BOOLR MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListBool CDER
 
-                           | LIST MENOR NUM MAYOR VARIABLE IGUAL CIZQ expListNum CDER
-                           | CIZQ expListNum CDER
+                      | LIST MENOR DYNAMIC MAYOR VARIABLE
+                      | LIST MENOR DYNAMIC MAYOR VARIABLE IGUAL CIZQ expListDynamic CDER
+                      | LIST MENOR DYNAMIC MAYOR VARIABLE IGUAL expresionNewList
+                      | CIZQ expListDynamic CDER
 
-                           | LIST MENOR BOOLR MAYOR VARIABLE IGUAL CIZQ expListBool CDER
-                           | CIZQ expListBool CDER
+                      | LIST MENOR VARIABLE MAYOR VARIABLE
+                      | LIST MENOR VARIABLE MAYOR VARIABLE IGUAL expresionNewList
+
+
+
+
 
     '''
 
@@ -134,10 +160,6 @@ def p_expListInt(p):
     '''expListInt : ENTERO
                   | ENTERO COMA expListInt
     '''
-def p_expListDouble(p):
-    '''expListDouble : DOUBLE
-                     | DOUBLE COMA expListDouble
-    '''
 def p_expListNum(p):
     '''expListNum : ENTERO
                   | DOUBLE
@@ -148,7 +170,19 @@ def p_expListBool(p):
     '''expListBool : BOOL
                    | BOOL COMA expListBool
     '''
-
+def p_expListDynamic(p):
+    '''expListDynamic : STRING
+                      | ENTERO
+                      | DOUBLE
+                      | BOOL
+                      | STRING COMA expListDynamic
+                      | ENTERO COMA expListDynamic
+                      | DOUBLE COMA expListDynamic
+                      | BOOL COMA expListDynamic
+    '''
+def p_expListList(p):
+    '''expListList : VAR
+    '''
 
 
 
