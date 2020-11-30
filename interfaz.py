@@ -33,7 +33,6 @@ def lexico():
 def sintaxis():
     s=texto.get("1.0","end-1c")
     resultado = analisisSintactico(s)
-    print(resultado)
     createNewWindow(resultado, "sintaxis")
 
 btn = tk.Button(win, text="Analizador léxico", command= lexico)
@@ -57,8 +56,11 @@ def createNewWindow(resultado,tipo):
         for i in resultado:
             tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
     else:
-        for i in resultado:
-            tk.Label(newWindow, text=i, anchor="w").pack(fill='both')
+        if len(resultado)==0:
+            tk.Label(newWindow, text="No hay errores sintácticos", anchor="w").pack(fill='both')
+        else:
+            for i in resultado:
+                tk.Label(newWindow, text=i, anchor="w").pack(fill='both')
     btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
     btn3.pack()
 
