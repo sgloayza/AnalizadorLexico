@@ -193,7 +193,6 @@ def t_error(t):
 
 lexer = lex.lex()
 
-
 def analisisLexico(data):
     resultado = []
     lexer.input(data)
@@ -204,6 +203,7 @@ def analisisLexico(data):
         print(tok)
         resultado.append(tok)
     return resultado
+
 '''
 print("Mi primer analizador léxico :)")
 archivo = open("algoritmoLoayza.txt")

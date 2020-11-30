@@ -1,9 +1,11 @@
 import ply.yacc as yacc
 
+import lexico
 from lexico import tokens
 
 #--------------------------------------------------------------------------#
-
+confirmacion=1
+lista=[]
 
 def p_final(p):
     '''final : asignacion PUNTOYCOMA
@@ -762,33 +764,29 @@ def p_objeto(p):
     '''
 
 
-
 #--------------------------------------------------------------------------#
 
-confirmacion = [False]
 def p_error(p):
-    print("Syntax error in input!")
-    confirmacion[0]=True
+    if confirmacion:
+        if p is not None:
+            print(p)
+            print("---Error sintáctico----")
+            print("Linea: " + str(p.lexer.lineno-1))
+        else:
+            print("Linea: " + str(lexico.lexer.lineno-1))
+    else:
+        raise Exception('syntax','error')
+    return "data"
 
 #--------------------------------------------------------------------------#
 
 
 parser = yacc.yacc()
 def analisisSintactico(data):
-    lista=[]
-    contador = 0
-    for linea in data:
-        contador+=1
-        print("> "+linea)
-        r = parser.parse(linea)
-        if confirmacion[0]==False:
-            print("None")
-            lista.append("None")
-        if confirmacion[0]==True:
-            print("error en linea "+str(contador))
-            lista.append("error en linea "+str(contador))
-            confirmacion[0]=False
-    print(lista)
+    print(data)
+    resultado = parser.parse(data)
+    print(resultado)
+    lexico.lexer.lineno=1
     return lista
 
 
@@ -800,12 +798,7 @@ while True:
         break
     if not s: continue
     result = parser.parse(s)
-
     print(result)
-
-
-
-
 
 archivo = open("algoritmoLoayza.txt")
 for linea in archivo:
@@ -817,7 +810,6 @@ for linea in archivo:
     if not s: continue
     result = parser.parse(s)
     print(result)
-
 
 f=open("algoritmoLoayza.txt")
 s = f.read()

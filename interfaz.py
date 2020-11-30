@@ -30,10 +30,8 @@ def lexico():
     resultado = analisisLexico(data)
     createNewWindow(resultado,"léxico")
 
-
-
 def sintaxis():
-    s=texto.get("1.0","end-1c").split("\n")
+    s=texto.get("1.0","end-1c")
     resultado = analisisSintactico(s)
     print(resultado)
     createNewWindow(resultado, "sintaxis")
