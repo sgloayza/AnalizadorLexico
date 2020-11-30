@@ -780,7 +780,6 @@ def p_error(p):
 
 #--------------------------------------------------------------------------#
 
-
 parser = yacc.yacc()
 def analisisSintactico(data):
     resultado = parser.parse(data)
