@@ -765,14 +765,31 @@ def p_objeto(p):
 
 #--------------------------------------------------------------------------#
 
+confirmacion = [False]
 def p_error(p):
     print("Syntax error in input!")
+    confirmacion[0]=True
 
 #--------------------------------------------------------------------------#
 
 
 parser = yacc.yacc()
-
+def analisisSintactico(data):
+    lista=[]
+    contador = 0
+    for linea in data:
+        contador+=1
+        print("> "+linea)
+        r = parser.parse(linea)
+        if confirmacion[0]==False:
+            print("None")
+            lista.append("None")
+        if confirmacion[0]==True:
+            print("error en linea "+str(contador))
+            lista.append("error en linea "+str(contador))
+            confirmacion[0]=False
+    print(lista)
+    return lista
 
 
 '''

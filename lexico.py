@@ -194,7 +194,7 @@ def t_error(t):
 lexer = lex.lex()
 
 
-def analizar(data):
+def analisisLexico(data):
     resultado = []
     lexer.input(data)
     while True:

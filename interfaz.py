@@ -27,16 +27,16 @@ texto.pack()
 def lexico():
     data = texto.get("1.0","end")
     print(">> "+ data)
-    resultado = analizar(data)
+    resultado = analisisLexico(data)
     createNewWindow(resultado,"léxico")
 
 
 
 def sintaxis():
-    s=texto.get("1.0","end")
-    resultado = parser.parse(s)
+    s=texto.get("1.0","end-1c").split("\n")
+    resultado = analisisSintactico(s)
     print(resultado)
-    createNewWindow(resultado,"sintaxis")
+    createNewWindow(resultado, "sintaxis")
 
 btn = tk.Button(win, text="Analizador léxico", command= lexico)
 btn.pack()
@@ -59,7 +59,8 @@ def createNewWindow(resultado,tipo):
         for i in resultado:
             tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
     else:
-        tk.Label(newWindow, text = resultado, anchor="w").pack(fill='both')
+        for i in resultado:
+            tk.Label(newWindow, text=i, anchor="w").pack(fill='both')
     btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
     btn3.pack()
 
