@@ -7,16 +7,17 @@ from sintaxis import *
 
 win = tk.Tk()
 
+scroll_bar = tk.Scrollbar(win)
+scroll_bar.pack(side="right", fill="y")
+
 #Añadiendo un titulo a nuestra ventana principal
 win.title("Analizador lexico")
 #Dimensiones en pixeles de nuestra ventana principal
 win.geometry('500x500')
 label = tk.Label(win, text="Codigo:")
 label.pack()
-texto = tk.Text(win,width=50)
+texto = tk.Text(win,width=50,yscrollcommand = scroll_bar.set)
 texto.pack()
-
-
 
 
 
@@ -41,7 +42,7 @@ btn2 = tk.Button(win, text="Analizador sintáctico", command= sintaxis)
 btn2.pack()
 
 
-
+scroll_bar.config( command = texto.yview )
 
 
 
@@ -51,16 +52,22 @@ btn2.pack()
 
 def createNewWindow(resultado,tipo):
     newWindow = tk.Toplevel(win)
-    tk.Label(newWindow, text = "Resultado "+tipo+":").pack();
+
+
+
+    labelTitulo = tk.Label(newWindow, text = "Resultado "+tipo+":")
+    labelTitulo.pack()
+
     if tipo=="léxico":
         for i in resultado:
-            tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
+            LabelRespuesta = tk.Label(newWindow, text = i, anchor="w").pack(fill='both')
     else:
         if len(resultado)==0:
-            tk.Label(newWindow, text="No hay errores sintácticos", anchor="w").pack(fill='both')
+            LabelRespuesta = tk.Label(newWindow, text="No hay errores sintácticos", anchor="w").pack(fill='both')
         else:
             for i in resultado:
-                tk.Label(newWindow, text=i, anchor="w").pack(fill='both')
+                LabelRespuesta = tk.Label(newWindow, text=i, anchor="w").pack(fill='both')
+
     btn3 = tk.Button(newWindow, text="Ok", command=newWindow.destroy)
     btn3.pack()
 
