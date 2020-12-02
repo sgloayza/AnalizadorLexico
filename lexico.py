@@ -200,7 +200,6 @@ def analisisLexico(data):
         tok = lexer.token()
         if not tok:
             break
-        print(tok)
         resultado.append(tok)
     lexer.lineno = 1
     return resultado
