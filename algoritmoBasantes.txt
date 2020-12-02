@@ -51,7 +51,7 @@ while(a==3) a++;
 
 if(a==3){
 b=3;
-};
+}
 
 else if(a==1) b=1;
 else {b="if";}

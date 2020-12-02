@@ -8,99 +8,10 @@ confirmacion=1
 lista=[]
 
 def p_final(p):
-    '''final : asignacion PUNTOYCOMA
-             | asignacion PUNTOYCOMA final
-
-             | expresionInt PUNTOYCOMA
-             | expresionInt PUNTOYCOMA final
-
-             | expresionDouble PUNTOYCOMA
-             | expresionDouble PUNTOYCOMA final
-
-             | expresionString PUNTOYCOMA
-             | expresionString PUNTOYCOMA final
-
-             | expresionBool PUNTOYCOMA
-             | expresionBool PUNTOYCOMA final
-
-             | expresionBoolFor PUNTOYCOMA
-             | expresionBoolFor PUNTOYCOMA final
-
-             | sentenciaWhile
-             | sentenciaWhile final
-             | sentenciaWhile PUNTOYCOMA
-             | sentenciaWhile PUNTOYCOMA final
-
-             | sentenciaDoWhile PUNTOYCOMA
-             | sentenciaDoWhile PUNTOYCOMA final
-
-             | sentenciaIf PUNTOYCOMA
-             | sentenciaIf PUNTOYCOMA final
-             | sentenciaIf
-             | sentenciaIf final
-
-             | imprimir PUNTOYCOMA
-             | imprimir PUNTOYCOMA final
-             | funcionStdin PUNTOYCOMA
-             | funcionStdin PUNTOYCOMA final
-             | funcionStdout PUNTOYCOMA
-             | funcionStdout PUNTOYCOMA final
-
-             | negacionBool PUNTOYCOMA
-             | negacionBool PUNTOYCOMA final
-
-             | comparacionBool PUNTOYCOMA final
-             | comparacionBool PUNTOYCOMA
-
-             | sentenciaFor PUNTOYCOMA final
-             | sentenciaFor PUNTOYCOMA
-             | sentenciaFor final
-             | sentenciaFor
-
-             | sentenciaSubstring PUNTOYCOMA final
-             | sentenciaSubstring PUNTOYCOMA
-
-             | VARIABLE DSUMA PUNTOYCOMA final
-             | VARIABLE DSUMA PUNTOYCOMA
-             | VARIABLE DRESTA PUNTOYCOMA final
-             | VARIABLE DRESTA PUNTOYCOMA
-
-             | expresionLista PUNTOYCOMA
-             | expresionLista PUNTOYCOMA final
-             | expresionNewList PUNTOYCOMA
-             | expresionNewList PUNTOYCOMA final
-
-             | expresionSet PUNTOYCOMA
-             | expresionSet PUNTOYCOMA final
-
-             | expresionMap PUNTOYCOMA
-             | expresionMap PUNTOYCOMA final
-
-             | expresionSwitch
-             | expresionSwitch PUNTOYCOMA
-             | expresionSwitch PUNTOYCOMA final
-
-             | declaracionSimple PUNTOYCOMA
-             | declaracionSimple PUNTOYCOMA final
-
-             | sentenciaForEach
-             | sentenciaForEach final
-             | sentenciaForEach PUNTOYCOMA
-             | sentenciaForEach PUNTOYCOMA final
-
-             | funcionFirstWhere PUNTOYCOMA
-             | funcionFirstWhere PUNTOYCOMA final
-
-             | funcionSimple
-             | funcionSimple final
-             | funcionSimple PUNTOYCOMA
-             | funcionSimple PUNTOYCOMA final
-
-             | funcion
-             | funcion final
-
-             | funcionReturn
-             | funcionReturn final
+    '''final : algoritmoUnico
+             | algoritmoUnico PUNTOYCOMA
+             | algoritmoUnico final
+             | algoritmoUnico PUNTOYCOMA final
     '''
 
 def p_algoritmoUnico(p):
@@ -110,15 +21,12 @@ def p_algoritmoUnico(p):
                       | expresionString PUNTOYCOMA
                       | expresionBool PUNTOYCOMA
                       | expresionBoolFor PUNTOYCOMA
-                      | sentenciaWhile
                       | sentenciaDoWhile PUNTOYCOMA
-                      | sentenciaIf
                       | imprimir PUNTOYCOMA
                       | funcionStdin PUNTOYCOMA
                       | funcionStdout PUNTOYCOMA
                       | negacionBool PUNTOYCOMA
                       | comparacionBool PUNTOYCOMA
-                      | sentenciaFor
                       | sentenciaSubstring PUNTOYCOMA
                       | VARIABLE DSUMA PUNTOYCOMA
                       | VARIABLE DRESTA PUNTOYCOMA
@@ -126,11 +34,16 @@ def p_algoritmoUnico(p):
                       | expresionNewList PUNTOYCOMA
                       | expresionSet PUNTOYCOMA
                       | expresionMap PUNTOYCOMA
-                      | expresionSwitch
                       | declaracionSimple PUNTOYCOMA
-                      | sentenciaForEach
                       | funcionFirstWhere PUNTOYCOMA
+                      | sentenciaIf
+                      | sentenciaFor
+                      | sentenciaForEach
+                      | sentenciaWhile
+                      | expresionSwitch
                       | funcionSimple
+                      | funcion
+                      | funcionReturn
     '''
 
 
@@ -288,7 +201,6 @@ def p_expresionLista(p):
                       | VARIABLE FUNCIONRANGE PIZQ ENTERO COMA ENTERO PDER
 
                       | VARIABLE
-
     '''
 def p_expListString(p):
     '''expListString : STRING
