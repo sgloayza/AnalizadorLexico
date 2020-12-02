@@ -681,11 +681,8 @@ def p_objeto(p):
 def p_error(p):
     if confirmacion:
         if p is not None:
-            print("---Error sintáctico----")
-            print("Linea: " + str(p.lexer.lineno))
             lista.append("Error en linea: " + str(p.lexer.lineno))
         else:
-            print("Linea: " + str(lexico.lexer.lineno))
             lista.append("Error en linea: " + str(lexico.lexer.lineno))
     else:
         raise Exception('syntax','error')
@@ -695,7 +692,6 @@ def p_error(p):
 parser = yacc.yacc()
 def analisisSintactico(data):
     resultado = parser.parse(data)
-    print(resultado)
     lexico.lexer.lineno=1
     ListaResultado = lista.copy()
     lista.clear()
