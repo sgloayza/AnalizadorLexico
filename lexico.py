@@ -177,7 +177,7 @@ def t_DOUBLE(t):
     return t
 
 def t_ENTERO(t):
-    r"\d+"
+    r"(\d+)|(-\d+)"
     t.value = int(t.value)
     return t
 
