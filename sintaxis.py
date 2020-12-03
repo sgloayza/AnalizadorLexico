@@ -703,9 +703,17 @@ def p_operadorMat(p):
     '''operadorMat : SUMA
                    | RESTA
                    | MULTI
+                   | MULTI SUMA
+                   | MULTI RESTA
                    | DIV
+                   | DIV SUMA
+                   | DIV RESTA
                    | DIVENTERO
+                   | DIVENTERO SUMA
+                   | DIVENTERO RESTA
                    | MOD
+                   | MOD SUMA
+                   | MOD RESTA
     '''
 def p_comparadorMat(p):
     '''comparadorMat : DIGUAL
