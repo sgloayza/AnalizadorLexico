@@ -155,6 +155,7 @@ double e;
 print("Integrantes:");
 List<String>integrantes = ["Sandra","Francisco"];
 for(String e in integrantes) print("\t"+e);
+void a(int a,int a)=> int a = 4;
 
 var nota = -1;
 
