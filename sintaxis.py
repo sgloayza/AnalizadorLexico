@@ -310,7 +310,9 @@ def p_asignacion(p):
                   | asignacionSimple
     '''
 def p_asignacionSimple(p):
-    'asignacionSimple : VARIABLE IGUAL expresion'
+    '''asignacionSimple : VARIABLE IGUAL expresion
+                        | VARIABLE IGUAL expresionString
+    '''
 
 def p_declaracionSimple(p):
     '''declaracionSimple : STRINGR VARIABLE
@@ -329,6 +331,7 @@ def p_declaracionSimple(p):
 
 def p_imprimir(p):
     '''imprimir : PRINT PIZQ expresion PDER
+                | PRINT PIZQ expresionString PDER
                 | PRINT PIZQ asignacionSimple PDER'''
 
 
@@ -344,6 +347,7 @@ def p_funcionStdin(p):
     'funcionStdin : FUNCIONSTDIN'
 def p_funcionStdout(p):
     '''funcionStdout : FUNCIONSTDOUT PIZQ expresion PDER
+                     | FUNCIONSTDOUT PIZQ expresionString PDER
                      | FUNCIONSTDOUT PIZQ asignacionSimple PDER'''
 
 
@@ -390,14 +394,22 @@ def p_funcionReturn(p):
                      | NUM VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionDouble PUNTOYCOMA LDER
 
                      | VAR VARIABLE PIZQ PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
                      | VAR VARIABLE PIZQ PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
                      | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
                      | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | VAR VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
 
                      | DYNAMIC VARIABLE PIZQ PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
                      | DYNAMIC VARIABLE PIZQ PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
                      | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionString PUNTOYCOMA LDER
                      | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresion PUNTOYCOMA LDER
+                     | DYNAMIC VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionString PUNTOYCOMA LDER
 
                      | BOOLR VARIABLE PIZQ PDER LIZQ RETURN expresionBool PUNTOYCOMA LDER
                      | BOOLR VARIABLE PIZQ PDER LIZQ final RETURN expresionBool PUNTOYCOMA LDER
@@ -513,12 +525,10 @@ def p_valor(p):
     '''valor : ENTERO
              | VARIABLE
              | DOUBLE
-             | STRING
     '''
 def p_expresion(p):
     '''expresion : valor operadorMat expresion
                  | valor
-                 | expresionString
                  | expresionInt
                  | expresionDouble
                  | expresionBool
@@ -540,6 +550,7 @@ def p_expresionFor(p):
                     | DYNAMIC VARIABLE IGUAL expresionInt
                     | DYNAMIC VARIABLE IGUAL expresionDouble
                     | VAR VARIABLE IGUAL expresion
+                    | VAR VARIABLE IGUAL expresionString
                     | VARIABLE IGUAL expresionInt
                     | VARIABLE IGUAL expresionDouble
                     '''
