@@ -363,7 +363,8 @@ def p_funcionParametros(p):
                          | objeto VARIABLE COMA funcionParametros
     '''
 def p_funcionSimple(p):
-    '''funcionSimple : VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico
+    '''funcionSimple : VOID VARIABLE PIZQ funcionParametros PDER FLECHA algoritmoUnico
+                     | VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico
                      | VOID VARIABLE PIZQ PDER FLECHA algoritmoUnico
     '''
 def p_funcion(p):
