@@ -81,7 +81,11 @@ def p_caseString(p):
     '''
 def p_caseInt(p):
     '''caseInt : CASE ENTERO DOSPUNTOS final BREAK PUNTOYCOMA
+               | CASE SUMA ENTERO DOSPUNTOS final BREAK PUNTOYCOMA
+               | CASE RESTA ENTERO DOSPUNTOS final BREAK PUNTOYCOMA
                | CASE ENTERO DOSPUNTOS final BREAK PUNTOYCOMA caseInt
+               | CASE SUMA ENTERO DOSPUNTOS final BREAK PUNTOYCOMA caseInt
+               | CASE RESTA ENTERO DOSPUNTOS final BREAK PUNTOYCOMA caseInt
     '''
 def p_caseBool(p):
     '''caseBool : CASE BOOL DOSPUNTOS final BREAK PUNTOYCOMA
@@ -112,6 +116,8 @@ def p_claveValor(p):
     '''claveValor : VARIABLE
                   | STRING
                   | ENTERO
+                  | RESTA ENTERO
+                  | SUMA ENTERO
                   | DOUBLE
                   | BOOL
 
@@ -212,17 +218,37 @@ def p_funcionSplit(p):
     '''funcionSplit : STRING FUNCIONSPLIT PIZQ STRING PDER'''
 def p_expListInt(p):
     '''expListInt : ENTERO
+                  | RESTA ENTERO
+                  | SUMA ENTERO
+                  | RESTA ENTERO COMA expListInt
+                  | SUMA ENTERO COMA expListInt
                   | ENTERO COMA expListInt
                   | VARIABLE
+                  | RESTA VARIABLE
+                  | SUMA VARIABLE
                   | VARIABLE COMA expListInt
+                  | RESTA VARIABLE COMA expListInt
+                  | SUMA VARIABLE COMA expListInt
     '''
 def p_expListNum(p):
     '''expListNum : ENTERO
+                  | RESTA ENTERO
+                  | SUMA ENTERO
                   | DOUBLE
+                  | RESTA DOUBLE
+                  | SUMA DOUBLE
                   | ENTERO COMA expListNum
+                  | RESTA ENTERO COMA expListNum
+                  | SUMA ENTERO COMA expListNum
                   | DOUBLE COMA expListNum
+                  | RESTA DOUBLE COMA expListNum
+                  | SUMA DOUBLE COMA expListNum
                   | VARIABLE
+                  | RESTA VARIABLE
+                  | SUMA VARIABLE
                   | VARIABLE COMA expListNum
+                  | RESTA VARIABLE COMA expListNum
+                  | SUMA VARIABLE COMA expListNum
     '''
 def p_expListBool(p):
     '''expListBool : BOOL
@@ -233,11 +259,17 @@ def p_expListBool(p):
 def p_expListDynamic(p):
     '''expListDynamic : STRING
                       | ENTERO
+                      | RESTA ENTERO
+                      | SUMA ENTERO
                       | DOUBLE
                       | BOOL
                       | STRING COMA expListDynamic
                       | ENTERO COMA expListDynamic
+                      | RESTA ENTERO COMA expListDynamic
+                      | SUMA ENTERO COMA expListDynamic
                       | DOUBLE COMA expListDynamic
+                      | RESTA DOUBLE COMA expListDynamic
+                      | SUMA DOUBLE COMA expListDynamic
                       | BOOL COMA expListDynamic
                       | VARIABLE
                       | VARIABLE COMA expListDynamic
@@ -507,8 +539,7 @@ def p_expresionFor(p):
                     | NUM VARIABLE IGUAL expresionDouble
                     | DYNAMIC VARIABLE IGUAL expresionInt
                     | DYNAMIC VARIABLE IGUAL expresionDouble
-                    | VAR VARIABLE IGUAL expresionInt
-                    | VAR VARIABLE IGUAL expresionDouble
+                    | VAR VARIABLE IGUAL expresion
                     | VARIABLE IGUAL expresionInt
                     | VARIABLE IGUAL expresionDouble
                     '''
@@ -682,7 +713,6 @@ def p_error(p):
     if confirmacion:
         if p is not None:
             lista.append("Error en linea: " + str(p.lexer.lineno))
-
     else:
         raise Exception('syntax','error')
 

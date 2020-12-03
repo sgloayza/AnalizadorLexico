@@ -10,7 +10,7 @@ a++;
 int a = 435+f;
 double b = 4.5+5-d;
 num c = 435+f+4.5;
-var a = a-56.2+3;
+var a = a - 56.2+3;
 bool a = true;
 bool b = a>5;
 
@@ -51,6 +51,149 @@ List<num>a=[2,3.4];
 List<bool> lista = [true,false,true];
 
 //codigoSandraLoayza
+
+
+List<String>lista;
+["a","b"];
+List<String>lista = ["a","b",a];
+
+List<int>a;
+[2,3];
+List<int>lista=[2,3,a];
+
+List<double>a;
+[2.3,4.5];
+List<double>lista=[2.3,4.5,a];
+
+List<num>s;
+List<num>s=[2,3.4,5,a];
+
+List<dynamic>lista;
+[true,1,2.3,"a"];
+List<dynamic>lista=[true,1,2.3,"a",a];
+
+List<bool>lista;
+[true,false,true];
+List<bool> lista = [true,false,true,a];
+
+List<int>lista = new List(6);
+List<int>lista = new List();
+List<int> lista = [];
+
+List<Set>lista;
+List<Set>lista = [Set.from([true,1,2.3,"a"]),Set.from([]),a];
+[Set.from([true,1,2.3,"a"]),Set.from([]),a];
+
+List<Map>lista;
+List<Map>lista = [{},{a:3},va];
+[{},{a:3},va];
+
+Set a;
+Set.from([]);
+Set a = Set.from([]);
+Set.from([true,1,2.3,"a"]);
+Set lenguajes = Set.from([true,1,2.3,"a"]);
+
+Map mapa;
+Map mapa = {};
+{};
+{a:"s",1:2.3,true:[true,false,true,a],[Set.from([]),Set.from([true,1,2.3,"a"]),a]:[],Set.from([]):Set.from([true,1,2.3,"a"]),{}:{a:3}};
+
+"hola"[3];
+persona.take(5);
+persona;
+
+switch(a){
+case 3:
+print(5);
+break;
+case 4:
+print(5);
+break;
+default:
+print(4);
+}
+
+if(a==3){
+print(3);
+}else if(a==4){
+print(3);
+}else if(a==4){
+print(3);
+}else{
+print(3);
+}
+
+if(a==3) print(3); else if(a==4) print(3); else if(a==4) print(3);
+
+List<String> lists = "t a s d".split(" ") ;
+"t a s d".split(" ");
+
+for (String element in myList) print(element);
+
+List<int> example = [1, 2, 3, 4];
+print(example.firstWhere((element) => element > 2));
+var a = example.firstWhere((element) => 2>element);
+
+ void f(){}
+ void f(int a){}
+ void f(int a) { print(4);}
+ void f() { print(4);}
+
+int funcion(int a) { return i; }
+int funcion(int a) { print(6); return i; }
+Set funcion() { print(6); return i; }
+Set funcion(int a) { print(6); return i; }
+
+int a;
+String b;
+var c;
+dynamic d;
+double e;
+
+//algoritmo informe final
+print("Integrantes:");
+List<String>integrantes = ["Sandra","Francisco"];
+for(String e in integrantes) print("\t"+e);
+
+var nota = -1;
+
+switch(nota){
+case 0:
+print("Error la nota no puede ser 0");
+break;
+case 100:
+print("Se asigno el 100% de la nota");
+break;
+default:
+print("Cualquier nota mayor o menor a 100 no esta dentro de nuestro lexico ni como token, ni como palabra reservada");
+}
+
+int resto = 100 - nota;
+
+while(nota!=100){
+if(nota==0){
+print("Reconsidere profe somos solo 2");
+}else if(nota==100){
+print("Muchas gracias!");
+}else if(nota==99){
+print(resto);
+print("Parece que le falta un punto a la nota...");
+}else if(nota>100){
+print("Puntos para el proximo parcial!");
+}else if(nota<0){
+print("No nos quite puntos profe... ┏༼ ◉ ╭╮ ◉༽┓");
+}else{
+print(resto);
+print("Parece que le faltan puntos a la nota...");
+}
+nota=100;
+print("Nota: 100\nGracias!");
+}
+
+
+
+
 
 //errores
 while(!(a==3)){int a=3;}
