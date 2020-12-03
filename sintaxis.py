@@ -358,10 +358,7 @@ def p_funcionStdout(p):
 
 
 
-def p_funcionParametros(p):
-    '''funcionParametros : objeto VARIABLE
-                         | objeto VARIABLE COMA funcionParametros
-    '''
+
 def p_funcionSimple(p):
     '''funcionSimple : VOID VARIABLE PIZQ funcionParametros PDER FLECHA algoritmoUnico
                      | VOID VARIABLE PIZQ objeto VARIABLE PDER FLECHA algoritmoUnico
@@ -373,6 +370,8 @@ def p_funcion(p):
 
                | VOID VARIABLE PIZQ objeto VARIABLE PDER LIZQ LDER
                | VOID VARIABLE PIZQ objeto VARIABLE PDER LIZQ final LDER
+               | VOID VARIABLE PIZQ funcionParametros PDER LIZQ LDER
+               | VOID VARIABLE PIZQ funcionParametros PDER LIZQ final LDER
     '''
 
 def p_funcionReturn(p):
@@ -434,7 +433,10 @@ def p_funcionReturn(p):
                      | SET VARIABLE PIZQ objeto VARIABLE PDER LIZQ RETURN expresionSet PUNTOYCOMA LDER
                      | SET VARIABLE PIZQ objeto VARIABLE PDER LIZQ final RETURN expresionSet PUNTOYCOMA LDER
     '''
-
+def p_funcionParametros(p):
+    '''funcionParametros : objeto VARIABLE
+                         | objeto VARIABLE COMA funcionParametros
+    '''
 
 
 
