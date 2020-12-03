@@ -2,7 +2,6 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    AS
     COMILLAD
     COMILLAS
 
@@ -360,7 +359,6 @@ Rule 347   objeto -> SET
 Terminals, with rules where they appear
 
 AND                  : 336
-AS                   : 
 BOOL                 : 44 45 58 128 129 135 139 291
 BOOLR                : 93 94 95 158 169 205 206 207 208 226 234 242 345
 BREAK                : 40 41 42 43 44 45

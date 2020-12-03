@@ -19,7 +19,6 @@ reserved = {
     "for":"FOR",
     "while":"WHILE",
     "switch":"SWITCH",
-    "as":"AS",
     "is":"IS",
     "print":"PRINT",
     "case":"CASE",

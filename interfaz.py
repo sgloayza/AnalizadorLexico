@@ -78,7 +78,6 @@ def createNewWindow(resultado,tipo):
             print(i)
         print("\n__________________________________________________________________\n")
 
-
     root.mainloop()
 
 
