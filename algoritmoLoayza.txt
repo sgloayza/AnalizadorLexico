@@ -10,7 +10,7 @@ a++;
 int a = 435+f;
 double b = 4.5+5-d;
 num c = 435+f+4.5;
-var a = a - 56.2+3;
+var a = a-56.2+3;
 bool a = true;
 bool b = a>5;
 
@@ -201,5 +201,5 @@ a=4 || a==4;
 a==4 || a==4 || !(a==5);
 if(a==4 || a==4){int a=3;}
 while(a is! String  || a is int ){print(df);}
-for(dynamic a=3;a>0;a--){print(a) print(a+1);}
+for(dynamic a=3;a>0;a--){print(a); print(a+1);}
 

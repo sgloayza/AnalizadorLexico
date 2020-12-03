@@ -16,6 +16,7 @@ def p_final(p):
 
 def p_algoritmoUnico(p):
     '''algoritmoUnico : asignacion PUNTOYCOMA
+                      | expresion PUNTOYCOMA
                       | expresionInt PUNTOYCOMA
                       | expresionDouble PUNTOYCOMA
                       | expresionString PUNTOYCOMA
@@ -528,9 +529,15 @@ def p_valor(p):
     '''
 def p_expresion(p):
     '''expresion : valor operadorMat expresion
+                 | SUMA valor operadorMat expresion
+                 | RESTA valor operadorMat expresion
                  | valor
+                 | SUMA valor
+                 | RESTA valor
                  | expresionInt
                  | expresionDouble
+                 | SUMA expresionDouble
+                 | RESTA expresionDouble
                  | expresionBool
                  | funcionFirstWhere
     '''
@@ -658,7 +665,11 @@ def p_valorInt(p):
     '''
 def p_expresion_aritmetica_Int(p):
     '''expresionInt : valorInt operadorMat expresionInt
+                    | SUMA valorInt operadorMat expresionInt
+                    | RESTA valorInt operadorMat expresionInt
                     | valorInt
+                    | SUMA valorInt
+                    | RESTA valorInt
     '''
 
 
@@ -674,7 +685,11 @@ def p_valorDouble(p):
     '''
 def p_expresion_aritmetica_Double(p):
     '''expresionDouble : valorDouble operadorMat expresionDouble
+                       | SUMA valorDouble operadorMat expresionDouble
+                       | RESTA valorDouble operadorMat expresionDouble
                        | valorDouble
+                       | SUMA valorDouble
+                       | RESTA valorDouble
     '''
 
 
