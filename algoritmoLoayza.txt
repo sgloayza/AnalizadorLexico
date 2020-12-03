@@ -51,3 +51,12 @@ List<num>a=[2,3.4];
 List<bool> lista = [true,false,true];
 
 //codigoSandraLoayza
+
+//errores
+while(!(a==3)){int a=3;}
+a=4 || a==4;
+a==4 || a==4 || !(a==5);
+if(a==4 || a==4){int a=3;}
+while(a is! String  || a is int ){print(df);}
+for(dynamic a=3;a>0;a--){print(a) print(a+1);}
+

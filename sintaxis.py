@@ -682,8 +682,7 @@ def p_error(p):
     if confirmacion:
         if p is not None:
             lista.append("Error en linea: " + str(p.lexer.lineno))
-        else:
-            lista.append("Error en linea: " + str(lexico.lexer.lineno))
+
     else:
         raise Exception('syntax','error')
 
