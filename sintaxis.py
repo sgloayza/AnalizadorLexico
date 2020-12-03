@@ -501,6 +501,7 @@ def p_sentenciaIf(p):
     '''sentenciaIf : IF PIZQ expresionBool PDER algoritmoUnico
                    | IF PIZQ expresionBool PDER algoritmoUnico sentenciasElseIf
                    | IF PIZQ expresionBool PDER algoritmoUnico sentenciasElseIf sentenciaElse
+                   | IF PIZQ expresionBool PDER LIZQ LDER
                    | IF PIZQ expresionBool PDER LIZQ final LDER
                    | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf
                    | IF PIZQ expresionBool PDER LIZQ final LDER sentenciasElseIf sentenciaElse
